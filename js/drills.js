@@ -131,13 +131,14 @@
       const target = n === 1 ? 3 : 8;
       return {
         drill: '1A', target, board: [], hero: [],
-        promptHtml: n === 1 ? `<b>${classes[0]}</b> 有幾多 combos？` : `{ <b>${classes.join(', ')}</b> } 總共幾多 combos？`,
+        promptHtml: n === 1 ? `<b>${classes[0]}</b> 有幾多 combos？` : `對手 range 包括 { <b>${classes.join(', ')}</b> }，總共有幾多個可能嘅 combos？<div class="tip">（佢手上只會有其中一手；未有 board / hero 牌要扣）</div>`,
         inputs: [{ key: 'n', label: 'Combos', kind: 'int' }],
         data: { classes }, answer: { n: ans },
         grade: (r) => finish([gInt('Combos', r.n, ans)]),
         solutionHtml: parts.map((p) => `${p.c} (${typeLabel(p.c)}) = <b>${p.n}</b>`).join('<br>') +
           (n > 1 ? `<br>合計 = ${parts.map((p) => p.n).join(' + ')} = <b>${ans}</b>` : '') +
-          '<div class="tip">記住：pair 6 · suited 4 · offsuit 12 · any 16</div>',
+          '<div class="tip">記住：pair 6 · suited 4 · offsuit 12 · any 16</div>' +
+          (n > 1 ? '<div class="tip">同一隻牌（例如 Q♠）可以喺唔同 combos 重複出現，因為對手只會拎住其中一手。只有 board 同你自己手上睇到嘅牌先會扣 combos。</div>' : ''),
       };
     },
   };
