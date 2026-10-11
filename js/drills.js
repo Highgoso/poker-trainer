@@ -13,7 +13,34 @@
   PT.ic = ic; PT.icList = icList;
   const comboHtml = (cb) => `<span class="combo">${ic(cb[0])}${ic(cb[1])}</span>`;
   const pct = (x, d = 1) => (x * 100).toFixed(d) + '%';
+  const SUIT_KEY = { '♠': 's', '♥': 'h', '♦': 'd', '♣': 'c' };
+  /** wrap every "A♥" / lone "♥" in text (not inside tags, not already wrapped) with a coloured span */
+  PT.colorSuits = (html) => String(html).replace(/(<[^>]*>)|([2-9TJQKA]?)([♠♥♦♣])/g, (m, tag, r, su, off, str) => {
+    if (tag) return tag;
+    if (/class="ic [shdc]">$/.test(str.slice(Math.max(0, off - 20), off))) return m;
+    return `<span class="ic ${SUIT_KEY[su]}">${r}${su}</span>`;
+  });
+  /** range string -> html with specific combos (Ad2d) rendered as coloured cards */
+  PT.rangeHtml = (str) => String(str).split(',').map((t) => {
+    const m = t.match(/^([2-9TJQKA])([shdc])([2-9TJQKA])([shdc])$/);
+    return m ? `<span class="spc">${ic(m[1] + m[2])}${ic(m[3] + m[4])}</span>` : t;
+  }).map((h, i, a) => i < a.length - 1 ? `<span class="rtok">${h},</span>` : h).join('<wbr>');
+  /** the poker player's decision thought chain, used everywhere (drills, solutions, cheat sheet, Learn) */
+  const CHAIN = (PT.CHAIN = [
+    ['Range', '對手呢條 line 會有乜牌？扣咗 board 同你手牌，數 live combos'],
+    ['Value combos', '入面有幾多個 combos 贏你？'],
+    ['Bluff combos', '有幾多個 combos 輸俾你？'],
+    ['Bluff %', 'bluff ÷ (value + bluff) = 你 call 嘅 equity'],
+    ['Required %', 'B ÷ (P + 2B)：call 需要幾多 equity'],
+    ['Blockers', '你手牌減咗佢 value 定 bluff？'],
+    ['Decision', 'Bluff % > required → call；再按對手類型調整（MDF 只係護欄）'],
+  ]);
+  const NUM = ['①', '②', '③', '④', '⑤', '⑥', '⑦'];
+  PT.CHAIN_NUM = NUM;
+  const chip = (i) => `<span class="chip">${NUM[i]} ${CHAIN[i][0]}</span>`;
+  PT.chainChip = chip;
   const num = (x, d = 2) => (Math.round(x * 10 ** d) / 10 ** d).toString();
+  const potTxt = (l) => String(l).replace(/\s*\(pot\)/, '') + ' pot';
   const BET_SIZES = [[1 / 4, '1/4'], [1 / 3, '1/3'], [1 / 2, '1/2'], [2 / 3, '2/3'], [3 / 4, '3/4'], [1, '1 (pot)'], [1.25, '1.25'], [1.5, '1.5'], [2, '2']];
   PT.BET_SIZES = BET_SIZES;
 
@@ -109,9 +136,9 @@
   const D = (PT.drills = {});
   const LEVELS = (PT.LEVELS = [
     { level: 1, name: 'Level 1 · Combo 計數 & card removal', drills: ['1A', '1B', '1C', '1D', '1E'] },
-    { level: 2, name: 'Level 2 · Pot odds / required equity / outs / MDF', drills: ['2A', '2B', '2C', '2G'] },
+    { level: 2, name: 'Level 2 · Pot odds / required equity / outs / MDF', drills: ['2A', '2B', '2C', '2G', '2M'] },
     { level: 3, name: 'Level 3 · Range 收窄 (v2)', drills: [], soon: true },
-    { level: 4, name: 'Level 4 · Value vs bluff / EV', drills: ['4B', '4C'] },
+    { level: 4, name: 'Level 4 · Value vs bluff / EV', drills: ['4B', '4T', '4E', '4C'] },
     { level: 5, name: 'Level 5 · Shot-clock 實戰 (v2)', drills: [], soon: true },
   ]);
 
@@ -276,7 +303,7 @@
       const req = s / (1 + 2 * s);
       return {
         drill: '2A', target: 2, board: [], hero: [],
-        promptHtml: `Villain bet <b>${label} pot</b>。你 call 需要幾多 equity（pot odds）？`,
+        promptHtml: `Villain bet <b>${potTxt(label)}</b>。你 call 需要幾多 equity（pot odds）？`,
         inputs: [{ key: 'p', label: 'Required equity %', kind: 'pct' }],
         data: { size: s }, answer: { req },
         grade: (r) => finish([gPct('Required equity', r.p, req, 1)]),
@@ -348,7 +375,7 @@
       const ans = what === 'mdf' ? M.mdf(P, B) : what === 'alpha' ? M.alpha(P, B) : M.bluffShare(P, B);
       const tol = raw ? 2 : 1;
       const q = { mdf: '你嘅 <b>MDF</b>（最少要 defend 幾多 %）', alpha: '0-equity bluff 要幾多 % fold 先 breakeven（<b>alpha</b>）', bluff: '平衡 river range 入面 <b>bluff %</b>' }[what];
-      const PB = raw ? `P=${P}, B=${B}` : `P=1, B=${num(B, 4)} (${label} pot)`;
+      const PB = raw ? `P=${P}, B=${B}` : `P=1, B=${num(B, 4)} (${potTxt(label)})`;
       const formula = {
         mdf: `MDF = P / (P + B) = ${raw ? P + ' / ' + (P + B) : '1 / ' + num(1 + B, 4)}`,
         alpha: `alpha = B / (P + B) = ${raw ? B + ' / ' + (P + B) : num(B, 4) + ' / ' + num(1 + B, 4)}`,
@@ -356,16 +383,76 @@
       }[what];
       return {
         drill: '2G', target: 3, board: [], hero: [],
-        promptHtml: raw ? `River：pot <b>${P}</b>，villain bet <b>${B}</b>。${q}？` : `River：villain bet <b>${label} pot</b>。${q}？`,
+        promptHtml: raw ? `River：pot <b>${P}</b>，villain bet <b>${B}</b>。${q}？` : `River：villain bet <b>${potTxt(label)}</b>。${q}？`,
         inputs: [{ key: 'p', label: what === 'mdf' ? 'MDF %' : what === 'alpha' ? 'Alpha %' : 'Bluff %', kind: 'pct' }],
         data: { P, B, what }, answer: { v: ans },
         grade: (r) => finish([gPct(what.toUpperCase(), r.p, ans, tol)]),
         solutionHtml: `${PB}<br>${formula} = <b>${pct(ans)}</b><br>` +
           `（MDF ${pct(M.mdf(P, B))} · alpha ${pct(M.alpha(P, B))} · bluff ${pct(M.bluffShare(P, B))} → bluff:value = 1 : ${num(M.valuePerBluff(P, B), 2)}）` +
+          `<div class="plain"><b>白話：</b>${{ mdf: `對手落注之後 pot 有 ${raw ? P + B : 'P + B'}。你最少要守住「原本 pot ÷ 呢個數」咁多 %，佢亂咁 bluff 先唔會自動賺錢。`, alpha: `對手冒 ${raw ? B : 'B'} 去贏 ${raw ? P : 'P'}。佢個 bluff 要你 fold 多過「冒險 ÷ (冒險 + 獎品)」咁多 % 先有錢賺。`, bluff: `你 call 完 final pot = P + 2B。平衡嘅話，對手 betting range 入面 bluff 佔嘅 %，啱啱等於你 call 需要嘅 equity。` }[what]}</div>` +
           '<div class="tip">MDF 係防止被 over-bluff 嘅參考，唔係硬性規則；對住 under-bluff 嘅人要 fold 多啲。</div>',
       };
     },
   };
+
+
+  // ---------------- 2M MDF / alpha / bluff% all at once (layman worked solution) ----------------
+  D['2M'] = {
+    level: 2, title: '2M 三兄弟：alpha · MDF · bluff% 一次過', desc: '同一個注，三個角度一齊計', target: 15,
+    generate(rng) {
+      const { P, B } = randPotBet(rng, BET_SIZES.filter(([x]) => x >= 1 / 3));
+      const a = M.alpha(P, B), m = M.mdf(P, B), b = M.bluffShare(P, B);
+      return {
+        drill: '2M', target: 15, board: [], hero: [],
+        promptHtml: `River：pot <b>${P}</b>，對手 bet <b>${B}</b>。計：<br>• <b>Alpha</b>：佢個 bluff 要你 fold 幾多 %？<br>• <b>MDF</b>：你最少要守幾多 %？<br>• <b>Bluff %</b>：平衡嘅話佢 betting range 最多幾多 % 係 bluff？`,
+        inputs: [{ key: 'a', label: 'Alpha %', kind: 'pct' }, { key: 'm', label: 'MDF %', kind: 'pct' }, { key: 'b', label: 'Bluff %', kind: 'pct' }],
+        data: { P, B }, answer: { alpha: a, mdf: m, bluff: b },
+        grade: (r) => finish([gPct('Alpha', r.a, a, 2), gPct('MDF', r.m, m, 2), gPct('Bluff %', r.b, b, 2)]),
+        solutionHtml: `<ol class="steps"><li>對手落注之後 pot = P + B = ${P} + ${B} = ${P + B}；你 call 完 final pot = P + 2B = ${P + 2 * B}。</li>
+          <li><b>Alpha</b> = B ÷ (P + B) = ${B} ÷ ${P + B} = <b>${pct(a)}</b><br><span class="plain">白話：佢冒 ${B} 去贏 ${P}。你 fold 多過 ${pct(a, 0)}，佢任何兩張牌 bluff 都賺。</span></li>
+          <li><b>MDF</b> = P ÷ (P + B) = ${P} ÷ ${P + B} = <b>${pct(m)}</b>（= 100% − alpha）<br><span class="plain">白話：你 100 手入面最少要繼續大約 ${Math.round(m * 100)} 手，佢亂 bluff 先唔會自動賺。</span></li>
+          <li><b>Bluff %</b> = B ÷ (P + 2B) = ${B} ÷ ${P + 2 * B} = <b>${pct(b)}</b>（= 你 call 嘅 required equity）<br><span class="plain">白話：佢 bet 嘅牌入面 bluff 多過 ${pct(b, 0)}，你嘅 bluff-catcher call 就賺；少過就 fold。Bluff : value = ${B} : ${P + B} = 1 : ${num((P + B) / B, 2)}。</span></li></ol>
+          <div class="tip">記法：alpha 睇「佢 bluff」、MDF 睇「你守」、bluff% 睇「佢 range 結構」。三個都只係由 P 同 B 計出嚟。</div>`,
+      };
+    },
+  };
+
+
+  function spotPrompt(sp) {
+    return `River ${icList(sp.board)}，你手持 ${icList(sp.hero)}。Pot <b>${sp.P}</b>，villain bet <b>${sp.B}</b>（≈${potTxt(sp.sLabel)}）。<br>Villain betting range：<code class="range">${PT.rangeHtml(sp.rangeStr)}</code>`;
+  }
+  /** the 7-step thought chain solution for a river spot: returns 7 html parts */
+  function chainParts(sp) {
+    const byCat = (res) => {
+      const groups = {};
+      for (const r of sp.rows.filter((x) => x.res === res)) {
+        const key = res === 'bluff' ? (r.draw ? 'Missed ' + r.draw : PT.CAT_NAMES[r.cat]) : PT.CAT_NAMES[r.cat];
+        (groups[key] = groups[key] || {})[r.cls] = ((groups[key] || {})[r.cls] || []).concat([r.combo]);
+      }
+      return Object.entries(groups).map(([k, clsMap]) => {
+        const n = Object.values(clsMap).reduce((t, a) => t + a.length, 0);
+        return `<div class="grp"><b>${k}</b> — ${n}<br>` + Object.entries(clsMap).map(([cls, cbs]) => `<span class="clsrow">${cls} ×${cbs.length}: ${cbs.map(comboHtml).join(' ')}</span>`).join('<br>') + '</div>';
+      }).join('');
+    };
+    const N = sp.V + sp.Bl + sp.T;
+    const e = sp.ev.equity, decide = sp.ev.ev > 0 ? 'call' : 'fold';
+    const perCls = {};
+    for (const r of sp.rows) perCls[r.cls] = (perCls[r.cls] || 0) + 1;
+    const mdf = M.mdf(sp.P, sp.B);
+    const blkTxt = sp.blkV > sp.blkB ? '好嘅 blocker：你減咗佢 value，佢剩低嘅牌 bluff 比例高咗 → 對 call 有利。' : sp.blkB > sp.blkV ? '壞嘅 blocker：你減咗佢 bluff → 對 call 不利。' : '冇明顯偏向。';
+    return [
+      `<div class="cstep"><h4>${chip(0)}</h4>扣咗 board 同你手牌，range 剩 <b>${N}</b> 個 live combos：<div class="muted">${Object.entries(perCls).map(([c, n]) => `${c} ${n}`).join(' · ')}</div></div>`,
+      `<div class="cstep"><h4>${chip(1)}（贏你）= ${sp.V}</h4>${byCat('value') || '<div class="muted">冇</div>'}</div>`,
+      `<div class="cstep"><h4>${chip(2)}（輸俾你）= ${sp.Bl}</h4>${byCat('bluff')}${sp.T ? `<div><b>Chop（打和）= ${sp.T}</b>${byCat('chop')}</div>` : ''}</div>`,
+      `<div class="cstep"><h4>${chip(3)}</h4>Bluff % = ${sp.Bl} ÷ ${N} = <b>${pct(sp.Bl / N)}</b>${sp.T ? `（連 chop 計 equity = (${sp.Bl} + ½×${sp.T}) ÷ ${N} = ${pct(e)}）` : ''}<br><span class="plain">白話：你嘅牌只贏佢 bluff，所以呢個 % 就係你 call 嘅 equity。</span></div>`,
+      `<div class="cstep"><h4>${chip(4)}</h4>Required = B ÷ (P + 2B) = ${sp.B} ÷ ${sp.P + 2 * sp.B} = <b>${pct(sp.req)}</b><br>平衡嘅話 bluff 上限 ≈ value × B ÷ (P + B) = ${sp.V} × ${sp.B} ÷ ${sp.P + sp.B} = ${num((sp.V * sp.B) / (sp.P + sp.B), 1)} combos</div>`,
+      `<div class="cstep"><h4>${chip(5)}</h4>你手牌 ${icList(sp.hero)} 移除咗 range 入面 <b>${sp.blkV}</b> 個 value combos 同 <b>${sp.blkB}</b> 個 bluff combos。${blkTxt}</div>`,
+      `<div class="cstep"><h4>${chip(6)}</h4>${pct(e)} ${e > sp.req ? '>' : '<'} ${pct(sp.req)} → <b class="dec ${decide}">${decide.toUpperCase()}</b><br>` +
+        `EV(call) = e × (P + B) − (1 − e) × B = ${num(e, 3)} × ${sp.P + sp.B} − ${num(1 - e, 3)} × ${sp.B} = <b>${num(sp.ev.ev, 2)}</b>bb<br>` +
+        `快算：(e − required) × final pot = (${num(e, 3)} − ${num(sp.req, 3)}) × ${sp.P + 2 * sp.B} ≈ ${num((e - sp.req) * (sp.P + 2 * sp.B), 2)}<br>` +
+        `<span class="muted">MDF = ${sp.P} ÷ ${sp.P + sp.B} = ${pct(mdf)} 只係護欄；真正決定睇佢實際 bluff %。</span></div>`,
+    ];
+  }
 
   // ---------------- 4B river value vs bluff ----------------
   const PLAUSIBLE = '22+,A2s+,K5s+,Q7s+,J7s+,T7s+,96s+,85s+,74s+,63s+,53s+,43s,A8o+,KTo+,QTo+,JTo,T9o';
@@ -517,33 +604,12 @@
         const tol = Math.round(ans * tolPct);
         return { label, your: isNaN(v) ? '—' : String(v), correct: String(ans) + (tol ? ` (±${tol})` : ''), ok: !isNaN(v) && Math.abs(v - ans) <= tol };
       };
-      const byCat = (res) => {
-        const groups = {};
-        for (const r of sp.rows.filter((x) => x.res === res)) {
-          const key = res === 'bluff' ? (r.draw ? 'Missed ' + r.draw : PT.CAT_NAMES[r.cat]) : PT.CAT_NAMES[r.cat];
-          (groups[key] = groups[key] || {})[r.cls] = ((groups[key] || {})[r.cls] || []).concat([r.combo]);
-        }
-        return Object.entries(groups).map(([k, clsMap]) => {
-          const n = Object.values(clsMap).reduce((s, a) => s + a.length, 0);
-          return `<div class="grp"><b>${k}</b> — ${n}<br>` + Object.entries(clsMap).map(([cls, cbs]) => `<span class="clsrow">${cls} ×${cbs.length}: ${cbs.map(comboHtml).join(' ')}</span>`).join('<br>') + '</div>';
-        }).join('');
-      };
-      const N = sp.V + sp.Bl + sp.T;
-      const shareBl = sp.Bl / N;
+      const parts = chainParts(sp);
+      const sol = parts.join('');
       const e = sp.ev.equity;
-      const sol =
-        `<h4>Value（贏你）= ${sp.V}</h4>${byCat('value') || '<div class="muted">冇</div>'}` +
-        `<h4>Bluff（輸俾你）= ${sp.Bl}</h4>${byCat('bluff')}` +
-        (sp.T ? `<h4>Chop = ${sp.T}</h4>${byCat('chop')}` : '') +
-        `<h4>決定</h4>Required equity = B/(P+2B) = ${sp.B}/${sp.P + 2 * sp.B} = <b>${pct(sp.req)}</b><br>` +
-        `Bluff share = ${sp.Bl}/${N} = <b>${pct(shareBl)}</b>${sp.T ? `（連 chop 計 equity = (${sp.Bl} + ½×${sp.T})/${N} = ${pct(e)}）` : ''} → ${e > sp.req ? '高過' : '低過'} required → <b>${decide.toUpperCase()}</b><br>` +
-        `平衡嘅話 bluff 上限 ≈ value × B/(P+B) = ${sp.V} × ${sp.B}/${sp.P + sp.B} = ${num((sp.V * sp.B) / (sp.P + sp.B), 1)} combos<br>` +
-        `EV(call) = e×(P+B) − (1−e)×B = ${num(e, 3)}×${sp.P + sp.B} − ${num(1 - e, 3)}×${sp.B} = <b>${num(sp.ev.ev, 2)}</b><br>` +
-        `快算：(e − req) × final pot = (${num(e, 3)} − ${num(sp.req, 3)}) × ${sp.P + 2 * sp.B} = ${num((e - sp.req) * (sp.P + 2 * sp.B), 2)}<br>` +
-        `<h4>Blockers</h4>你手牌 ${icList(sp.hero)} 移除咗 range 入面 ${sp.blkV} 個 value-class combos 同 ${sp.blkB} 個 bluff-class combos。`;
       return {
         drill: '4B', target: 60, board: sp.board, hero: sp.hero,
-        promptHtml: `River ${icList(sp.board)}，你手持 ${icList(sp.hero)}。Pot <b>${sp.P}</b>，villain bet <b>${sp.B}</b>（≈${sp.sLabel} pot）。<br>Villain betting range：<code class="range">${sp.rangeStr}</code><br>數 value / bluff combos（已計 board 同你嘅 blockers），然後 call 定 fold？`,
+        promptHtml: spotPrompt(sp) + `<br>跟住 7 步諗：數 ② value / ③ bluff combos（已計 board 同你嘅 blockers），然後 ⑦ call 定 fold？`,
         extraHtml: gridHtml(sp.rangeStr, sp.rows, false),
         revealHtml: gridHtml(sp.rangeStr, sp.rows, true),
         inputs: opts.decisionOnly ? [] : [{ key: 'v', label: 'Value combos', kind: 'int' }, { key: 'b', label: 'Bluff combos', kind: 'int' }],
@@ -558,6 +624,77 @@
         },
         solutionHtml: sol,
       };
+    },
+  };
+
+
+  // ---------------- 4T thought-chain river drill (7 graded steps) ----------------
+  const T_TARGETS = [15, 25, 20, 8, 5, 15, 5];
+  D['4T'] = {
+    level: 4, title: '4T 思路鏈：River 7 步', desc: '① range → ② value → ③ bluff → ④ bluff% → ⑤ required → ⑥ blockers → ⑦ decision', target: 15,
+    generate(rng) {
+      const sp = gen4BSpot(rng);
+      const parts = chainParts(sp);
+      const N = sp.V + sp.Bl + sp.T, e = sp.ev.equity, decide = sp.ev.ev > 0 ? 'call' : 'fold';
+      const truth = [`① ${N} live`, `② value ${sp.V}`, `③ bluff ${sp.Bl}${sp.T ? ` (chop ${sp.T})` : ''}`, `④ ${pct(e)}`, `⑤ ${pct(sp.req)}`, `⑥ block V${sp.blkV} / B${sp.blkB}`];
+      const data = { board: sp.board, hero: sp.hero, P: sp.P, B: sp.B, rangeStr: sp.rangeStr, valueClasses: sp.valueClasses };
+      const Q = [
+        { q: '扣咗 board 同你手牌之後，range 仲有幾多個 <b>live combos</b>？', inputs: [{ key: 'n', label: 'Live combos', kind: 'int' }], answer: { n: N }, grade: (r) => finish([gInt('① Live combos', r.n, N)]) },
+        { q: '入面有幾多個 combos <b>贏你</b>（value）？', inputs: [{ key: 'n', label: 'Value combos', kind: 'int' }], answer: { n: sp.V }, grade: (r) => finish([gInt('② Value', r.n, sp.V)]) },
+        { q: '有幾多個 combos <b>輸俾你</b>（bluff）？', inputs: [{ key: 'n', label: 'Bluff combos', kind: 'int' }], answer: { n: sp.Bl }, grade: (r) => finish([gInt('③ Bluff', r.n, sp.Bl)]) },
+        { q: 'Bluff 佔幾多 %（= 你 call 嘅 equity）？', inputs: [{ key: 'p', label: 'Bluff %', kind: 'pct' }], answer: { p: e }, grade: (r) => finish([gPct('④ Bluff %', r.p, e, 1)]) },
+        { q: 'Call 需要幾多 equity（required %）？', inputs: [{ key: 'p', label: 'Required %', kind: 'pct' }], answer: { p: sp.req }, grade: (r) => finish([gPct('⑤ Required %', r.p, sp.req, 1)]) },
+        { q: '你手牌移除咗 range 入面幾多個 <b>value</b> combos 同幾多個 <b>bluff</b> combos？', inputs: [{ key: 'v', label: 'Blocked value', kind: 'int' }, { key: 'b', label: 'Blocked bluff', kind: 'int' }], answer: { v: sp.blkV, b: sp.blkB }, grade: (r) => finish([gInt('⑥ Blocked value', r.v, sp.blkV), gInt('⑥ Blocked bluff', r.b, sp.blkB)]) },
+        { q: '<b>Call 定 fold？</b>', inputs: [], actions: ['call', 'fold'], answer: { decision: decide }, grade: (r) => finish([{ label: '⑦ Decision', your: r.action || '—', correct: decide, ok: r.action === decide }]) },
+      ];
+      const steps = Q.map((x, i) => ({
+        drill: '4T', target: T_TARGETS[i], board: sp.board, hero: sp.hero,
+        promptHtml: spotPrompt(sp) + `<div class="chainbar">${NUM.map((n, j) => `<span class="${j < i ? 'done' : j === i ? 'now' : ''}">${n}</span>`).join('')}</div>` +
+          (i ? `<div class="known">已知：${truth.slice(0, i).join(' · ')}</div>` : '') + `<div class="stepq">${chip(i)} ${x.q}</div>`,
+        extraHtml: gridHtml(sp.rangeStr, sp.rows, i >= 3),
+        revealHtml: i === 2 ? gridHtml(sp.rangeStr, sp.rows, true) : undefined,
+        inputs: x.inputs, actions: x.actions, data: Object.assign({ step: i }, data), answer: x.answer, grade: x.grade,
+        solutionHtml: parts[i],
+      }));
+      return { drill: '4T', steps, data };
+    },
+  };
+
+  // ---------------- 4E MDF exploit drill (curriculum 4F) ----------------
+  const PROFILES = {
+    nit: { name: '🧊 Nit／保守玩家', desc: 'river 大注好少 bluff（低級別好常見）', f: (rng) => 0.25 + rng() * 0.4 },
+    reg: { name: '🎯 大致平衡嘅 reg', desc: 'bluff 頻率接近理論值，但略有偏差', f: (rng) => (rng() < 0.5 ? 0.78 + rng() * 0.14 : 1.08 + rng() * 0.14) },
+    maniac: { name: '🔥 Maniac／好鍾意 bluff', desc: '乜都 bet，bluff 好多', f: (rng) => 1.4 + rng() * 0.8 },
+  };
+  D['4E'] = {
+    level: 4, title: '4E MDF exploit：對手類型', desc: 'MDF 係護欄：對手 bluff 少就 fold 多，bluff 多就 call 多', target: 12,
+    generate(rng) {
+      for (let k = 0; k < 100; k++) {
+        const P = PT.randInt(rng, 10, 150);
+        const [s, sLabel] = PT.pick(rng, RIVER_SIZES);
+        const B = Math.max(1, Math.round(P * s));
+        const req = M.reqEquity(P, B), mdf = M.mdf(P, B);
+        const key = PT.pick(rng, ['nit', 'nit', 'reg', 'maniac']);
+        const X = Math.min(75, Math.max(2, Math.round(req * 100 * PROFILES[key].f(rng))));
+        if (Math.abs(X - req * 100) < 2) continue;
+        const b = X / 100, decide = b > req ? 'call' : 'fold';
+        const ev = b * (P + B) - (1 - b) * B;
+        const pr = PROFILES[key];
+        return {
+          drill: '4E', target: 12, board: [], hero: [],
+          promptHtml: `River：pot <b>${P}</b>，對手 bet <b>${B}</b>（≈${potTxt(sLabel)}）。<br>對手類型：<b>${pr.name}</b>（${pr.desc}）。<br>你嘅紀錄顯示：佢呢種 bet 入面大約 <b>${X}%</b> 係 bluff。你手上係 bluff-catcher（贏晒佢 bluff、輸晒佢 value）。<br>• MDF 係幾多？　• Call 定 fold？`,
+          inputs: [{ key: 'm', label: 'MDF %', kind: 'pct' }], actions: ['call', 'fold'],
+          data: { P, B, X, profile: key }, answer: { mdf, decision: decide, ev, req },
+          grade: (r) => finish([gPct('MDF', r.m, mdf, 2), { label: '⑦ Decision', your: r.action || '—', correct: decide, ok: r.action === decide }]),
+          solutionHtml: `<ol class="steps"><li>MDF = P ÷ (P + B) = ${P} ÷ ${P + B} = <b>${pct(mdf)}</b>：<span class="plain">如果對手 bluff 得啱啱好，你要守住咁多。</span></li>
+            <li>${chip(4)} = B ÷ (P + 2B) = ${B} ÷ ${P + 2 * B} = <b>${pct(req)}</b>：平衡 range 入面 bluff 應該係 ${pct(req)}。</li>
+            <li>${chip(3)} = 對手實際 <b>${X}%</b>（你嘅 bluff-catcher 嘅 equity）。</li>
+            <li>${chip(6)}：${X}% ${b > req ? '>' : '<'} ${pct(req)} → <b class="dec ${decide}">${decide.toUpperCase()}</b>。EV(call) = ${num(b, 2)} × ${P + B} − ${num(1 - b, 2)} × ${B} = <b>${num(ev, 2)}</b>bb</li></ol>
+            <div class="plain"><b>白話：</b>${b > req ? `佢 bluff 多過平衡（${X}% > ${pct(req, 0)}）→ 你嘅 bluff-catcher call 有錢賺，甚至可以守多過 MDF。` : `佢 bluff 少過平衡（${X}% < ${pct(req, 0)}）→ 你 call 嘅時候大部分撞正 value，照 MDF 守會蝕錢 → 應該守少過 MDF。`}</div>
+            <div class="tip">MDF 係護欄唔係規則：佢只係假設對手 bluff 得啱啱好。真正決定永遠睇 ④ 實際 bluff % vs ⑤ required %。</div>`,
+        };
+      }
+      throw new Error('4E generator failed');
     },
   };
 

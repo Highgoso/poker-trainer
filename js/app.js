@@ -7,7 +7,10 @@
     get(k, d) { try { const v = localStorage.getItem('pt1.' + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
     set(k, v) { try { localStorage.setItem('pt1.' + k, JSON.stringify(v)); } catch (e) { /* storage full or disabled */ } },
   };
-  const settings = Object.assign({ fourColor: false, timerMode: 'stopwatch', decisionOnly: false, loose4B: false }, LS.get('settings', {}));
+  const savedSettings = LS.get('settings', {});
+  const settings = Object.assign({ fourColor: false, timerMode: 'stopwatch', decisionOnly: false, loose4B: false }, savedSettings);
+  // migration (v2): default deck is classic 2-colour; reset any setting saved before the 2-colour default
+  if (!savedSettings.ver || savedSettings.ver < 2) { settings.fourColor = false; settings.ver = 2; LS.set('settings', settings); }
   const saveSettings = () => { LS.set('settings', settings); applySettings(); };
   function applySettings() { document.body.classList.toggle('fourcolor', !!settings.fourColor); }
   applySettings();
@@ -62,7 +65,11 @@
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const pct = (x) => (isNaN(x) ? '—' : (x * 100).toFixed(0) + '%');
   const sec = (x) => (isNaN(x) ? '—' : x.toFixed(1) + 's');
-  const cardHtml = (c, isNew) => `<div class="pcard ${c[1]}${isNew ? ' newc' : ''}"><span class="r">${c[0] === 'T' ? '10' : c[0]}</span><span class="u">${PT.SUIT_SYM[c[1]]}</span></div>`;
+  const cardHtml = (c, isNew) => {
+    const r = c[0] === 'T' ? '10' : c[0], u = PT.SUIT_SYM[c[1]];
+    return `<div class="pcard ${c[1]}${isNew ? ' newc' : ''}" aria-label="${r}${u}"><span class="cr">${r}<i>${u}</i></span><span class="cu">${u}</span><span class="cr br">${r}<i>${u}</i></span></div>`;
+  };
+  const CS = (h) => PT.colorSuits(h || '');
   function setNav(name) { document.querySelectorAll('[data-nav]').forEach((a) => a.classList.toggle('active', a.dataset.nav === name)); }
   function currentLevel() {
     for (const L of PT.LEVELS) { if (L.soon) continue; if (!gateStats(itemsFor(L.drills)).pass) return L.level; }
@@ -98,6 +105,8 @@
     const cur = currentLevel();
     const due = srq.filter((x) => x.due <= session).length;
     let h = `<h1>NLHE combinatorics & EV 訓練</h1>
+      <div class="panel chainpanel"><b>River 決策思路鏈</b> <a class="more" href="#/learn/chain">詳細 →</a><div class="chips">${PT.CHAIN.map((c, i) => PT.chainChip(i)).join('')}</div>
+      <div class="muted" style="font-size:.85rem">4T 逐步練、4B 一次過、4E 練 ⑦ 對手類型；2G / 2M 練 ④ ⑤ 嘅數字。</div></div>
       <div class="panel">建議而家練：<b>Level ${cur}</b>　·　Session #${session}　·　待複習 (spaced repetition)：<b>${due}</b> 題
       <div class="muted" style="font-size:.85rem">升級條件：該 level 最近 50 題 accuracy ≥ 90% <u>同</u> median 時間 ≤ table-ready target（各 drill 用自己嘅 target 計）。</div></div>`;
     for (const L of PT.LEVELS) {
@@ -152,7 +161,7 @@
       <div class="timer" id="timer">0.0s</div></div><div class="tbar" id="tbar"><i></i></div><div class="panel">`;
     if (q.board && q.board.length) h += `<div class="cardsrow"><span class="lbl">Board</span>${q.board.map((c, i) => cardHtml(c, prevBoardLen !== null && i >= prevBoardLen)).join('')}</div>`;
     if (q.hero && q.hero.length) h += `<div class="cardsrow"><span class="lbl">你 Hero</span>${q.hero.map((c) => cardHtml(c)).join('')}</div>`;
-    h += `<div class="prompt">${q.promptHtml}</div>`;
+    h += `<div class="prompt">${CS(q.promptHtml)}</div>`;
     if (q.extraHtml) h += `<div id="extra">${q.extraHtml}</div>`;
     h += '<form class="ans" id="ansform" autocomplete="off">';
     for (const inp of q.inputs) {
@@ -190,9 +199,9 @@
     }
     const s = ms / 1000;
     const readyBadge = ok && s <= q.target ? '<span class="badge ok">⚡ table-ready</span>' : ok ? '<span class="badge warn">啱，但慢過 target</span>' : '';
-    let h = `<div class="fb"><div class="verdict ${ok ? 'ok' : 'bad'}">${ok ? '✓ 正確' : timeout ? '⏱ 超時' : '✗ 唔啱'} <span class="muted" style="font-size:1rem">${s.toFixed(1)}s / target ${q.target}s</span> ${readyBadge}</div>
+    let h = `<div class="fb"><div class="verdict ${ok ? 'ok' : 'bad'}" role="status">${ok ? '✓ 正確' : timeout ? '⏱ 超時' : '✗ 唔啱'} <span class="muted" style="font-size:1rem">${s.toFixed(1)}s / target ${q.target}s</span> ${readyBadge}</div>
       <table class="res"><tr><th></th><th>你</th><th>答案</th></tr>${g.rows.map((r) => `<tr><td>${r.label}</td><td class="${r.ok ? 'ok' : 'bad'}">${esc(r.your)}</td><td>${esc(r.correct)}</td></tr>`).join('')}</table>
-      <div class="solution">${q.solutionHtml}</div>
+      <div class="solution">${CS(q.solutionHtml)}</div>
       <div class="row" style="margin-top:.8rem"><button class="btn" id="nextbtn">${lastStep ? '下一題' : '下一條街'} <kbd>Enter</kbd></button><a href="#/">返主頁</a></div></div>`;
     document.getElementById('fb').innerHTML = h;
     if (q.revealHtml) document.getElementById('extra').innerHTML = q.revealHtml;
@@ -238,60 +247,29 @@
 
   function viewCheat() {
     setNav('cheat'); stopTimer(); run = null;
-    const f1 = (x) => (x * 100).toFixed(1) + '%';
-    let betRows = '';
-    for (const [s, label] of PT.BET_SIZES.concat([[3, '3']])) {
-      betRows += `<tr><td>${label}</td><td class="num">${(1 + s) / s % 1 === 0 ? (1 + s) / s : ((1 + s) / s).toFixed(2)}:1</td><td class="num">${f1(M.reqEquity(1, s))}</td><td class="num">${f1(M.mdf(1, s))}</td><td class="num">${f1(M.alpha(1, s))}</td><td class="num">${f1(M.bluffShare(1, s))}</td><td class="num">1 : ${+((1 + s) / s).toFixed(2)}</td></tr>`;
+    $app.innerHTML = PT.cheatHtml();
+  }
+
+  function viewLearn(anchor) {
+    setNav('learn'); stopTimer(); run = null;
+    $app.innerHTML = PT.learnHtml();
+    if (anchor) {
+      const el = document.getElementById('L-' + anchor);
+      if (el) { el.open = true; setTimeout(() => el.scrollIntoView({ block: 'start' }), 0); return true; }
     }
-    let outsRows = '';
-    for (let x = 1; x <= 21; x++) {
-      const r1 = M.outsRule(x, 'turn1'), r2 = M.outsRule(x, 'flop2');
-      outsRows += `<tr><td class="num">${x}${{ 4: ' (gutshot)', 8: ' (OESD)', 9: ' (FD)', 15: ' (FD+OESD)' }[x] || ''}</td><td class="num">${f1(M.outsEquity(x, 'flop1'))}</td><td class="num">${f1(M.outsEquity(x, 'turn1'))}</td><td class="num">${r1.est}</td><td class="num">${f1(M.outsEquity(x, 'flop2'))}</td><td class="num">${r2.est}</td></tr>`;
-    }
-    const grid = [4, 3, 2, 1].map((a) => `<tr><th>${a}</th>${[4, 3, 2, 1].map((b) => `<td class="num">${a * b}</td>`).join('')}</tr>`).join('');
-    $app.innerHTML = `<h1>速查表 Cheat sheet</h1>
-    <div class="panel"><h2>1. Combos 基本數</h2><div class="tblwrap"><table class="tbl"><tr><th>類型</th><th class="num">Preflop combos</th><th>Card removal 公式</th></tr>
-      <tr><td>Pocket pair</td><td class="num">6</td><td>C(n,2) = n(n−1)/2，n = 該 rank 未見張數</td></tr>
-      <tr><td>Suited (AKs)</td><td class="num">4</td><td>兩張都未見嘅花色數</td></tr>
-      <tr><td>Offsuit (AKo)</td><td class="num">12</td><td>a×b − suited</td></tr>
-      <tr><td>Any (AK)</td><td class="num">16</td><td>a×b</td></tr>
-      <tr><td>全部起手牌</td><td class="num">1326</td><td>78 pairs + 312 suited + 936 offsuit</td></tr></table></div>
-      <p>「未見」= 唔喺 board、唔喺<b>你自己</b>手上。Pair 剩 4/3/2/1 張 → <b>6 / 3 / 1 / 0</b> combos。</p>
-      <b>Unpaired a × b grid</b><div class="tblwrap"><table class="tbl" style="max-width:320px"><tr><th>a \\ b</th><th class="num">4</th><th class="num">3</th><th class="num">2</th><th class="num">1</th></tr>${grid}</table></div>
-      <p class="muted">例：AK 喺 K-7-2 = 4×3 = 12；K7 = 3×3 = 9；board 有 K 而你又有 K → KQ = 2×4 = 8。Flush draw：two-tone board 每個同花色 suited class = 1 combo。</p></div>
-    <div class="panel"><h2>2. 注碼 → pot odds / MDF / alpha / bluff:value</h2>
-      <p class="muted">Required equity = B/(P+2B)；MDF = P/(P+B)；alpha = B/(P+B)；river 平衡 bluff% = B/(P+2B)，bluff:value = B : (P+B)。</p>
-      <div class="tblwrap"><table class="tbl"><tr><th>Bet (× pot)</th><th class="num">Odds</th><th class="num">Required equity</th><th class="num">MDF</th><th class="num">Alpha</th><th class="num">Bluff %</th><th class="num">Bluff : value</th></tr>${betRows}</table></div>
-      <p class="tip">MDF 假設 bluff 係 0 equity，只係防 over-bluff 嘅參考；對 under-bluffer 要 fold 多啲。Bluff:value 比例只適用於 river。</p></div>
-    <div class="panel"><h2>3. Outs → equity</h2>
-      <div class="tblwrap"><table class="tbl"><tr><th class="num">Outs</th><th class="num">Flop→turn (/47)</th><th class="num">Turn→river (/46)</th><th class="num">×2+1 (≥14: ×2+2)</th><th class="num">Flop all-in (2 張)</th><th class="num">4x − (x−8)</th></tr>${outsRows}</table></div>
-      <p class="tip">×4 只適用於 flop all-in（睇晒兩張唔使再面對下注）。Odds against（一張）：FD 4.1:1，OESD 4.75:1，gutshot 10.5:1。Outs 唔一定乾淨：會 pair board、會俾對手更大 flush 嘅要扣。</p></div>
-    <div class="panel"><h2>4. EV 快算</h2><div class="tblwrap"><table class="tbl"><tr><th>決定</th><th>精確</th><th>快算</th></tr>
-      <tr><td>Call（之後冇下注）</td><td>e(P+B) − (1−e)B</td><td>(e − req) × (P+2B)</td></tr>
-      <tr><td>純 bluff（0 equity）</td><td>fP − (1−f)B</td><td>(f − α) × (P+B)</td></tr>
-      <tr><td>Semi-bluff</td><td>fP + (1−f)[e(P+2B) − B]</td><td>Fold equity + call 分支</td></tr>
-      <tr><td>Implied odds</td><td colspan=2>X = C/e − (call 後 final pot)；一張牌：C/e ≈ C × 46/outs</td></tr></table></div></div>
-    <div class="panel"><h2>5. Table kit（實戰八招）</h2><ol>
-      <li><b>Required equity = call / final pot</b>：½→25%，⅔→29%，¾→30%，pot→33%，2×→40%。</li>
-      <li><b>Bluff:value = bet : (pot + bet)</b>：pot bet → 每 2 個 value 1 個 bluff；½ pot → 1:3；2× → 2:3。</li>
-      <li><b>Combo grid</b>：pairs 6/3/1，unpaired 16/12/9（你又有 board rank → 8），suited 4/3，每個 FD class = 1。</li>
-      <li>只數關鍵類別：value 頂部 + 最可能嘅 bluff；sets / two pair 大約 3 個一類。</li>
-      <li><b>Outs</b>：一張 ×2(+1)；flop all-in 先用 ×4，>8 outs 減 (outs−8)；扣 dirty outs。</li>
-      <li><b>EV 快算</b>：EV(call) = (equity − required) × final pot；EV(bluff) = (fold% − α) × (pot + bet)。</li>
-      <li><b>最後做 blocker check</b>：你嘅牌移除 value（對 call 好）定 bluff（對 call 唔好）？一張牌：pair 6→3，unpaired 16→12。</li>
-      <li><b>MDF 係護欄唔係規則</b>：對 under-bluff（river、大注、低級別）嘅人 fold 多過 MDF；OOP defend 略少於 MDF。</li></ol></div>`;
+    return false;
   }
 
   function viewSettings() {
     setNav('settings'); stopTimer(); run = null;
     $app.innerHTML = `<h1>設定 Settings</h1><div class="panel">
-      <label class="setting"><input type="checkbox" id="s4c" ${settings.fourColor ? 'checked' : ''}> 四色牌 4-color deck（♦ 藍、♣ 綠）</label>
+      <label class="setting"><input type="checkbox" id="s4c" ${settings.fourColor ? 'checked' : ''}> 四色牌 4-color deck（可選：♦ 藍、♣ 綠）。預設係傳統兩色：♥♦ 紅、♠♣ 黑</label>
       <label class="setting">計時模式 Timer：<select id="stm"><option value="stopwatch">Stopwatch 正計時（只記錄）</option><option value="countdown">Countdown 倒數（target × 1.5，夠鐘當錯）</option></select></label>
       <label class="setting"><input type="checkbox" id="sdo" ${settings.decisionOnly ? 'checked' : ''}> 4B 只答 call / fold（唔使填 combos）</label>
       <label class="setting"><input type="checkbox" id="slo" ${settings.loose4B ? 'checked' : ''}> 4B 容許 combos ±10%（L4b 估算模式；預設要準確 = L4a）</label>
       <div class="cardsrow" style="margin-top:1rem"><span class="lbl">預覽</span>${['As', 'Kh', 'Qd', 'Jc'].map((c) => cardHtml(c)).join('')}</div></div>`;
     document.getElementById('stm').value = settings.timerMode;
-    document.getElementById('s4c').onchange = (e) => { settings.fourColor = e.target.checked; saveSettings(); };
+    document.getElementById('s4c').onchange = (e) => { settings.fourColor = e.target.checked; saveSettings(); viewSettings(); };
     document.getElementById('stm').onchange = (e) => { settings.timerMode = e.target.value; saveSettings(); };
     document.getElementById('sdo').onchange = (e) => { settings.decisionOnly = e.target.checked; saveSettings(); };
     document.getElementById('slo').onchange = (e) => { settings.loose4B = e.target.checked; saveSettings(); };
@@ -319,6 +297,7 @@
     let m;
     if ((m = h.match(/^#\/drill\/(\w+)/))) viewDrill(m[1]);
     else if (h.startsWith('#/stats')) viewStats();
+    else if ((m = h.match(/^#\/learn(?:\/([\w-]+))?/))) { if (viewLearn(m[1])) return; }
     else if (h.startsWith('#/cheat')) viewCheat();
     else if (h.startsWith('#/settings')) viewSettings();
     else { run = null; viewHome(); }

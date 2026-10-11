@@ -4,11 +4,11 @@
  * Usage: node tests/run_tests.js [spotsPerDrill=300]   (env PYTHON=path to python with eval7+phevaluator) */
 'use strict';
 const fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
-require('../js/core.js'); require('../js/drills.js');
+require('../js/core.js'); require('../js/drills.js'); require('../js/learn.js');
 const PT = globalThis.PT;
 const N = parseInt(process.argv[2] || '300', 10);
 const PY = process.env.PYTHON || '/workspace/poker-research/venv/bin/python';
-const out = { evaluator: [], ties: [], ranges: [], drills: {}, kb: {} };
+const out = { evaluator: [], ties: [], ranges: [], drills: {}, kb: {}, learn: [] };
 let jsFail = 0; const jsFails = [];
 const fail = (msg) => { jsFail++; if (jsFails.length < 30) jsFails.push(msg); };
 
@@ -61,12 +61,18 @@ const okResp = {
   '1E': (q) => ({ n: q.answer.n }), '2A': (q) => ({ p: (q.answer.req * 100).toFixed(1) }), '2B': (q) => ({ p: (q.answer.req * 100).toFixed(1) }),
   '2C': (q) => ({ p: (q.answer.eq * 100).toFixed(1) }), '2G': (q) => ({ p: (q.answer.v * 100).toFixed(1) }),
   '4B': (q) => ({ v: q.answer.v, b: q.answer.b, action: q.answer.decision }), '4C': (q) => ({ ev: q.answer.ev.toFixed(2) }),
+  '2M': (q) => ({ a: (q.answer.alpha * 100).toFixed(1), m: (q.answer.mdf * 100).toFixed(1), b: (q.answer.bluff * 100).toFixed(1) }),
+  '4E': (q) => ({ m: (q.answer.mdf * 100).toFixed(1), action: q.answer.decision }),
+  '4T': (q) => { const a = q.answer; if ('decision' in a) return { action: a.decision }; if ('v' in a) return { v: a.v, b: a.b }; if ('p' in a) return { p: (a.p * 100).toFixed(1) }; return { n: a.n }; },
 };
 const badResp = {
   '1A': (q) => ({ n: q.answer.n + 1 }), '1B': (q) => ({ n: q.answer.n + 1 }), '1C': (q) => ({ n: q.answer.n - 1 }), '1D': (q) => ({ n: q.answer.n + 2 }),
   '1E': (q) => ({ n: q.answer.n + 1 }), '2A': (q) => ({ p: (q.answer.req * 100 + 1.6).toFixed(1) }), '2B': (q) => ({ p: (q.answer.req * 100 - 2.6).toFixed(1) }),
   '2C': (q) => ({ p: (q.answer.eq * 100 + 2.6).toFixed(1) }), '2G': (q) => ({ p: (q.answer.v * 100 + 2.6).toFixed(1) }),
   '4B': (q) => ({ v: q.answer.v, b: q.answer.b, action: q.answer.decision === 'call' ? 'fold' : 'call' }), '4C': (q) => ({ ev: (-q.answer.ev).toFixed(2) }),
+  '2M': (q) => ({ a: (q.answer.alpha * 100).toFixed(1), m: (q.answer.mdf * 100 + 2.6).toFixed(1), b: (q.answer.bluff * 100).toFixed(1) }),
+  '4E': (q) => ({ m: (q.answer.mdf * 100).toFixed(1), action: q.answer.decision === 'call' ? 'fold' : 'call' }),
+  '4T': (q) => { const a = q.answer; if ('decision' in a) return { action: a.decision === 'call' ? 'fold' : 'call' }; if ('v' in a) return { v: a.v + 1, b: a.b }; if ('p' in a) return { p: (a.p * 100 + 1.6).toFixed(1) }; return { n: a.n + 1 }; },
 };
 const t0 = Date.now();
 for (const id of PT.drillList()) {
@@ -138,6 +144,51 @@ for (const [x, [a, b, c, d]] of Object.entries(kbOuts)) {
     if (b1 !== null && PT.explainClass(c, board, hero).count !== b1) fail(`KB 1.4 ${c} with hero`);
   }
 }
+
+
+// ---- E. Learn page + cheat sheet: recorded example numbers, prose arithmetic, anchors ----
+const learnHtml = PT.learnHtml();
+const learnChecks = PT.LEARN_CHECKS.slice();
+const cheatHtml = PT.cheatHtml();
+const cheatChecks = PT.LEARN_CHECKS.slice();
+out.learn = learnChecks.concat(cheatChecks);
+const strip = (h) => h.replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+let arithChecked = 0, arithSkipped = 0;
+function checkArithmetic(name, html) {
+  const text = strip(html);
+  const re = /([\d(][\d.\s()+\-−×÷\/]*[\d)])\s*=\s*(−?\d+(?:\.\d+)?)(\s*%)?(?!\s*[+\-−×÷\/(\d])/g;
+  let m;
+  while ((m = re.exec(text))) {
+    let expr = m[1].trim();
+    if (!/[+\-−×÷\/]/.test(expr.replace(/^−/, ''))) continue;
+    // balance parentheses: drop leading unmatched ')' fragments
+    const bal = (e) => { let d = 0; for (const ch of e) { if (ch === '(') d++; if (ch === ')') d--; if (d < 0) return false; } return d === 0; };
+    if (!bal(expr)) { arithSkipped++; continue; }
+    const js = expr.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+    let left; try { left = Function('"use strict";return (' + js + ')')(); } catch (e) { arithSkipped++; continue; }
+    const r = parseFloat(m[2].replace('−', '-'));
+    const dec = (m[2].split('.')[1] || '').length;
+    const tol = 0.5 * 10 ** -dec + 0.006 * Math.abs(r) + 1e-9;
+    const ok = Math.abs(left - r) <= tol || (m[3] && Math.abs(left * 100 - r) <= tol);
+    arithChecked++;
+    if (!ok) fail(`${name} arithmetic: "${expr} = ${m[2]}${m[3] || ''}" (computed ${left})`);
+  }
+}
+checkArithmetic('learn', learnHtml); checkArithmetic('cheat', cheatHtml);
+const ids = new Set([...learnHtml.matchAll(/id="L-([\w-]+)"/g)].map((x) => x[1]));
+let anchors = 0;
+for (const [name, h] of [['learn', learnHtml], ['cheat', cheatHtml]]) for (const x of h.matchAll(/href="#\/learn\/([\w-]+)"/g)) { anchors++; if (!ids.has(x[1])) fail(`${name}: broken anchor #/learn/${x[1]}`); }
+for (const need of ['chain', 'combos', 'removal', 'flushdraw', 'potodds', 'sizes', 'outs', 'dirty', 'implied', 'trio', 'mdf', 'alpha', 'bluffvalue', 'evcall', 'evbluff', 'semibluff', 'blockers', 'mdfguard', 'buckets', 'kit', 'example']) if (!ids.has(need)) fail('learn missing section ' + need);
+if (!/Table kit（實戰八招）/.test(cheatHtml) || (cheatHtml.match(/<li>/g) || []).length < 8) fail('cheat sheet table kit missing');
+if (/§/.test(learnHtml)) fail('unresolved § reference in learn');
+// every section has formula/legend/example/derivation where applicable
+const secCount = ids.size, derivCount = (learnHtml.match(/class="derive"/g) || []).length, legCount = (learnHtml.match(/class="leg"/g) || []).length;
+// suit colouring: no bare suit symbol outside an ic span in rendered pages
+for (const [name, h] of [['learn', learnHtml], ['cheat', cheatHtml]]) {
+  const bare = h.replace(/<span class="ic [shdc]">[2-9TJQKA]?[♠♥♦♣]<\/span>/g, '').replace(/<[^>]*>/g, '');
+  if (/[♠♥♦♣]/.test(bare)) fail(`${name}: uncoloured suit symbol found`);
+}
+console.log(`Learn/cheat: ${secCount} sections, ${legCount} legends, ${derivCount} derivations, ${out.learn.length} recorded example numbers, ${arithChecked} prose equations checked (${arithSkipped} skipped), ${anchors} anchor links`);
 
 const dir = path.join(__dirname, 'out'); fs.mkdirSync(dir, { recursive: true });
 const file = path.join(dir, 'spots.json');
