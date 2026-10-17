@@ -461,6 +461,7 @@
   const RIVER_SIZES = BET_SIZES.filter(([s]) => s >= 0.5);
 
   /** did this combo have a straight/flush draw on flop or turn that it did not need the board for? */
+  PT._drawType = (...a) => drawType(...a);
   function drawType(combo, board5, deadForDraw) {
     let fl = false, st = false;
     for (const n of [3, 4]) {
@@ -470,8 +471,10 @@
       for (const x of PT.fullDeck()) {
         if (b.includes(x) || combo.includes(x) || deadForDraw.has(x)) continue;
         const e = PT.evaluate(combo.concat(b, [x])).cat;
-        if (e === 5 || e === 8) fl = true;
-        else if (e === 4) st = true;
+        // only a real draw if the hole cards improve on the board alone (board + x)
+        const bo = PT.evaluate(b.concat([x])).cat;
+        if ((e === 5 || e === 8) && bo < 5) fl = true;
+        else if (e === 4 && bo < 4) st = true;
       }
     }
     return fl && st ? 'combo draw' : fl ? 'flush draw' : st ? 'straight draw' : null;
@@ -502,7 +505,7 @@
         if (w === live.length) valueCands.push(cls);
         else if (l === live.length) {
           const types = live.map((cb) => drawType(cb, board, boardSet));
-          if (types.every(Boolean) && cls[2] !== 'o' && cls[0] !== cls[1]) bluffClassCands.push(cls);
+          if (types.length && types.every((t) => t !== null) && cls[2] !== 'o' && cls[0] !== cls[1]) bluffClassCands.push(cls);
           else live.forEach((cb, i) => { if (types[i] === 'flush draw' || types[i] === 'combo draw') if (cb[0][1] === cb[1][1]) fdCombos.push(cb); });
         }
         void res; void t;
@@ -716,8 +719,8 @@
         data: { P, B, b }, answer: { ev },
         grade: (r) => {
           const v = parseNum(r.ev);
-          const ok = !isNaN(v) && Math.sign(v) === Math.sign(ev) && Math.abs(v - ev) <= tolAbs + 1e-9;
-          return finish([{ label: 'EV', your: isNaN(v) ? '—' : String(v), correct: `${num(ev, 2)} (±${num(tolAbs, 2)}, 正負號要啱)`, ok }]);
+          const ok = !isNaN(v) && (Math.abs(ev) <= tolAbs || Math.sign(v) === Math.sign(ev)) && Math.abs(v - ev) <= tolAbs + 1e-9;
+          return finish([{ label: 'EV', your: isNaN(v) ? '—' : String(v), correct: `${num(ev, 2)} (±${num(tolAbs, 2)}${Math.abs(ev) > tolAbs ? '，正負號要啱' : ''})`, ok }]);
         },
         solutionHtml: `精確：EV = b×(P+B) − (1−b)×B = ${b}×${P + B} − ${num(1 - b, 2)}×${B} = <b>${num(ev, 2)}</b><br>` +
           `快算：required = ${B}/${P + 2 * B} = ${pct(req)}；EV = (${pct(b, 0)} − ${pct(req)}) × ${P + 2 * B} = ${num((b - req) * (P + 2 * B), 2)}`,

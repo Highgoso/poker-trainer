@@ -21,7 +21,7 @@
   if (now - LS.get('lastActive', 0) > 30 * 60 * 1000) { session++; LS.set('session', session); }
   const touch = () => LS.set('lastActive', Date.now());
   touch();
-  const SR_OFFSETS = [1, 3, 7];
+  const SR_OFFSETS = PT.SR_OFFSETS;
 
   // ----- history -----
   let history = LS.get('history', []);
@@ -54,12 +54,11 @@
   function srReviewed(entry, ok) {
     const e = srq.find((x) => x.drill === entry.drill && x.seed === entry.seed);
     if (!e) return;
-    if (!ok) { e.stage = 0; e.miss = session; e.due = session + SR_OFFSETS[0]; }
-    else { e.stage++; if (e.stage >= SR_OFFSETS.length) srq = srq.filter((x) => x !== e); else e.due = e.miss + SR_OFFSETS[e.stage]; }
-    e.lastSeen = session;
+    if (!PT.srApply(e, ok, session)) srq = srq.filter((x) => x !== e);
     saveSrq();
   }
-  const dueFor = (drill) => srq.filter((x) => x.drill === drill && x.due <= session && x.lastSeen !== session);
+  const isDue = (x) => PT.srIsDue(x, session);
+  const dueFor = (drill) => srq.filter((x) => x.drill === drill && isDue(x));
 
   // ----- helpers -----
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -103,12 +102,18 @@
   function viewHome() {
     setNav('home');
     const cur = currentLevel();
-    const due = srq.filter((x) => x.due <= session).length;
+    const due = srq.filter(isDue).length;
     let h = `<h1>NLHE combinatorics & EV 訓練</h1>
       <div class="panel chainpanel"><b>River 決策思路鏈</b> <a class="more" href="#/learn/chain">詳細 →</a><div class="chips">${PT.CHAIN.map((c, i) => PT.chainChip(i)).join('')}</div>
       <div class="muted" style="font-size:.85rem">4T 逐步練、4B 一次過、4E 練 ⑦ 對手類型；2G / 2M 練 ④ ⑤ 嘅數字。</div></div>
       <div class="panel">建議而家練：<b>Level ${cur}</b>　·　Session #${session}　·　待複習 (spaced repetition)：<b>${due}</b> 題
       <div class="muted" style="font-size:.85rem">升級條件：該 level 最近 50 題 accuracy ≥ 90% <u>同</u> median 時間 ≤ table-ready target（各 drill 用自己嘅 target 計）。</div></div>`;
+    if (PT.drills.BUB) {
+      const D = PT.drills.BUB, s = gateStats(itemsFor(['BUB'])), dueN = srq.filter((x) => x.drill === 'BUB' && isDue(x)).length;
+      h += `<div class="panel level"><div class="head"><b>錦標賽 ICM · 泡沫期 Bubble</b><span class="badge">新</span></div><div class="drills">
+        <button class="drillbtn" data-go="#/drill/BUB"><div class="t">${D.title}</div><div class="d">${D.desc}</div>
+        <div class="s">Target ≤ ${D.target}s · ${s.n ? `${pct(s.acc)} 準確 · median ${sec(s.medT)}` : '未練過'}${dueN ? ` · <span class="review">複習 ${dueN}</span>` : ''}</div></button></div></div>`;
+    }
     for (const L of PT.LEVELS) {
       if (L.soon) { h += `<div class="panel level muted"><div class="head"><b>${L.name}</b><span class="badge">v2</span></div></div>`; continue; }
       const g = gateStats(itemsFor(L.drills));
@@ -118,7 +123,7 @@
       for (const id of L.drills) {
         const D = PT.drills[id];
         const s = gateStats(itemsFor([id]));
-        const dueN = srq.filter((x) => x.drill === id && x.due <= session).length;
+        const dueN = srq.filter((x) => x.drill === id && isDue(x)).length;
         h += `<button class="drillbtn" data-go="#/drill/${id}"><div class="t">${D.title}</div><div class="d">${D.desc}</div>
           <div class="s">Target ≤ ${D.target}s · ${s.n ? `${pct(s.acc)} 準確 · median ${sec(s.medT)}` : '未練過'}${dueN ? ` · <span class="review">複習 ${dueN}</span>` : ''}</div>
           <div class="bar"><i style="width:${Math.min(100, s.n * 2)}%"></i></div></button>`;
@@ -132,7 +137,7 @@
   // drill runner state
   let run = null;
   function viewDrill(id) {
-    setNav('home');
+    setNav(id === 'BUB' ? 'bubble' : 'home');
     const D = PT.drills[id];
     if (!D) { location.hash = '#/'; return; }
     run = { id, D, q: null, step: 0, answered: false, sessionCount: 0, sessionOk: 0 };
@@ -165,6 +170,7 @@
     if (q.extraHtml) h += `<div id="extra">${q.extraHtml}</div>`;
     h += '<form class="ans" id="ansform" autocomplete="off">';
     for (const inp of q.inputs) {
+      if (inp.kind === 'choice') { h += `<div class="reasons" role="radiogroup" aria-label="${inp.label}"><b>${inp.label}：</b>${inp.options.map(([v, t]) => `<label><input type="radio" name="${inp.key}" value="${v}">${t}</label>`).join('')}</div>`; continue; }
       h += `<label>${inp.label}${inp.kind === 'pct' ? ' (%)' : ''}<input name="${inp.key}" inputmode="${inp.kind === 'int' ? 'numeric' : 'decimal'}" ${inp.kind === 'num' ? '' : 'pattern="[0-9.,%]*"'} enterkeyhint="done"></label>`;
     }
     if (q.actions) h += q.actions.map((a) => `<button type="button" class="btn ${a}" data-act="${a}">${a === 'call' ? 'Call 跟注' : 'Fold 棄牌'} <kbd>${a[0].toUpperCase()}</kbd></button>`).join('');
@@ -174,7 +180,7 @@
     const form = document.getElementById('ansform');
     form.addEventListener('submit', (e) => { e.preventDefault(); if (!q.actions) submit(); });
     form.querySelectorAll('[data-act]').forEach((b) => b.addEventListener('click', () => submit(b.dataset.act)));
-    const first = form.querySelector('input');
+    const first = form.querySelector('input:not([type=radio])');
     if (first && !matchMedia('(pointer:coarse)').matches) first.focus();
     run.elapsed = startTimer(q.target, () => submit(null, true));
   }
@@ -185,7 +191,7 @@
     stopTimer();
     run.answered = true;
     const resp = { action: action || null };
-    document.querySelectorAll('#ansform input').forEach((i) => { resp[i.name] = i.value; i.disabled = true; });
+    document.querySelectorAll('#ansform input').forEach((i) => { if (i.type !== 'radio' || i.checked) resp[i.name] = i.value; i.disabled = true; });
     document.querySelectorAll('#ansform button').forEach((b) => (b.disabled = true));
     const g = q.grade(resp);
     const ok = g.ok && !timeout;
@@ -235,7 +241,7 @@
     }
     const recent = history.slice(-25).reverse();
     h += `<div class="panel"><b>最近 25 題</b><div class="tblwrap"><table class="tbl"><tr><th>時間</th><th>Drill</th><th>結果</th><th class="num">用時</th></tr>${recent.map((x) => `<tr><td>${new Date(x.ts).toLocaleString('zh-HK')}</td><td>${x.d}${x.rv ? ' (複習)' : ''}</td><td>${x.ok ? '✓' : '✗'}</td><td class="num">${(x.t / 1000).toFixed(1)}s</td></tr>`).join('') || '<tr><td colspan=4 class="muted">未有紀錄</td></tr>'}</table></div>
-      <div class="muted">Spaced-repetition 隊列：${srq.length} 題（${srq.filter((x) => x.due <= session).length} 題今個 session 到期）</div>
+      <div class="muted">Spaced-repetition 隊列：${srq.length} 題（${srq.filter(isDue).length} 題今個 session 到期）</div>
       <div class="row" style="margin-top:.6rem"><button class="btn alt" id="exp">匯出 JSON (export)</button><button class="btn alt" id="rst">清除所有紀錄</button></div></div>`;
     $app.innerHTML = h;
     document.getElementById('exp').onclick = () => {
@@ -288,6 +294,21 @@
     if (!run.answered && /^[0-9.\-]$/.test(e.key) && !(e.target instanceof HTMLInputElement)) {
       const inp = document.querySelector('#ansform input'); if (inp) inp.focus();
     }
+  });
+
+  // ----- tap a range-grid cell → show the hand class big (mobile readability) -----
+  let zoomT = null;
+  document.addEventListener('click', (e) => {
+    const cell = e.target.closest && e.target.closest('.grid13 .cell');
+    if (!cell) return;
+    document.querySelectorAll('.grid13 .cell.sel').forEach((c) => c.classList.remove('sel'));
+    cell.classList.add('sel');
+    let z = document.getElementById('cellzoom');
+    if (!z) { z = document.createElement('div'); z.id = 'cellzoom'; z.className = 'cellzoom'; z.setAttribute('role', 'status'); document.body.appendChild(z); }
+    const cls = cell.textContent, extra = (cell.title || '').slice(cls.length).trim();
+    z.innerHTML = `<b>${esc(cls)}</b>${extra ? `<span>${esc(extra)}</span>` : ''}`;
+    z.style.display = 'block';
+    clearTimeout(zoomT); zoomT = setTimeout(() => { z.style.display = 'none'; }, 1600);
   });
 
   // ----- router -----

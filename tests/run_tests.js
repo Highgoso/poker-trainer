@@ -69,7 +69,7 @@ const badResp = {
   '1A': (q) => ({ n: q.answer.n + 1 }), '1B': (q) => ({ n: q.answer.n + 1 }), '1C': (q) => ({ n: q.answer.n - 1 }), '1D': (q) => ({ n: q.answer.n + 2 }),
   '1E': (q) => ({ n: q.answer.n + 1 }), '2A': (q) => ({ p: (q.answer.req * 100 + 1.6).toFixed(1) }), '2B': (q) => ({ p: (q.answer.req * 100 - 2.6).toFixed(1) }),
   '2C': (q) => ({ p: (q.answer.eq * 100 + 2.6).toFixed(1) }), '2G': (q) => ({ p: (q.answer.v * 100 + 2.6).toFixed(1) }),
-  '4B': (q) => ({ v: q.answer.v, b: q.answer.b, action: q.answer.decision === 'call' ? 'fold' : 'call' }), '4C': (q) => ({ ev: (-q.answer.ev).toFixed(2) }),
+  '4B': (q) => ({ v: q.answer.v, b: q.answer.b, action: q.answer.decision === 'call' ? 'fold' : 'call' }), '4C': (q) => { const e = q.answer.ev, t = Math.max(0.15 * Math.abs(e), 0.5); return { ev: (Math.abs(e) > t ? -e : e + 3 * t).toFixed(2) }; },
   '2M': (q) => ({ a: (q.answer.alpha * 100).toFixed(1), m: (q.answer.mdf * 100 + 2.6).toFixed(1), b: (q.answer.bluff * 100).toFixed(1) }),
   '4E': (q) => ({ m: (q.answer.mdf * 100).toFixed(1), action: q.answer.decision === 'call' ? 'fold' : 'call' }),
   '4T': (q) => { const a = q.answer; if ('decision' in a) return { action: a.decision === 'call' ? 'fold' : 'call' }; if ('v' in a) return { v: a.v + 1, b: a.b }; if ('p' in a) return { p: (a.p * 100 + 1.6).toFixed(1) }; return { n: a.n + 1 }; },

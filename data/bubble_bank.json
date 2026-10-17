@@ -1,0 +1,9553 @@
+{
+"meta": {
+"version": "1.1",
+"seed": 20261016,
+"samples": 200000,
+"payouts": [
+50.0,
+30.0,
+20.0
+],
+"blinds": "SB 0.5 / BB 1, no ante",
+"tol": 0.015,
+"ranges": {
+"CO": [
+[
+12,
+"22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs"
+],
+[
+20,
+"55+,A7s+,ATo+,KTs+,KQo,QJs"
+],
+[
+30,
+"77+,A9s+,AJo+,KQs"
+],
+[
+40,
+"88+,ATs+,AQo+,KQs"
+]
+],
+"BTN": [
+[
+12,
+"22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s"
+],
+[
+20,
+"33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs"
+],
+[
+30,
+"66+,A8s+,ATo+,KTs+,KQo,QJs"
+],
+[
+40,
+"77+,A9s+,AJo+,KJs+"
+]
+],
+"SB": [
+[
+12,
+"22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s"
+],
+[
+20,
+"22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s"
+],
+[
+30,
+"44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs"
+],
+[
+40,
+"55+,A7s+,ATo+,KTs+,KQo,QJs"
+]
+]
+},
+"method": "eval7.py_hand_vs_range_monte_carlo (ties = half), Harville ICM"
+},
+"questions": [
+{
+"stacks": {
+"CO": 40,
+"BTN": 33,
+"SB": 24,
+"BB": 17
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"9d",
+"9s"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 157,
+"villainShown": [
+"Ad",
+"Kd"
+],
+"eq": 0.5269,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 17,
+"dead": 0.5,
+"pot": 34.5,
+"call": 16.0,
+"chipThr": 0.4638,
+"icmThr": 0.6024,
+"rp": 0.1387,
+"F": 17.054,
+"W": 28.309,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 41.5,
+"BTN": 33.0,
+"SB": 23.5,
+"BB": 16.0
+},
+"ev": {
+"CO": 31.682,
+"BTN": 28.234,
+"SB": 23.03,
+"BB": 17.054
+}
+},
+"W": {
+"stacks": {
+"CO": 23,
+"BTN": 33.0,
+"SB": 23.5,
+"BB": 34.5
+},
+"ev": {
+"CO": 21.868,
+"BTN": 27.611,
+"SB": 22.213,
+"BB": 28.309
+}
+},
+"L": {
+"stacks": {
+"CO": 57.5,
+"BTN": 33.0,
+"SB": 23.5,
+"BB": 0
+},
+"ev": {
+"CO": 38.496,
+"BTN": 32.382,
+"SB": 29.122,
+"BB": 0.0
+}
+}
+},
+"id": 1
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 32,
+"SB": 15,
+"BB": 31
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"As",
+"Jh"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 199,
+"villainShown": [
+"4d",
+"4c"
+],
+"eq": 0.5252,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 15,
+"dead": 1.0,
+"pot": 31.0,
+"call": 14.5,
+"chipThr": 0.4677,
+"icmThr": 0.6413,
+"rp": 0.1736,
+"F": 19.882,
+"W": 31.0,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 12.0,
+"BTN": 33.5,
+"SB": 14.5,
+"BB": 30.0
+},
+"ev": {
+"CO": 16.999,
+"BTN": 32.364,
+"SB": 19.882,
+"BB": 30.755
+}
+},
+"W": {
+"stacks": {
+"CO": 12.0,
+"BTN": 17,
+"SB": 31.0,
+"BB": 30.0
+},
+"ev": {
+"CO": 16.56,
+"BTN": 21.925,
+"SB": 31.0,
+"BB": 30.514
+}
+},
+"L": {
+"stacks": {
+"CO": 12.0,
+"BTN": 48.0,
+"SB": 0,
+"BB": 30.0
+},
+"ev": {
+"CO": 26.19,
+"BTN": 39.487,
+"SB": 0.0,
+"BB": 34.322
+}
+}
+},
+"id": 2
+},
+{
+"stacks": {
+"CO": 31,
+"BTN": 38,
+"SB": 28,
+"BB": 12
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"9s",
+"9c"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 321,
+"villainShown": [
+"As",
+"Kh"
+],
+"eq": 0.595,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 0.5,
+"pot": 24.5,
+"call": 11.0,
+"chipThr": 0.449,
+"icmThr": 0.556,
+"rp": 0.1071,
+"F": 12.984,
+"W": 23.351,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 31.0,
+"BTN": 39.5,
+"SB": 27.5,
+"BB": 11.0
+},
+"ev": {
+"CO": 28.415,
+"BTN": 31.947,
+"SB": 26.654,
+"BB": 12.984
+}
+},
+"W": {
+"stacks": {
+"CO": 31.0,
+"BTN": 26,
+"SB": 27.5,
+"BB": 24.5
+},
+"ev": {
+"CO": 27.127,
+"BTN": 24.31,
+"SB": 25.212,
+"BB": 23.351
+}
+},
+"L": {
+"stacks": {
+"CO": 31.0,
+"BTN": 50.5,
+"SB": 27.5,
+"BB": 0
+},
+"ev": {
+"CO": 31.947,
+"BTN": 37.304,
+"SB": 30.749,
+"BB": 0.0
+}
+}
+},
+"id": 3
+},
+{
+"stacks": {
+"CO": 29,
+"BTN": 21,
+"SB": 38,
+"BB": 9
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"9s",
+"9c"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 397,
+"villainShown": [
+"7s",
+"7c"
+],
+"eq": 0.6049,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 0.0,
+"pot": 18.0,
+"call": 8.0,
+"chipThr": 0.4444,
+"icmThr": 0.5479,
+"rp": 0.1035,
+"F": 11.287,
+"W": 20.599,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 29.0,
+"BTN": 21.0,
+"SB": 39.0,
+"BB": 8.0
+},
+"ev": {
+"CO": 29.71,
+"BTN": 25.144,
+"SB": 33.859,
+"BB": 11.287
+}
+},
+"W": {
+"stacks": {
+"CO": 29.0,
+"BTN": 21.0,
+"SB": 29,
+"BB": 18.0
+},
+"ev": {
+"CO": 28.168,
+"BTN": 23.064,
+"SB": 28.168,
+"BB": 20.599
+}
+},
+"L": {
+"stacks": {
+"CO": 29.0,
+"BTN": 21.0,
+"SB": 47.0,
+"BB": 0
+},
+"ev": {
+"CO": 32.605,
+"BTN": 29.453,
+"SB": 37.941,
+"BB": 0.0
+}
+}
+},
+"id": 4
+},
+{
+"stacks": {
+"CO": 40,
+"BTN": 22,
+"SB": 9,
+"BB": 38
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"5d",
+"Tc"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 321,
+"villainShown": [
+"Kh",
+"Td"
+],
+"eq": 0.311,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 1.0,
+"pot": 19.0,
+"call": 8.5,
+"chipThr": 0.4474,
+"icmThr": 0.5047,
+"rp": 0.0573,
+"F": 10.707,
+"W": 21.216,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 40.0,
+"BTN": 23.5,
+"SB": 8.5,
+"BB": 37.0
+},
+"ev": {
+"CO": 32.608,
+"BTN": 25.162,
+"SB": 10.707,
+"BB": 31.523
+}
+},
+"W": {
+"stacks": {
+"CO": 40.0,
+"BTN": 13,
+"SB": 19.0,
+"BB": 37.0
+},
+"ev": {
+"CO": 32.216,
+"BTN": 15.482,
+"SB": 21.216,
+"BB": 31.086
+}
+},
+"L": {
+"stacks": {
+"CO": 40.0,
+"BTN": 32.0,
+"SB": 0,
+"BB": 37.0
+},
+"ev": {
+"CO": 34.42,
+"BTN": 32.018,
+"SB": 0.0,
+"BB": 33.562
+}
+}
+},
+"id": 5
+},
+{
+"stacks": {
+"CO": 8,
+"BTN": 15,
+"SB": 40,
+"BB": 40
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Kh",
+"Ac"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 210,
+"villainShown": [
+"As",
+"Js"
+],
+"eq": 0.6045,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.4469,
+"rp": 0.0226,
+"F": 33.291,
+"W": 37.858,
+"L": 29.602,
+"scen": {
+"F": {
+"stacks": {
+"CO": 9.5,
+"BTN": 15.0,
+"SB": 39.5,
+"BB": 39.0
+},
+"ev": {
+"CO": 13.335,
+"BTN": 19.907,
+"SB": 33.466,
+"BB": 33.291
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 15.0,
+"SB": 39.5,
+"BB": 48.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 26.571,
+"SB": 35.571,
+"BB": 37.858
+}
+},
+"L": {
+"stacks": {
+"CO": 16.5,
+"BTN": 15.0,
+"SB": 39.5,
+"BB": 32
+},
+"ev": {
+"CO": 19.58,
+"BTN": 18.115,
+"SB": 32.703,
+"BB": 29.602
+}
+}
+},
+"id": 6
+},
+{
+"stacks": {
+"CO": 37,
+"BTN": 15,
+"SB": 22,
+"BB": 14
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Kd",
+"8d"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 298,
+"villainShown": [
+"Ac",
+"6d"
+],
+"eq": 0.3954,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 14,
+"dead": 0.0,
+"pot": 28.0,
+"call": 13.0,
+"chipThr": 0.4643,
+"icmThr": 0.5965,
+"rp": 0.1322,
+"F": 18.333,
+"W": 30.732,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 37.0,
+"BTN": 15.0,
+"SB": 23.0,
+"BB": 13.0
+},
+"ev": {
+"CO": 34.079,
+"BTN": 20.538,
+"SB": 27.05,
+"BB": 18.333
+}
+},
+"W": {
+"stacks": {
+"CO": 37.0,
+"BTN": 15.0,
+"SB": 8,
+"BB": 28.0
+},
+"ev": {
+"CO": 34.609,
+"BTN": 21.882,
+"SB": 12.777,
+"BB": 30.732
+}
+},
+"L": {
+"stacks": {
+"CO": 37.0,
+"BTN": 15.0,
+"SB": 36.0,
+"BB": 0
+},
+"ev": {
+"CO": 36.388,
+"BTN": 27.53,
+"SB": 36.081,
+"BB": 0.0
+}
+}
+},
+"id": 7
+},
+{
+"stacks": {
+"CO": 37,
+"BTN": 12,
+"SB": 13,
+"BB": 9
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"As",
+"8d"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 364,
+"villainShown": [
+"9s",
+"9c"
+],
+"eq": 0.4936,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 0.0,
+"pot": 18.0,
+"call": 8.0,
+"chipThr": 0.4444,
+"icmThr": 0.5517,
+"rp": 0.1072,
+"F": 15.969,
+"W": 28.948,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 37.0,
+"BTN": 12.0,
+"SB": 14.0,
+"BB": 8.0
+},
+"ev": {
+"CO": 37.843,
+"BTN": 21.97,
+"SB": 24.218,
+"BB": 15.969
+}
+},
+"W": {
+"stacks": {
+"CO": 37.0,
+"BTN": 12.0,
+"SB": 4,
+"BB": 18.0
+},
+"ev": {
+"CO": 38.253,
+"BTN": 23.694,
+"SB": 9.105,
+"BB": 28.948
+}
+},
+"L": {
+"stacks": {
+"CO": 37.0,
+"BTN": 12.0,
+"SB": 22.0,
+"BB": 0
+},
+"ev": {
+"CO": 39.033,
+"BTN": 27.669,
+"SB": 33.298,
+"BB": 0.0
+}
+}
+},
+"id": 8
+},
+{
+"stacks": {
+"CO": 22,
+"BTN": 33,
+"SB": 10,
+"BB": 28
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Td",
+"Tc"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 243,
+"villainShown": [
+"Ks",
+"9s"
+],
+"eq": 0.6172,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 10,
+"dead": 1.0,
+"pot": 21.0,
+"call": 9.5,
+"chipThr": 0.4524,
+"icmThr": 0.5342,
+"rp": 0.0819,
+"F": 13.087,
+"W": 24.497,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 23.5,
+"BTN": 33.0,
+"SB": 9.5,
+"BB": 27.0
+},
+"ev": {
+"CO": 26.63,
+"BTN": 31.607,
+"SB": 13.087,
+"BB": 28.676
+}
+},
+"W": {
+"stacks": {
+"CO": 12,
+"BTN": 33.0,
+"SB": 21.0,
+"BB": 27.0
+},
+"ev": {
+"CO": 15.856,
+"BTN": 31.328,
+"SB": 24.497,
+"BB": 28.319
+}
+},
+"L": {
+"stacks": {
+"CO": 33.0,
+"BTN": 33.0,
+"SB": 0,
+"BB": 27.0
+},
+"ev": {
+"CO": 34.048,
+"BTN": 34.048,
+"SB": 0.0,
+"BB": 31.903
+}
+}
+},
+"id": 9
+},
+{
+"stacks": {
+"CO": 8,
+"BTN": 21,
+"SB": 28,
+"BB": 27
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Jc",
+"Jd"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 189,
+"villainShown": [
+"As",
+"6s"
+],
+"eq": 0.6359,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 27,
+"dead": 0.0,
+"pot": 54.0,
+"call": 26.0,
+"chipThr": 0.4815,
+"icmThr": 0.7056,
+"rp": 0.2241,
+"F": 29.728,
+"W": 42.13,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 8.0,
+"BTN": 21.0,
+"SB": 29.0,
+"BB": 26.0
+},
+"ev": {
+"CO": 12.349,
+"BTN": 26.617,
+"SB": 31.307,
+"BB": 29.728
+}
+},
+"W": {
+"stacks": {
+"CO": 8.0,
+"BTN": 21.0,
+"SB": 1,
+"BB": 54.0
+},
+"ev": {
+"CO": 22.88,
+"BTN": 31.88,
+"SB": 3.109,
+"BB": 42.13
+}
+},
+"L": {
+"stacks": {
+"CO": 8.0,
+"BTN": 21.0,
+"SB": 55.0,
+"BB": 0
+},
+"ev": {
+"CO": 24.981,
+"BTN": 32.505,
+"SB": 42.515,
+"BB": 0.0
+}
+}
+},
+"id": 10
+},
+{
+"stacks": {
+"CO": 27,
+"BTN": 33,
+"SB": 14,
+"BB": 28
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"Ac",
+"Th"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 202,
+"villainShown": [
+"Kd",
+"Td"
+],
+"eq": 0.4868,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 14,
+"dead": 1.0,
+"pot": 29.0,
+"call": 13.5,
+"chipThr": 0.4655,
+"icmThr": 0.5872,
+"rp": 0.1217,
+"F": 16.005,
+"W": 27.257,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 27.0,
+"BTN": 34.5,
+"SB": 13.5,
+"BB": 27.0
+},
+"ev": {
+"CO": 26.757,
+"BTN": 30.48,
+"SB": 16.005,
+"BB": 26.757
+}
+},
+"W": {
+"stacks": {
+"CO": 27.0,
+"BTN": 19,
+"SB": 29.0,
+"BB": 27.0
+},
+"ev": {
+"CO": 26.124,
+"BTN": 20.494,
+"SB": 27.257,
+"BB": 26.124
+}
+},
+"L": {
+"stacks": {
+"CO": 27.0,
+"BTN": 48.0,
+"SB": 0,
+"BB": 27.0
+},
+"ev": {
+"CO": 31.247,
+"BTN": 37.506,
+"SB": 0.0,
+"BB": 31.247
+}
+}
+},
+"id": 11
+},
+{
+"stacks": {
+"CO": 17,
+"BTN": 29,
+"SB": 25,
+"BB": 16
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"As",
+"Qc"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 268,
+"villainShown": [
+"Ks",
+"Jd"
+],
+"eq": 0.5871,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 16,
+"dead": 0.0,
+"pot": 32.0,
+"call": 15.0,
+"chipThr": 0.4688,
+"icmThr": 0.6116,
+"rp": 0.1428,
+"F": 19.77,
+"W": 32.328,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 17.0,
+"BTN": 29.0,
+"SB": 26.0,
+"BB": 15.0
+},
+"ev": {
+"CO": 21.752,
+"BTN": 30.078,
+"SB": 28.399,
+"BB": 19.77
+}
+},
+"W": {
+"stacks": {
+"CO": 17.0,
+"BTN": 29.0,
+"SB": 9,
+"BB": 32.0
+},
+"ev": {
+"CO": 23.114,
+"BTN": 30.913,
+"SB": 13.645,
+"BB": 32.328
+}
+},
+"L": {
+"stacks": {
+"CO": 17.0,
+"BTN": 29.0,
+"SB": 41.0,
+"BB": 0
+},
+"ev": {
+"CO": 28.581,
+"BTN": 33.781,
+"SB": 37.639,
+"BB": 0.0
+}
+}
+},
+"id": 12
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 39,
+"SB": 31,
+"BB": 10
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Ts",
+"Td"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 243,
+"villainShown": [
+"5h",
+"5c"
+],
+"eq": 0.6202,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 1.0,
+"pot": 25.0,
+"call": 11.5,
+"chipThr": 0.46,
+"icmThr": 0.5082,
+"rp": 0.0482,
+"F": 31.399,
+"W": 38.386,
+"L": 24.18,
+"scen": {
+"F": {
+"stacks": {
+"CO": 13.5,
+"BTN": 39.0,
+"SB": 30.5,
+"BB": 9.0
+},
+"ev": {
+"CO": 19.845,
+"BTN": 34.8,
+"SB": 31.399,
+"BB": 13.955
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 39.0,
+"SB": 44.0,
+"BB": 9.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 37.063,
+"SB": 38.386,
+"BB": 24.551
+}
+},
+"L": {
+"stacks": {
+"CO": 25.0,
+"BTN": 39.0,
+"SB": 19,
+"BB": 9.0
+},
+"ev": {
+"CO": 28.163,
+"BTN": 34.502,
+"SB": 24.18,
+"BB": 13.155
+}
+}
+},
+"id": 13
+},
+{
+"stacks": {
+"CO": 29,
+"BTN": 37,
+"SB": 19,
+"BB": 38
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Jc",
+"Jd"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 293,
+"villainShown": [
+"Ad",
+"9d"
+],
+"eq": 0.6665,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 19,
+"dead": 0.0,
+"pot": 38.0,
+"call": 18.0,
+"chipThr": 0.4737,
+"icmThr": 0.5373,
+"rp": 0.0636,
+"F": 28.38,
+"W": 37.326,
+"L": 17.993,
+"scen": {
+"F": {
+"stacks": {
+"CO": 29.0,
+"BTN": 37.0,
+"SB": 20.0,
+"BB": 37.0
+},
+"ev": {
+"CO": 24.568,
+"BTN": 28.38,
+"SB": 18.672,
+"BB": 28.38
+}
+},
+"W": {
+"stacks": {
+"CO": 29.0,
+"BTN": 37.0,
+"SB": 0,
+"BB": 57.0
+},
+"ev": {
+"CO": 30.124,
+"BTN": 32.55,
+"SB": 0.0,
+"BB": 37.326
+}
+},
+"L": {
+"stacks": {
+"CO": 29.0,
+"BTN": 37.0,
+"SB": 38.0,
+"BB": 19
+},
+"ev": {
+"CO": 24.671,
+"BTN": 28.463,
+"SB": 28.874,
+"BB": 17.993
+}
+}
+},
+"id": 14
+},
+{
+"stacks": {
+"CO": 19,
+"BTN": 8,
+"SB": 22,
+"BB": 24
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Ac",
+"7c"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 290,
+"villainShown": [
+"4s",
+"4d"
+],
+"eq": 0.4755,
+"cat": "call",
+"margChip": false,
+"margIcm": true,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.464,
+"rp": 0.0398,
+"F": 29.397,
+"W": 36.781,
+"L": 23.004,
+"scen": {
+"F": {
+"stacks": {
+"CO": 19.0,
+"BTN": 9.5,
+"SB": 21.5,
+"BB": 23.0
+},
+"ev": {
+"CO": 26.488,
+"BTN": 15.741,
+"SB": 28.374,
+"BB": 29.397
+}
+},
+"W": {
+"stacks": {
+"CO": 19.0,
+"BTN": 0,
+"SB": 21.5,
+"BB": 32.5
+},
+"ev": {
+"CO": 30.983,
+"BTN": 0.0,
+"SB": 32.235,
+"BB": 36.781
+}
+},
+"L": {
+"stacks": {
+"CO": 19.0,
+"BTN": 16.5,
+"SB": 21.5,
+"BB": 16
+},
+"ev": {
+"CO": 25.764,
+"BTN": 23.5,
+"SB": 27.731,
+"BB": 23.004
+}
+}
+},
+"id": 15
+},
+{
+"stacks": {
+"CO": 27,
+"BTN": 14,
+"SB": 25,
+"BB": 19
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ad",
+"9s"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 274,
+"villainShown": [
+"Jd",
+"Td"
+],
+"eq": 0.4875,
+"cat": "premium",
+"margChip": true,
+"margIcm": false,
+"eff": 19,
+"dead": 0.0,
+"pot": 38.0,
+"call": 18.0,
+"chipThr": 0.4737,
+"icmThr": 0.6417,
+"rp": 0.168,
+"F": 22.978,
+"W": 35.808,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 27.0,
+"BTN": 14.0,
+"SB": 26.0,
+"BB": 18.0
+},
+"ev": {
+"CO": 29.303,
+"BTN": 18.997,
+"SB": 28.722,
+"BB": 22.978
+}
+},
+"W": {
+"stacks": {
+"CO": 27.0,
+"BTN": 14.0,
+"SB": 6,
+"BB": 38.0
+},
+"ev": {
+"CO": 31.23,
+"BTN": 22.343,
+"SB": 10.619,
+"BB": 35.808
+}
+},
+"L": {
+"stacks": {
+"CO": 27.0,
+"BTN": 14.0,
+"SB": 44.0,
+"BB": 0
+},
+"ev": {
+"CO": 33.565,
+"BTN": 27.475,
+"SB": 38.96,
+"BB": 0.0
+}
+}
+},
+"id": 16
+},
+{
+"stacks": {
+"CO": 32,
+"BTN": 18,
+"SB": 37,
+"BB": 37
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"As",
+"Kd"
+],
+"villainRange": "88+,ATs+,AQo+,KQs",
+"villainCombos": 66,
+"villainShown": [
+"Ad",
+"Jd"
+],
+"eq": 0.513,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 32,
+"dead": 1.0,
+"pot": 65.0,
+"call": 31.5,
+"chipThr": 0.4846,
+"icmThr": 0.6357,
+"rp": 0.151,
+"F": 28.155,
+"W": 40.203,
+"L": 7.135,
+"scen": {
+"F": {
+"stacks": {
+"CO": 33.5,
+"BTN": 18.0,
+"SB": 36.5,
+"BB": 36.0
+},
+"ev": {
+"CO": 26.829,
+"BTN": 17.074,
+"SB": 28.155,
+"BB": 27.942
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 18.0,
+"SB": 70.0,
+"BB": 36.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 26.83,
+"SB": 40.203,
+"BB": 32.966
+}
+},
+"L": {
+"stacks": {
+"CO": 65.0,
+"BTN": 18.0,
+"SB": 5,
+"BB": 36.0
+},
+"ev": {
+"CO": 38.609,
+"BTN": 22.951,
+"SB": 7.135,
+"BB": 31.306
+}
+}
+},
+"id": 17
+},
+{
+"stacks": {
+"CO": 20,
+"BTN": 14,
+"SB": 8,
+"BB": 24
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ks",
+"4c"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 392,
+"villainShown": [
+"Js",
+"9s"
+],
+"eq": 0.3647,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 0.0,
+"pot": 16.0,
+"call": 7.0,
+"chipThr": 0.4375,
+"icmThr": 0.4784,
+"rp": 0.0409,
+"F": 31.017,
+"W": 37.959,
+"L": 24.649,
+"scen": {
+"F": {
+"stacks": {
+"CO": 20.0,
+"BTN": 14.0,
+"SB": 9.0,
+"BB": 23.0
+},
+"ev": {
+"CO": 28.915,
+"BTN": 23.464,
+"SB": 16.605,
+"BB": 31.017
+}
+},
+"W": {
+"stacks": {
+"CO": 20.0,
+"BTN": 14.0,
+"SB": 0,
+"BB": 32.0
+},
+"ev": {
+"CO": 32.759,
+"BTN": 29.282,
+"SB": 0.0,
+"BB": 37.959
+}
+},
+"L": {
+"stacks": {
+"CO": 20.0,
+"BTN": 14.0,
+"SB": 16.0,
+"BB": 16
+},
+"ev": {
+"CO": 28.201,
+"BTN": 22.501,
+"SB": 24.649,
+"BB": 24.649
+}
+}
+},
+"id": 18
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 35,
+"SB": 14,
+"BB": 27
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Td",
+"Ac"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 271,
+"villainShown": [
+"As",
+"Qh"
+],
+"eq": 0.5277,
+"cat": "premium",
+"margChip": false,
+"margIcm": true,
+"eff": 14,
+"dead": 0.0,
+"pot": 28.0,
+"call": 13.0,
+"chipThr": 0.4643,
+"icmThr": 0.533,
+"rp": 0.0687,
+"F": 28.912,
+"W": 37.79,
+"L": 18.783,
+"scen": {
+"F": {
+"stacks": {
+"CO": 12.0,
+"BTN": 35.0,
+"SB": 15.0,
+"BB": 26.0
+},
+"ev": {
+"CO": 17.195,
+"BTN": 33.279,
+"SB": 20.614,
+"BB": 28.912
+}
+},
+"W": {
+"stacks": {
+"CO": 12.0,
+"BTN": 35.0,
+"SB": 0,
+"BB": 41.0
+},
+"ev": {
+"CO": 26.181,
+"BTN": 36.029,
+"SB": 0.0,
+"BB": 37.79
+}
+},
+"L": {
+"stacks": {
+"CO": 12.0,
+"BTN": 35.0,
+"SB": 28.0,
+"BB": 13
+},
+"ev": {
+"CO": 17.57,
+"BTN": 33.437,
+"SB": 30.21,
+"BB": 18.783
+}
+}
+},
+"id": 19
+},
+{
+"stacks": {
+"CO": 29,
+"BTN": 15,
+"SB": 37,
+"BB": 30
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Jd",
+"Qs"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 188,
+"villainShown": [
+"6h",
+"6c"
+],
+"eq": 0.3648,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 30,
+"dead": 0.0,
+"pot": 60.0,
+"call": 29.0,
+"chipThr": 0.4833,
+"icmThr": 0.6827,
+"rp": 0.1993,
+"F": 26.534,
+"W": 38.868,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 29.0,
+"BTN": 15.0,
+"SB": 38.0,
+"BB": 29.0
+},
+"ev": {
+"CO": 26.534,
+"BTN": 16.286,
+"SB": 30.646,
+"BB": 26.534
+}
+},
+"W": {
+"stacks": {
+"CO": 29.0,
+"BTN": 15.0,
+"SB": 7,
+"BB": 60.0
+},
+"ev": {
+"CO": 29.539,
+"BTN": 20.944,
+"SB": 10.648,
+"BB": 38.868
+}
+},
+"L": {
+"stacks": {
+"CO": 29.0,
+"BTN": 15.0,
+"SB": 67.0,
+"BB": 0
+},
+"ev": {
+"CO": 32.224,
+"BTN": 26.59,
+"SB": 41.186,
+"BB": 0.0
+}
+}
+},
+"id": 20
+},
+{
+"stacks": {
+"CO": 27,
+"BTN": 11,
+"SB": 29,
+"BB": 14
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ac",
+"Th"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 271,
+"villainShown": [
+"As",
+"Js"
+],
+"eq": 0.5296,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 14,
+"dead": 0.0,
+"pot": 28.0,
+"call": 13.0,
+"chipThr": 0.4643,
+"icmThr": 0.6369,
+"rp": 0.1726,
+"F": 19.776,
+"W": 31.05,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 27.0,
+"BTN": 11.0,
+"SB": 30.0,
+"BB": 13.0
+},
+"ev": {
+"CO": 30.729,
+"BTN": 17.226,
+"SB": 32.268,
+"BB": 19.776
+}
+},
+"W": {
+"stacks": {
+"CO": 27.0,
+"BTN": 11.0,
+"SB": 15,
+"BB": 28.0
+},
+"ev": {
+"CO": 30.51,
+"BTN": 16.829,
+"SB": 21.611,
+"BB": 31.05
+}
+},
+"L": {
+"stacks": {
+"CO": 27.0,
+"BTN": 11.0,
+"SB": 43.0,
+"BB": 0
+},
+"ev": {
+"CO": 34.296,
+"BTN": 26.29,
+"SB": 39.414,
+"BB": 0.0
+}
+}
+},
+"id": 21
+},
+{
+"stacks": {
+"CO": 19,
+"BTN": 26,
+"SB": 18,
+"BB": 15
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"As",
+"Ts"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 202,
+"villainShown": [
+"Qd",
+"Jd"
+],
+"eq": 0.5121,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 18,
+"dead": 1.0,
+"pot": 37.0,
+"call": 17.5,
+"chipThr": 0.473,
+"icmThr": 0.6553,
+"rp": 0.1823,
+"F": 23.799,
+"W": 36.318,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 19.0,
+"BTN": 27.5,
+"SB": 17.5,
+"BB": 14.0
+},
+"ev": {
+"CO": 25.098,
+"BTN": 30.851,
+"SB": 23.799,
+"BB": 20.251
+}
+},
+"W": {
+"stacks": {
+"CO": 19.0,
+"BTN": 8,
+"SB": 37.0,
+"BB": 14.0
+},
+"ev": {
+"CO": 26.93,
+"BTN": 14.248,
+"SB": 36.318,
+"BB": 22.505
+}
+},
+"L": {
+"stacks": {
+"CO": 19.0,
+"BTN": 45.0,
+"SB": 0,
+"BB": 14.0
+},
+"ev": {
+"CO": 31.162,
+"BTN": 40.428,
+"SB": 0.0,
+"BB": 28.41
+}
+}
+},
+"id": 22
+},
+{
+"stacks": {
+"CO": 31,
+"BTN": 39,
+"SB": 21,
+"BB": 8
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"Ks",
+"Ad"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 121,
+"villainShown": [
+"As",
+"Kd"
+],
+"eq": 0.5806,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 21,
+"dead": 1.0,
+"pot": 43.0,
+"call": 20.5,
+"chipThr": 0.4767,
+"icmThr": 0.7078,
+"rp": 0.2311,
+"F": 24.986,
+"W": 35.301,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 31.0,
+"BTN": 40.5,
+"SB": 20.5,
+"BB": 7.0
+},
+"ev": {
+"CO": 30.671,
+"BTN": 34.325,
+"SB": 24.986,
+"BB": 10.019
+}
+},
+"W": {
+"stacks": {
+"CO": 31.0,
+"BTN": 18,
+"SB": 43.0,
+"BB": 7.0
+},
+"ev": {
+"CO": 30.877,
+"BTN": 23.467,
+"SB": 35.301,
+"BB": 10.355
+}
+},
+"L": {
+"stacks": {
+"CO": 31.0,
+"BTN": 61.0,
+"SB": 0,
+"BB": 7.0
+},
+"ev": {
+"CO": 34.659,
+"BTN": 41.763,
+"SB": 0.0,
+"BB": 23.579
+}
+}
+},
+"id": 23
+},
+{
+"stacks": {
+"CO": 14,
+"BTN": 35,
+"SB": 20,
+"BB": 33
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"3d",
+"Qd"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 227,
+"villainShown": [
+"Ks",
+"Qh"
+],
+"eq": 0.3386,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 20,
+"dead": 1.0,
+"pot": 41.0,
+"call": 19.5,
+"chipThr": 0.4756,
+"icmThr": 0.6556,
+"rp": 0.18,
+"F": 22.024,
+"W": 33.595,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 14.0,
+"BTN": 36.5,
+"SB": 19.5,
+"BB": 32.0
+},
+"ev": {
+"CO": 16.9,
+"BTN": 31.519,
+"SB": 22.024,
+"BB": 29.557
+}
+},
+"W": {
+"stacks": {
+"CO": 14.0,
+"BTN": 15,
+"SB": 41.0,
+"BB": 32.0
+},
+"ev": {
+"CO": 17.674,
+"BTN": 18.72,
+"SB": 33.595,
+"BB": 30.011
+}
+},
+"L": {
+"stacks": {
+"CO": 14.0,
+"BTN": 56.0,
+"SB": 0,
+"BB": 32.0
+},
+"ev": {
+"CO": 26.416,
+"BTN": 39.854,
+"SB": 0.0,
+"BB": 33.73
+}
+}
+},
+"id": 24
+},
+{
+"stacks": {
+"CO": 15,
+"BTN": 9,
+"SB": 21,
+"BB": 9
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"8d",
+"8c"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 249,
+"villainShown": [
+"2h",
+"2d"
+],
+"eq": 0.5545,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 0.5,
+"pot": 18.5,
+"call": 8.0,
+"chipThr": 0.4324,
+"icmThr": 0.5801,
+"rp": 0.1477,
+"F": 18.22,
+"W": 31.408,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 16.5,
+"BTN": 9.0,
+"SB": 20.5,
+"BB": 8.0
+},
+"ev": {
+"CO": 29.262,
+"BTN": 20.039,
+"SB": 32.479,
+"BB": 18.22
+}
+},
+"W": {
+"stacks": {
+"CO": 6,
+"BTN": 9.0,
+"SB": 20.5,
+"BB": 18.5
+},
+"ev": {
+"CO": 14.834,
+"BTN": 20.884,
+"SB": 32.874,
+"BB": 31.408
+}
+},
+"L": {
+"stacks": {
+"CO": 24.5,
+"BTN": 9.0,
+"SB": 20.5,
+"BB": 0
+},
+"ev": {
+"CO": 37.295,
+"BTN": 27.404,
+"SB": 35.301,
+"BB": 0.0
+}
+}
+},
+"id": 25
+},
+{
+"stacks": {
+"CO": 30,
+"BTN": 12,
+"SB": 18,
+"BB": 11
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"8d",
+"Ad"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 290,
+"villainShown": [
+"Jh",
+"Th"
+],
+"eq": 0.4935,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 1.0,
+"pot": 25.0,
+"call": 11.5,
+"chipThr": 0.46,
+"icmThr": 0.5537,
+"rp": 0.0937,
+"F": 26.135,
+"W": 37.009,
+"L": 12.643,
+"scen": {
+"F": {
+"stacks": {
+"CO": 30.0,
+"BTN": 13.5,
+"SB": 17.5,
+"BB": 10.0
+},
+"ev": {
+"CO": 34.132,
+"BTN": 22.18,
+"SB": 26.135,
+"BB": 17.553
+}
+},
+"W": {
+"stacks": {
+"CO": 30.0,
+"BTN": 0,
+"SB": 31.0,
+"BB": 10.0
+},
+"ev": {
+"CO": 36.643,
+"BTN": 0.0,
+"SB": 37.009,
+"BB": 26.347
+}
+},
+"L": {
+"stacks": {
+"CO": 30.0,
+"BTN": 25.0,
+"SB": 6,
+"BB": 10.0
+},
+"ev": {
+"CO": 34.971,
+"BTN": 32.506,
+"SB": 12.643,
+"BB": 19.88
+}
+}
+},
+"id": 26
+},
+{
+"stacks": {
+"CO": 36,
+"BTN": 27,
+"SB": 25,
+"BB": 29
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"7c",
+"7d"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 207,
+"villainShown": [
+"Kd",
+"Qd"
+],
+"eq": 0.4953,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 25,
+"dead": 0.0,
+"pot": 50.0,
+"call": 24.0,
+"chipThr": 0.48,
+"icmThr": 0.5997,
+"rp": 0.1197,
+"F": 24.444,
+"W": 37.282,
+"L": 5.211,
+"scen": {
+"F": {
+"stacks": {
+"CO": 36.0,
+"BTN": 27.0,
+"SB": 26.0,
+"BB": 28.0
+},
+"ev": {
+"CO": 28.444,
+"BTN": 23.86,
+"SB": 23.252,
+"BB": 24.444
+}
+},
+"W": {
+"stacks": {
+"CO": 36.0,
+"BTN": 27.0,
+"SB": 0,
+"BB": 54.0
+},
+"ev": {
+"CO": 32.791,
+"BTN": 29.927,
+"SB": 0.0,
+"BB": 37.282
+}
+},
+"L": {
+"stacks": {
+"CO": 36.0,
+"BTN": 27.0,
+"SB": 50.0,
+"BB": 4
+},
+"ev": {
+"CO": 31.396,
+"BTN": 27.867,
+"SB": 35.527,
+"BB": 5.211
+}
+}
+},
+"id": 27
+},
+{
+"stacks": {
+"CO": 19,
+"BTN": 35,
+"SB": 24,
+"BB": 19
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Ks",
+"Ad"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 195,
+"villainShown": [
+"Ah",
+"2h"
+],
+"eq": 0.6039,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 19,
+"dead": 0.5,
+"pot": 38.5,
+"call": 18.0,
+"chipThr": 0.4675,
+"icmThr": 0.637,
+"rp": 0.1695,
+"F": 20.989,
+"W": 32.95,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 19.0,
+"BTN": 36.5,
+"SB": 23.5,
+"BB": 18.0
+},
+"ev": {
+"CO": 21.845,
+"BTN": 31.974,
+"SB": 25.191,
+"BB": 20.989
+}
+},
+"W": {
+"stacks": {
+"CO": 19.0,
+"BTN": 16,
+"SB": 23.5,
+"BB": 38.5
+},
+"ev": {
+"CO": 22.146,
+"BTN": 19.451,
+"SB": 25.452,
+"BB": 32.95
+}
+},
+"L": {
+"stacks": {
+"CO": 19.0,
+"BTN": 54.5,
+"SB": 23.5,
+"BB": 0
+},
+"ev": {
+"CO": 29.014,
+"BTN": 40.021,
+"SB": 30.965,
+"BB": 0.0
+}
+}
+},
+"id": 28
+},
+{
+"stacks": {
+"CO": 25,
+"BTN": 30,
+"SB": 26,
+"BB": 22
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ac",
+"Ks"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 171,
+"villainShown": [
+"Ad",
+"Qc"
+],
+"eq": 0.5958,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 22,
+"dead": 0.0,
+"pot": 44.0,
+"call": 21.0,
+"chipThr": 0.4773,
+"icmThr": 0.6174,
+"rp": 0.1401,
+"F": 21.861,
+"W": 35.41,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 25.0,
+"BTN": 30.0,
+"SB": 27.0,
+"BB": 21.0
+},
+"ev": {
+"CO": 24.667,
+"BTN": 27.573,
+"SB": 25.898,
+"BB": 21.861
+}
+},
+"W": {
+"stacks": {
+"CO": 25.0,
+"BTN": 30.0,
+"SB": 4,
+"BB": 44.0
+},
+"ev": {
+"CO": 28.246,
+"BTN": 30.528,
+"SB": 5.816,
+"BB": 35.41
+}
+},
+"L": {
+"stacks": {
+"CO": 25.0,
+"BTN": 30.0,
+"SB": 48.0,
+"BB": 0
+},
+"ev": {
+"CO": 30.397,
+"BTN": 32.213,
+"SB": 37.389,
+"BB": 0.0
+}
+}
+},
+"id": 29
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 9,
+"SB": 19,
+"BB": 26
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"7d",
+"Ks"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 238,
+"villainShown": [
+"As",
+"Tc"
+],
+"eq": 0.3365,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 1.0,
+"pot": 25.0,
+"call": 11.5,
+"chipThr": 0.46,
+"icmThr": 0.5526,
+"rp": 0.0926,
+"F": 27.847,
+"W": 38.267,
+"L": 14.979,
+"scen": {
+"F": {
+"stacks": {
+"CO": 13.5,
+"BTN": 9.0,
+"SB": 18.5,
+"BB": 25.0
+},
+"ev": {
+"CO": 23.038,
+"BTN": 16.763,
+"SB": 27.847,
+"BB": 32.352
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 9.0,
+"SB": 32.0,
+"BB": 25.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 26.206,
+"SB": 38.267,
+"BB": 35.527
+}
+},
+"L": {
+"stacks": {
+"CO": 25.0,
+"BTN": 9.0,
+"SB": 7,
+"BB": 25.0
+},
+"ev": {
+"CO": 33.186,
+"BTN": 18.65,
+"SB": 14.979,
+"BB": 33.186
+}
+}
+},
+"id": 30
+},
+{
+"stacks": {
+"CO": 25,
+"BTN": 8,
+"SB": 20,
+"BB": 20
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Qd",
+"Ks"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 304,
+"villainShown": [
+"Js",
+"Jd"
+],
+"eq": 0.4613,
+"cat": "premium",
+"margChip": false,
+"margIcm": true,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.4683,
+"rp": 0.044,
+"F": 26.543,
+"W": 35.169,
+"L": 18.947,
+"scen": {
+"F": {
+"stacks": {
+"CO": 25.0,
+"BTN": 9.5,
+"SB": 19.5,
+"BB": 19.0
+},
+"ev": {
+"CO": 30.702,
+"BTN": 15.814,
+"SB": 26.94,
+"BB": 26.543
+}
+},
+"W": {
+"stacks": {
+"CO": 25.0,
+"BTN": 0,
+"SB": 19.5,
+"BB": 28.5
+},
+"ev": {
+"CO": 33.716,
+"BTN": 0.0,
+"SB": 31.116,
+"BB": 35.169
+}
+},
+"L": {
+"stacks": {
+"CO": 25.0,
+"BTN": 16.5,
+"SB": 19.5,
+"BB": 12
+},
+"ev": {
+"CO": 30.451,
+"BTN": 23.991,
+"SB": 26.61,
+"BB": 18.947
+}
+}
+},
+"id": 31
+},
+{
+"stacks": {
+"CO": 15,
+"BTN": 37,
+"SB": 35,
+"BB": 8
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"8d",
+"Ac"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 290,
+"villainShown": [
+"Ks",
+"8s"
+],
+"eq": 0.4679,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.5405,
+"rp": 0.1162,
+"F": 11.017,
+"W": 20.383,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 15.0,
+"BTN": 38.5,
+"SB": 34.5,
+"BB": 7.0
+},
+"ev": {
+"CO": 21.624,
+"BTN": 34.418,
+"SB": 32.942,
+"BB": 11.017
+}
+},
+"W": {
+"stacks": {
+"CO": 15.0,
+"BTN": 29,
+"SB": 34.5,
+"BB": 16.5
+},
+"ev": {
+"CO": 18.898,
+"BTN": 29.056,
+"SB": 31.663,
+"BB": 20.383
+}
+},
+"L": {
+"stacks": {
+"CO": 15.0,
+"BTN": 45.5,
+"SB": 34.5,
+"BB": 0
+},
+"ev": {
+"CO": 27.089,
+"BTN": 37.998,
+"SB": 34.914,
+"BB": 0.0
+}
+}
+},
+"id": 32
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 16,
+"SB": 34,
+"BB": 40
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"3c",
+"Kh"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 151,
+"villainShown": [
+"Qs",
+"Qh"
+],
+"eq": 0.2933,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 34,
+"dead": 0.0,
+"pot": 68.0,
+"call": 33.0,
+"chipThr": 0.4853,
+"icmThr": 0.656,
+"rp": 0.1707,
+"F": 32.974,
+"W": 44.082,
+"L": 11.79,
+"scen": {
+"F": {
+"stacks": {
+"CO": 12.0,
+"BTN": 16.0,
+"SB": 35.0,
+"BB": 39.0
+},
+"ev": {
+"CO": 15.645,
+"BTN": 19.953,
+"SB": 31.427,
+"BB": 32.974
+}
+},
+"W": {
+"stacks": {
+"CO": 12.0,
+"BTN": 16.0,
+"SB": 0,
+"BB": 74.0
+},
+"ev": {
+"CO": 26.858,
+"BTN": 29.061,
+"SB": 0.0,
+"BB": 44.082
+}
+},
+"L": {
+"stacks": {
+"CO": 12.0,
+"BTN": 16.0,
+"SB": 68.0,
+"BB": 6
+},
+"ev": {
+"CO": 21.083,
+"BTN": 24.77,
+"SB": 42.356,
+"BB": 11.79
+}
+}
+},
+"id": 33
+},
+{
+"stacks": {
+"CO": 14,
+"BTN": 14,
+"SB": 16,
+"BB": 20
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ah",
+"Jh"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 268,
+"villainShown": [
+"6s",
+"6h"
+],
+"eq": 0.5833,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 16,
+"dead": 0.0,
+"pot": 32.0,
+"call": 15.0,
+"chipThr": 0.4688,
+"icmThr": 0.602,
+"rp": 0.1333,
+"F": 27.881,
+"W": 40.025,
+"L": 9.511,
+"scen": {
+"F": {
+"stacks": {
+"CO": 14.0,
+"BTN": 14.0,
+"SB": 17.0,
+"BB": 19.0
+},
+"ev": {
+"CO": 23.002,
+"BTN": 23.002,
+"SB": 26.115,
+"BB": 27.881
+}
+},
+"W": {
+"stacks": {
+"CO": 14.0,
+"BTN": 14.0,
+"SB": 0,
+"BB": 36.0
+},
+"ev": {
+"CO": 29.987,
+"BTN": 29.987,
+"SB": 0.0,
+"BB": 40.025
+}
+},
+"L": {
+"stacks": {
+"CO": 14.0,
+"BTN": 14.0,
+"SB": 32.0,
+"BB": 4
+},
+"ev": {
+"CO": 26.509,
+"BTN": 26.509,
+"SB": 37.471,
+"BB": 9.511
+}
+}
+},
+"id": 34
+},
+{
+"stacks": {
+"CO": 40,
+"BTN": 10,
+"SB": 28,
+"BB": 40
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ac",
+"Jh"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 175,
+"villainShown": [
+"Ts",
+"Th"
+],
+"eq": 0.5085,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 28,
+"dead": 0.0,
+"pot": 56.0,
+"call": 27.0,
+"chipThr": 0.4821,
+"icmThr": 0.5923,
+"rp": 0.1101,
+"F": 30.879,
+"W": 40.777,
+"L": 16.503,
+"scen": {
+"F": {
+"stacks": {
+"CO": 40.0,
+"BTN": 10.0,
+"SB": 29.0,
+"BB": 39.0
+},
+"ev": {
+"CO": 31.239,
+"BTN": 11.233,
+"SB": 26.648,
+"BB": 30.879
+}
+},
+"W": {
+"stacks": {
+"CO": 40.0,
+"BTN": 10.0,
+"SB": 0,
+"BB": 68.0
+},
+"ev": {
+"CO": 35.094,
+"BTN": 24.13,
+"SB": 0.0,
+"BB": 40.777
+}
+},
+"L": {
+"stacks": {
+"CO": 40.0,
+"BTN": 10.0,
+"SB": 56.0,
+"BB": 12
+},
+"ev": {
+"CO": 32.569,
+"BTN": 13.978,
+"SB": 36.951,
+"BB": 16.503
+}
+}
+},
+"id": 35
+},
+{
+"stacks": {
+"CO": 16,
+"BTN": 19,
+"SB": 8,
+"BB": 26
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ah",
+"Th"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 355,
+"villainShown": [
+"5h",
+"5c"
+],
+"eq": 0.5859,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 0.0,
+"pot": 16.0,
+"call": 7.0,
+"chipThr": 0.4375,
+"icmThr": 0.4751,
+"rp": 0.0376,
+"F": 31.627,
+"W": 38.143,
+"L": 25.731,
+"scen": {
+"F": {
+"stacks": {
+"CO": 16.0,
+"BTN": 19.0,
+"SB": 9.0,
+"BB": 25.0
+},
+"ev": {
+"CO": 24.882,
+"BTN": 27.502,
+"SB": 15.988,
+"BB": 31.627
+}
+},
+"W": {
+"stacks": {
+"CO": 16.0,
+"BTN": 19.0,
+"SB": 0,
+"BB": 34.0
+},
+"ev": {
+"CO": 30.09,
+"BTN": 31.767,
+"SB": 0.0,
+"BB": 38.143
+}
+},
+"L": {
+"stacks": {
+"CO": 16.0,
+"BTN": 19.0,
+"SB": 16.0,
+"BB": 18
+},
+"ev": {
+"CO": 23.836,
+"BTN": 26.597,
+"SB": 23.836,
+"BB": 25.731
+}
+}
+},
+"id": 36
+},
+{
+"stacks": {
+"CO": 33,
+"BTN": 10,
+"SB": 14,
+"BB": 33
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"2c",
+"8c"
+],
+"villainRange": "88+,ATs+,AQo+,KQs",
+"villainCombos": 83,
+"villainShown": [
+"Ah",
+"Qd"
+],
+"eq": 0.2609,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 33,
+"dead": 0.5,
+"pot": 66.5,
+"call": 32.0,
+"chipThr": 0.4812,
+"icmThr": 0.7229,
+"rp": 0.2416,
+"F": 32.09,
+"W": 44.394,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 34.5,
+"BTN": 10.0,
+"SB": 13.5,
+"BB": 32.0
+},
+"ev": {
+"CO": 33.153,
+"BTN": 15.156,
+"SB": 19.601,
+"BB": 32.09
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 10.0,
+"SB": 13.5,
+"BB": 66.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 26.674,
+"SB": 28.932,
+"BB": 44.394
+}
+},
+"L": {
+"stacks": {
+"CO": 66.5,
+"BTN": 10.0,
+"SB": 13.5,
+"BB": 0
+},
+"ev": {
+"CO": 44.394,
+"BTN": 26.674,
+"SB": 28.932,
+"BB": 0.0
+}
+}
+},
+"id": 37
+},
+{
+"stacks": {
+"CO": 28,
+"BTN": 30,
+"SB": 13,
+"BB": 35
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Qd",
+"9h"
+],
+"villainRange": "77+,A9s+,AJo+,KQs",
+"villainCombos": 96,
+"villainShown": [
+"Ts",
+"Td"
+],
+"eq": 0.3009,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 28,
+"dead": 0.5,
+"pot": 56.5,
+"call": 27.0,
+"chipThr": 0.4779,
+"icmThr": 0.6193,
+"rp": 0.1414,
+"F": 29.818,
+"W": 41.137,
+"L": 11.405,
+"scen": {
+"F": {
+"stacks": {
+"CO": 29.5,
+"BTN": 30.0,
+"SB": 12.5,
+"BB": 34.0
+},
+"ev": {
+"CO": 27.687,
+"BTN": 27.94,
+"SB": 14.555,
+"BB": 29.818
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 30.0,
+"SB": 12.5,
+"BB": 63.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 33.098,
+"SB": 25.765,
+"BB": 41.137
+}
+},
+"L": {
+"stacks": {
+"CO": 56.5,
+"BTN": 30.0,
+"SB": 12.5,
+"BB": 7
+},
+"ev": {
+"CO": 38.712,
+"BTN": 30.631,
+"SB": 19.252,
+"BB": 11.405
+}
+}
+},
+"id": 38
+},
+{
+"stacks": {
+"CO": 28,
+"BTN": 28,
+"SB": 36,
+"BB": 12
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"4s",
+"Ts"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 146,
+"villainShown": [
+"Ad",
+"Ks"
+],
+"eq": 0.3049,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 28,
+"dead": 1.0,
+"pot": 57.0,
+"call": 27.5,
+"chipThr": 0.4825,
+"icmThr": 0.62,
+"rp": 0.1376,
+"F": 30.947,
+"W": 41.792,
+"L": 13.251,
+"scen": {
+"F": {
+"stacks": {
+"CO": 28.0,
+"BTN": 29.5,
+"SB": 35.5,
+"BB": 11.0
+},
+"ev": {
+"CO": 27.445,
+"BTN": 28.219,
+"SB": 30.947,
+"BB": 13.39
+}
+},
+"W": {
+"stacks": {
+"CO": 28.0,
+"BTN": 0,
+"SB": 65.0,
+"BB": 11.0
+},
+"ev": {
+"CO": 32.883,
+"BTN": 0.0,
+"SB": 41.792,
+"BB": 25.326
+}
+},
+"L": {
+"stacks": {
+"CO": 28.0,
+"BTN": 57.0,
+"SB": 8,
+"BB": 11.0
+},
+"ev": {
+"CO": 30.003,
+"BTN": 39.11,
+"SB": 13.251,
+"BB": 17.637
+}
+}
+},
+"id": 39
+},
+{
+"stacks": {
+"CO": 27,
+"BTN": 22,
+"SB": 14,
+"BB": 25
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Js",
+"Jh"
+],
+"villainRange": "77+,A9s+,AJo+,KQs",
+"villainCombos": 95,
+"villainShown": [
+"9s",
+"9h"
+],
+"eq": 0.5726,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 25,
+"dead": 0.5,
+"pot": 50.5,
+"call": 24.0,
+"chipThr": 0.4752,
+"icmThr": 0.6714,
+"rp": 0.1962,
+"F": 26.941,
+"W": 40.126,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 28.5,
+"BTN": 22.0,
+"SB": 13.5,
+"BB": 24.0
+},
+"ev": {
+"CO": 29.596,
+"BTN": 25.584,
+"SB": 17.879,
+"BB": 26.941
+}
+},
+"W": {
+"stacks": {
+"CO": 2,
+"BTN": 22.0,
+"SB": 13.5,
+"BB": 50.5
+},
+"ev": {
+"CO": 4.359,
+"BTN": 30.419,
+"SB": 25.097,
+"BB": 40.126
+}
+},
+"L": {
+"stacks": {
+"CO": 52.5,
+"BTN": 22.0,
+"SB": 13.5,
+"BB": 0
+},
+"ev": {
+"CO": 40.967,
+"BTN": 31.65,
+"SB": 27.382,
+"BB": 0.0
+}
+}
+},
+"id": 40
+},
+{
+"stacks": {
+"CO": 34,
+"BTN": 17,
+"SB": 9,
+"BB": 32
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"Td",
+"Jc"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 311,
+"villainShown": [
+"As",
+"8h"
+],
+"eq": 0.3869,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 1.0,
+"pot": 19.0,
+"call": 8.5,
+"chipThr": 0.4474,
+"icmThr": 0.5112,
+"rp": 0.0638,
+"F": 12.432,
+"W": 24.322,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 34.0,
+"BTN": 18.5,
+"SB": 8.5,
+"BB": 31.0
+},
+"ev": {
+"CO": 32.534,
+"BTN": 23.81,
+"SB": 12.432,
+"BB": 31.224
+}
+},
+"W": {
+"stacks": {
+"CO": 34.0,
+"BTN": 8,
+"SB": 19.0,
+"BB": 31.0
+},
+"ev": {
+"CO": 32.595,
+"BTN": 11.79,
+"SB": 24.322,
+"BB": 31.293
+}
+},
+"L": {
+"stacks": {
+"CO": 34.0,
+"BTN": 27.0,
+"SB": 0,
+"BB": 31.0
+},
+"ev": {
+"CO": 34.5,
+"BTN": 32.016,
+"SB": 0.0,
+"BB": 33.484
+}
+}
+},
+"id": 41
+},
+{
+"stacks": {
+"CO": 21,
+"BTN": 33,
+"SB": 36,
+"BB": 10
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"9d",
+"Ad"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 219,
+"villainShown": [
+"3d",
+"3c"
+],
+"eq": 0.4804,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 10,
+"dead": 0.5,
+"pot": 20.5,
+"call": 9.0,
+"chipThr": 0.439,
+"icmThr": 0.507,
+"rp": 0.068,
+"F": 11.945,
+"W": 23.559,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 22.5,
+"BTN": 33.0,
+"SB": 35.5,
+"BB": 9.0
+},
+"ev": {
+"CO": 25.333,
+"BTN": 30.84,
+"SB": 31.881,
+"BB": 11.945
+}
+},
+"W": {
+"stacks": {
+"CO": 11,
+"BTN": 33.0,
+"SB": 35.5,
+"BB": 20.5
+},
+"ev": {
+"CO": 14.184,
+"BTN": 30.596,
+"SB": 31.66,
+"BB": 23.559
+}
+},
+"L": {
+"stacks": {
+"CO": 31.5,
+"BTN": 33.0,
+"SB": 35.5,
+"BB": 0
+},
+"ev": {
+"CO": 32.735,
+"BTN": 33.234,
+"SB": 34.031,
+"BB": 0.0
+}
+}
+},
+"id": 42
+},
+{
+"stacks": {
+"CO": 26,
+"BTN": 17,
+"SB": 20,
+"BB": 30
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Qs",
+"As"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 199,
+"villainShown": [
+"Ad",
+"6d"
+],
+"eq": 0.5823,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 17,
+"dead": 0.5,
+"pot": 34.5,
+"call": 16.0,
+"chipThr": 0.4638,
+"icmThr": 0.544,
+"rp": 0.0802,
+"F": 28.785,
+"W": 38.66,
+"L": 17.005,
+"scen": {
+"F": {
+"stacks": {
+"CO": 26.0,
+"BTN": 18.5,
+"SB": 19.5,
+"BB": 29.0
+},
+"ev": {
+"CO": 27.07,
+"BTN": 21.651,
+"SB": 22.495,
+"BB": 28.785
+}
+},
+"W": {
+"stacks": {
+"CO": 26.0,
+"BTN": 0,
+"SB": 19.5,
+"BB": 47.5
+},
+"ev": {
+"CO": 32.047,
+"BTN": 0.0,
+"SB": 29.293,
+"BB": 38.66
+}
+},
+"L": {
+"stacks": {
+"CO": 26.0,
+"BTN": 34.5,
+"SB": 19.5,
+"BB": 13
+},
+"ev": {
+"CO": 27.716,
+"BTN": 31.973,
+"SB": 23.306,
+"BB": 17.005
+}
+}
+},
+"id": 43
+},
+{
+"stacks": {
+"CO": 26,
+"BTN": 36,
+"SB": 19,
+"BB": 14
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Kh",
+"Jh"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 143,
+"villainShown": [
+"Kd",
+"Qc"
+],
+"eq": 0.3976,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 14,
+"dead": 0.5,
+"pot": 28.5,
+"call": 13.0,
+"chipThr": 0.4561,
+"icmThr": 0.5814,
+"rp": 0.1252,
+"F": 16.888,
+"W": 29.049,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 27.5,
+"BTN": 36.0,
+"SB": 18.5,
+"BB": 13.0
+},
+"ev": {
+"CO": 28.378,
+"BTN": 32.393,
+"SB": 22.341,
+"BB": 16.888
+}
+},
+"W": {
+"stacks": {
+"CO": 12,
+"BTN": 36.0,
+"SB": 18.5,
+"BB": 28.5
+},
+"ev": {
+"CO": 15.914,
+"BTN": 32.496,
+"SB": 22.541,
+"BB": 29.049
+}
+},
+"L": {
+"stacks": {
+"CO": 40.5,
+"BTN": 36.0,
+"SB": 18.5,
+"BB": 0
+},
+"ev": {
+"CO": 36.422,
+"BTN": 35.101,
+"SB": 28.477,
+"BB": 0.0
+}
+}
+},
+"id": 44
+},
+{
+"stacks": {
+"CO": 34,
+"BTN": 18,
+"SB": 25,
+"BB": 38
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"4h",
+"As"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 184,
+"villainShown": [
+"Ad",
+"Jd"
+],
+"eq": 0.3714,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 25,
+"dead": 0.0,
+"pot": 50.0,
+"call": 24.0,
+"chipThr": 0.48,
+"icmThr": 0.5804,
+"rp": 0.1004,
+"F": 29.518,
+"W": 39.751,
+"L": 15.362,
+"scen": {
+"F": {
+"stacks": {
+"CO": 34.0,
+"BTN": 18.0,
+"SB": 26.0,
+"BB": 37.0
+},
+"ev": {
+"CO": 28.216,
+"BTN": 18.228,
+"SB": 24.037,
+"BB": 29.518
+}
+},
+"W": {
+"stacks": {
+"CO": 34.0,
+"BTN": 18.0,
+"SB": 0,
+"BB": 63.0
+},
+"ev": {
+"CO": 33.0,
+"BTN": 27.249,
+"SB": 0.0,
+"BB": 39.751
+}
+},
+"L": {
+"stacks": {
+"CO": 34.0,
+"BTN": 18.0,
+"SB": 50.0,
+"BB": 13
+},
+"ev": {
+"CO": 29.484,
+"BTN": 20.204,
+"SB": 34.95,
+"BB": 15.362
+}
+}
+},
+"id": 45
+},
+{
+"stacks": {
+"CO": 27,
+"BTN": 39,
+"SB": 14,
+"BB": 10
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"4d",
+"8s"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 407,
+"villainShown": [
+"Qh",
+"Qc"
+],
+"eq": 0.3141,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 10,
+"dead": 0.0,
+"pot": 20.0,
+"call": 9.0,
+"chipThr": 0.45,
+"icmThr": 0.5136,
+"rp": 0.0636,
+"F": 13.857,
+"W": 26.98,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 27.0,
+"BTN": 39.0,
+"SB": 15.0,
+"BB": 9.0
+},
+"ev": {
+"CO": 29.812,
+"BTN": 34.974,
+"SB": 21.358,
+"BB": 13.857
+}
+},
+"W": {
+"stacks": {
+"CO": 27.0,
+"BTN": 39.0,
+"SB": 4,
+"BB": 20.0
+},
+"ev": {
+"CO": 30.8,
+"BTN": 35.548,
+"SB": 6.673,
+"BB": 26.98
+}
+},
+"L": {
+"stacks": {
+"CO": 27.0,
+"BTN": 39.0,
+"SB": 24.0,
+"BB": 0
+},
+"ev": {
+"CO": 32.385,
+"BTN": 36.433,
+"SB": 31.182,
+"BB": 0.0
+}
+}
+},
+"id": 46
+},
+{
+"stacks": {
+"CO": 35,
+"BTN": 27,
+"SB": 11,
+"BB": 8
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Jc",
+"Qc"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 309,
+"villainShown": [
+"Ks",
+"Kh"
+],
+"eq": 0.4342,
+"cat": "premium",
+"margChip": true,
+"margIcm": false,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.562,
+"rp": 0.1378,
+"F": 13.157,
+"W": 23.411,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 35.0,
+"BTN": 28.5,
+"SB": 10.5,
+"BB": 7.0
+},
+"ev": {
+"CO": 35.356,
+"BTN": 32.596,
+"SB": 18.891,
+"BB": 13.157
+}
+},
+"W": {
+"stacks": {
+"CO": 35.0,
+"BTN": 19,
+"SB": 10.5,
+"BB": 16.5
+},
+"ev": {
+"CO": 34.546,
+"BTN": 25.543,
+"SB": 16.5,
+"BB": 23.411
+}
+},
+"L": {
+"stacks": {
+"CO": 35.0,
+"BTN": 35.5,
+"SB": 10.5,
+"BB": 0
+},
+"ev": {
+"CO": 36.978,
+"BTN": 37.136,
+"SB": 25.887,
+"BB": 0.0
+}
+}
+},
+"id": 47
+},
+{
+"stacks": {
+"CO": 38,
+"BTN": 24,
+"SB": 22,
+"BB": 13
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"Ks",
+"As"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 121,
+"villainShown": [
+"Qs",
+"Qc"
+],
+"eq": 0.5977,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 22,
+"dead": 1.0,
+"pot": 45.0,
+"call": 21.5,
+"chipThr": 0.4778,
+"icmThr": 0.6541,
+"rp": 0.1763,
+"F": 24.464,
+"W": 37.402,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 38.0,
+"BTN": 25.5,
+"SB": 21.5,
+"BB": 12.0
+},
+"ev": {
+"CO": 32.958,
+"BTN": 27.041,
+"SB": 24.464,
+"BB": 15.537
+}
+},
+"W": {
+"stacks": {
+"CO": 38.0,
+"BTN": 2,
+"SB": 45.0,
+"BB": 12.0
+},
+"ev": {
+"CO": 35.413,
+"BTN": 4.162,
+"SB": 37.402,
+"BB": 23.023
+}
+},
+"L": {
+"stacks": {
+"CO": 38.0,
+"BTN": 47.0,
+"SB": 0,
+"BB": 12.0
+},
+"ev": {
+"CO": 35.988,
+"BTN": 38.341,
+"SB": 0.0,
+"BB": 25.671
+}
+}
+},
+"id": 48
+},
+{
+"stacks": {
+"CO": 30,
+"BTN": 36,
+"SB": 37,
+"BB": 17
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Jd",
+"Ah"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 268,
+"villainShown": [
+"Ad",
+"7s"
+],
+"eq": 0.561,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 17,
+"dead": 0.0,
+"pot": 34.0,
+"call": 16.0,
+"chipThr": 0.4706,
+"icmThr": 0.587,
+"rp": 0.1165,
+"F": 16.069,
+"W": 27.373,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 30.0,
+"BTN": 36.0,
+"SB": 38.0,
+"BB": 16.0
+},
+"ev": {
+"CO": 25.843,
+"BTN": 28.633,
+"SB": 29.454,
+"BB": 16.069
+}
+},
+"W": {
+"stacks": {
+"CO": 30.0,
+"BTN": 36.0,
+"SB": 20,
+"BB": 34.0
+},
+"ev": {
+"CO": 25.406,
+"BTN": 28.266,
+"SB": 18.955,
+"BB": 27.373
+}
+},
+"L": {
+"stacks": {
+"CO": 30.0,
+"BTN": 36.0,
+"SB": 54.0,
+"BB": 0
+},
+"ev": {
+"CO": 30.617,
+"BTN": 32.455,
+"SB": 36.929,
+"BB": 0.0
+}
+}
+},
+"id": 49
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 30,
+"SB": 15,
+"BB": 18
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Jc",
+"Ah"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 268,
+"villainShown": [
+"Ad",
+"7s"
+],
+"eq": 0.5617,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 15,
+"dead": 0.0,
+"pot": 30.0,
+"call": 14.0,
+"chipThr": 0.4667,
+"icmThr": 0.5869,
+"rp": 0.1203,
+"F": 24.437,
+"W": 36.971,
+"L": 6.627,
+"scen": {
+"F": {
+"stacks": {
+"CO": 12.0,
+"BTN": 30.0,
+"SB": 16.0,
+"BB": 17.0
+},
+"ev": {
+"CO": 18.992,
+"BTN": 33.076,
+"SB": 23.495,
+"BB": 24.437
+}
+},
+"W": {
+"stacks": {
+"CO": 12.0,
+"BTN": 30.0,
+"SB": 0,
+"BB": 33.0
+},
+"ev": {
+"CO": 27.124,
+"BTN": 35.905,
+"SB": 0.0,
+"BB": 36.971
+}
+},
+"L": {
+"stacks": {
+"CO": 12.0,
+"BTN": 30.0,
+"SB": 30.0,
+"BB": 3
+},
+"ev": {
+"CO": 23.629,
+"BTN": 34.872,
+"SB": 34.872,
+"BB": 6.627
+}
+}
+},
+"id": 50
+},
+{
+"stacks": {
+"CO": 24,
+"BTN": 37,
+"SB": 26,
+"BB": 38
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"As",
+"Qd"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 122,
+"villainShown": [
+"6s",
+"6d"
+],
+"eq": 0.5187,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 26,
+"dead": 1.0,
+"pot": 53.0,
+"call": 25.5,
+"chipThr": 0.4811,
+"icmThr": 0.6387,
+"rp": 0.1576,
+"F": 22.141,
+"W": 34.667,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 24.0,
+"BTN": 38.5,
+"SB": 25.5,
+"BB": 37.0
+},
+"ev": {
+"CO": 21.172,
+"BTN": 28.654,
+"SB": 22.141,
+"BB": 28.033
+}
+},
+"W": {
+"stacks": {
+"CO": 24.0,
+"BTN": 11,
+"SB": 53.0,
+"BB": 37.0
+},
+"ev": {
+"CO": 23.491,
+"BTN": 12.2,
+"SB": 34.667,
+"BB": 29.642
+}
+},
+"L": {
+"stacks": {
+"CO": 24.0,
+"BTN": 64.0,
+"SB": 0,
+"BB": 37.0
+},
+"ev": {
+"CO": 28.582,
+"BTN": 38.729,
+"SB": 0.0,
+"BB": 32.689
+}
+}
+},
+"id": 51
+},
+{
+"stacks": {
+"CO": 16,
+"BTN": 24,
+"SB": 17,
+"BB": 13
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"Ad",
+"As"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 179,
+"villainShown": [
+"Ac",
+"Td"
+],
+"eq": 0.8485,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 17,
+"dead": 1.0,
+"pot": 35.0,
+"call": 16.5,
+"chipThr": 0.4714,
+"icmThr": 0.6636,
+"rp": 0.1922,
+"F": 24.696,
+"W": 37.214,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 16.0,
+"BTN": 25.5,
+"SB": 16.5,
+"BB": 12.0
+},
+"ev": {
+"CO": 24.212,
+"BTN": 31.433,
+"SB": 24.696,
+"BB": 19.659
+}
+},
+"W": {
+"stacks": {
+"CO": 16.0,
+"BTN": 7,
+"SB": 35.0,
+"BB": 12.0
+},
+"ev": {
+"CO": 26.318,
+"BTN": 14.286,
+"SB": 37.214,
+"BB": 22.182
+}
+},
+"L": {
+"stacks": {
+"CO": 16.0,
+"BTN": 42.0,
+"SB": 0,
+"BB": 12.0
+},
+"ev": {
+"CO": 30.759,
+"BTN": 41.019,
+"SB": 0.0,
+"BB": 28.222
+}
+}
+},
+"id": 52
+},
+{
+"stacks": {
+"CO": 22,
+"BTN": 31,
+"SB": 16,
+"BB": 30
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"As",
+"Js"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 268,
+"villainShown": [
+"Kh",
+"Qc"
+],
+"eq": 0.5836,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 16,
+"dead": 0.0,
+"pot": 32.0,
+"call": 15.0,
+"chipThr": 0.4688,
+"icmThr": 0.5378,
+"rp": 0.069,
+"F": 27.939,
+"W": 37.385,
+"L": 16.949,
+"scen": {
+"F": {
+"stacks": {
+"CO": 22.0,
+"BTN": 31.0,
+"SB": 17.0,
+"BB": 29.0
+},
+"ev": {
+"CO": 23.595,
+"BTN": 28.976,
+"SB": 19.491,
+"BB": 27.939
+}
+},
+"W": {
+"stacks": {
+"CO": 22.0,
+"BTN": 31.0,
+"SB": 0,
+"BB": 46.0
+},
+"ev": {
+"CO": 29.608,
+"BTN": 33.006,
+"SB": 0.0,
+"BB": 37.385
+}
+},
+"L": {
+"stacks": {
+"CO": 22.0,
+"BTN": 31.0,
+"SB": 32.0,
+"BB": 14
+},
+"ev": {
+"CO": 24.01,
+"BTN": 29.28,
+"SB": 29.762,
+"BB": 16.949
+}
+}
+},
+"id": 53
+},
+{
+"stacks": {
+"CO": 35,
+"BTN": 34,
+"SB": 10,
+"BB": 16
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Qh",
+"Qd"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 237,
+"villainShown": [
+"Ah",
+"3h"
+],
+"eq": 0.6956,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 10,
+"dead": 1.0,
+"pot": 21.0,
+"call": 9.5,
+"chipThr": 0.4524,
+"icmThr": 0.5837,
+"rp": 0.1313,
+"F": 13.885,
+"W": 23.787,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 36.5,
+"BTN": 34.0,
+"SB": 9.5,
+"BB": 15.0
+},
+"ev": {
+"CO": 33.268,
+"BTN": 32.274,
+"SB": 13.885,
+"BB": 20.573
+}
+},
+"W": {
+"stacks": {
+"CO": 25,
+"BTN": 34.0,
+"SB": 21.0,
+"BB": 15.0
+},
+"ev": {
+"CO": 26.506,
+"BTN": 31.223,
+"SB": 23.787,
+"BB": 18.485
+}
+},
+"L": {
+"stacks": {
+"CO": 46.0,
+"BTN": 34.0,
+"SB": 0,
+"BB": 15.0
+},
+"ev": {
+"CO": 38.133,
+"BTN": 34.768,
+"SB": 0.0,
+"BB": 27.099
+}
+}
+},
+"id": 54
+},
+{
+"stacks": {
+"CO": 15,
+"BTN": 11,
+"SB": 11,
+"BB": 20
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Kd",
+"Js"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 379,
+"villainShown": [
+"As",
+"Th"
+],
+"eq": 0.4681,
+"cat": "premium",
+"margChip": true,
+"margIcm": false,
+"eff": 11,
+"dead": 0.0,
+"pot": 22.0,
+"call": 10.0,
+"chipThr": 0.4545,
+"icmThr": 0.5344,
+"rp": 0.0799,
+"F": 29.891,
+"W": 39.559,
+"L": 18.794,
+"scen": {
+"F": {
+"stacks": {
+"CO": 15.0,
+"BTN": 11.0,
+"SB": 12.0,
+"BB": 19.0
+},
+"ev": {
+"CO": 26.195,
+"BTN": 21.262,
+"SB": 22.652,
+"BB": 29.891
+}
+},
+"W": {
+"stacks": {
+"CO": 15.0,
+"BTN": 11.0,
+"SB": 0,
+"BB": 31.0
+},
+"ev": {
+"CO": 31.662,
+"BTN": 28.78,
+"SB": 0.0,
+"BB": 39.559
+}
+},
+"L": {
+"stacks": {
+"CO": 15.0,
+"BTN": 11.0,
+"SB": 22.0,
+"BB": 9
+},
+"ev": {
+"CO": 26.738,
+"BTN": 21.934,
+"SB": 32.534,
+"BB": 18.794
+}
+}
+},
+"id": 55
+},
+{
+"stacks": {
+"CO": 31,
+"BTN": 33,
+"SB": 37,
+"BB": 15
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"8c",
+"Qs"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 224,
+"villainShown": [
+"Ah",
+"Qh"
+],
+"eq": 0.3329,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 15,
+"dead": 0.5,
+"pot": 30.5,
+"call": 14.0,
+"chipThr": 0.459,
+"icmThr": 0.5633,
+"rp": 0.1043,
+"F": 14.828,
+"W": 26.322,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 31.0,
+"BTN": 34.5,
+"SB": 36.5,
+"BB": 14.0
+},
+"ev": {
+"CO": 27.031,
+"BTN": 28.647,
+"SB": 29.494,
+"BB": 14.828
+}
+},
+"W": {
+"stacks": {
+"CO": 31.0,
+"BTN": 18,
+"SB": 36.5,
+"BB": 30.5
+},
+"ev": {
+"CO": 26.576,
+"BTN": 17.992,
+"SB": 29.11,
+"BB": 26.322
+}
+},
+"L": {
+"stacks": {
+"CO": 31.0,
+"BTN": 48.5,
+"SB": 36.5,
+"BB": 0
+},
+"ev": {
+"CO": 31.164,
+"BTN": 35.988,
+"SB": 32.848,
+"BB": 0.0
+}
+}
+},
+"id": 56
+},
+{
+"stacks": {
+"CO": 19,
+"BTN": 27,
+"SB": 13,
+"BB": 17
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Js",
+"Jh"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 293,
+"villainShown": [
+"Ah",
+"8c"
+],
+"eq": 0.6689,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 13,
+"dead": 0.0,
+"pot": 26.0,
+"call": 12.0,
+"chipThr": 0.4615,
+"icmThr": 0.5507,
+"rp": 0.0891,
+"F": 22.809,
+"W": 35.333,
+"L": 7.46,
+"scen": {
+"F": {
+"stacks": {
+"CO": 19.0,
+"BTN": 27.0,
+"SB": 14.0,
+"BB": 16.0
+},
+"ev": {
+"CO": 25.524,
+"BTN": 30.982,
+"SB": 20.685,
+"BB": 22.809
+}
+},
+"W": {
+"stacks": {
+"CO": 19.0,
+"BTN": 27.0,
+"SB": 0,
+"BB": 30.0
+},
+"ev": {
+"CO": 30.508,
+"BTN": 34.159,
+"SB": 0.0,
+"BB": 35.333
+}
+},
+"L": {
+"stacks": {
+"CO": 19.0,
+"BTN": 27.0,
+"SB": 26.0,
+"BB": 4
+},
+"ev": {
+"CO": 27.911,
+"BTN": 32.566,
+"SB": 32.064,
+"BB": 7.46
+}
+}
+},
+"id": 57
+},
+{
+"stacks": {
+"CO": 11,
+"BTN": 27,
+"SB": 14,
+"BB": 21
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Kh",
+"Ad"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 121,
+"villainShown": [
+"Ah",
+"8h"
+],
+"eq": 0.5792,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 21,
+"dead": 0.5,
+"pot": 42.5,
+"call": 20.0,
+"chipThr": 0.4706,
+"icmThr": 0.689,
+"rp": 0.2184,
+"F": 27.489,
+"W": 39.895,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 11.0,
+"BTN": 28.5,
+"SB": 13.5,
+"BB": 20.0
+},
+"ev": {
+"CO": 18.264,
+"BTN": 32.799,
+"SB": 21.449,
+"BB": 27.489
+}
+},
+"W": {
+"stacks": {
+"CO": 11.0,
+"BTN": 6,
+"SB": 13.5,
+"BB": 42.5
+},
+"ev": {
+"CO": 21.95,
+"BTN": 13.387,
+"SB": 24.768,
+"BB": 39.895
+}
+},
+"L": {
+"stacks": {
+"CO": 11.0,
+"BTN": 48.5,
+"SB": 13.5,
+"BB": 0
+},
+"ev": {
+"CO": 27.845,
+"BTN": 42.618,
+"SB": 29.537,
+"BB": 0.0
+}
+}
+},
+"id": 58
+},
+{
+"stacks": {
+"CO": 32,
+"BTN": 9,
+"SB": 35,
+"BB": 31
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"3s",
+"Ah"
+],
+"villainRange": "88+,ATs+,AQo+,KQs",
+"villainCombos": 73,
+"villainShown": [
+"Ac",
+"Qs"
+],
+"eq": 0.287,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 32,
+"dead": 1.0,
+"pot": 65.0,
+"call": 31.5,
+"chipThr": 0.4846,
+"icmThr": 0.6693,
+"rp": 0.1847,
+"F": 30.461,
+"W": 42.125,
+"L": 6.851,
+"scen": {
+"F": {
+"stacks": {
+"CO": 33.5,
+"BTN": 9.0,
+"SB": 34.5,
+"BB": 30.0
+},
+"ev": {
+"CO": 30.041,
+"BTN": 11.036,
+"SB": 30.461,
+"BB": 28.462
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 9.0,
+"SB": 68.0,
+"BB": 30.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 24.318,
+"SB": 42.125,
+"BB": 33.557
+}
+},
+"L": {
+"stacks": {
+"CO": 65.0,
+"BTN": 9.0,
+"SB": 3,
+"BB": 30.0
+},
+"ev": {
+"CO": 41.195,
+"BTN": 19.553,
+"SB": 6.851,
+"BB": 32.401
+}
+}
+},
+"id": 59
+},
+{
+"stacks": {
+"CO": 23,
+"BTN": 34,
+"SB": 16,
+"BB": 16
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"6c",
+"6d"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 313,
+"villainShown": [
+"Ad",
+"Th"
+],
+"eq": 0.5193,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 16,
+"dead": 0.0,
+"pot": 32.0,
+"call": 15.0,
+"chipThr": 0.4688,
+"icmThr": 0.5744,
+"rp": 0.1056,
+"F": 19.68,
+"W": 34.262,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 23.0,
+"BTN": 34.0,
+"SB": 17.0,
+"BB": 15.0
+},
+"ev": {
+"CO": 26.36,
+"BTN": 32.313,
+"SB": 21.648,
+"BB": 19.68
+}
+},
+"W": {
+"stacks": {
+"CO": 23.0,
+"BTN": 34.0,
+"SB": 0,
+"BB": 32.0
+},
+"ev": {
+"CO": 30.801,
+"BTN": 34.937,
+"SB": 0.0,
+"BB": 34.262
+}
+},
+"L": {
+"stacks": {
+"CO": 23.0,
+"BTN": 34.0,
+"SB": 32.0,
+"BB": 0
+},
+"ev": {
+"CO": 30.801,
+"BTN": 34.937,
+"SB": 34.262,
+"BB": 0.0
+}
+}
+},
+"id": 60
+},
+{
+"stacks": {
+"CO": 13,
+"BTN": 30,
+"SB": 12,
+"BB": 12
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"8s",
+"Kh"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 238,
+"villainShown": [
+"Ac",
+"Qd"
+],
+"eq": 0.3394,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 0.5,
+"pot": 24.5,
+"call": 11.0,
+"chipThr": 0.449,
+"icmThr": 0.5818,
+"rp": 0.1328,
+"F": 20.004,
+"W": 34.383,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 14.5,
+"BTN": 30.0,
+"SB": 11.5,
+"BB": 11.0
+},
+"ev": {
+"CO": 24.251,
+"BTN": 35.054,
+"SB": 20.691,
+"BB": 20.004
+}
+},
+"W": {
+"stacks": {
+"CO": 1,
+"BTN": 30.0,
+"SB": 11.5,
+"BB": 24.5
+},
+"ev": {
+"CO": 2.642,
+"BTN": 36.767,
+"SB": 26.207,
+"BB": 34.383
+}
+},
+"L": {
+"stacks": {
+"CO": 25.5,
+"BTN": 30.0,
+"SB": 11.5,
+"BB": 0
+},
+"ev": {
+"CO": 35.292,
+"BTN": 37.112,
+"SB": 27.596,
+"BB": 0.0
+}
+}
+},
+"id": 61
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 18,
+"SB": 40,
+"BB": 32
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Ad",
+"As"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 191,
+"villainShown": [
+"Ac",
+"7s"
+],
+"eq": 0.8524,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 1.0,
+"pot": 25.0,
+"call": 11.5,
+"chipThr": 0.46,
+"icmThr": 0.4981,
+"rp": 0.0381,
+"F": 32.867,
+"W": 38.97,
+"L": 26.808,
+"scen": {
+"F": {
+"stacks": {
+"CO": 13.5,
+"BTN": 18.0,
+"SB": 39.5,
+"BB": 31.0
+},
+"ev": {
+"CO": 16.712,
+"BTN": 21.117,
+"SB": 32.867,
+"BB": 29.305
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 18.0,
+"SB": 53.0,
+"BB": 31.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 27.973,
+"SB": 38.97,
+"BB": 33.056
+}
+},
+"L": {
+"stacks": {
+"CO": 25.0,
+"BTN": 18.0,
+"SB": 28,
+"BB": 31.0
+},
+"ev": {
+"CO": 25.017,
+"BTN": 19.769,
+"SB": 26.808,
+"BB": 28.406
+}
+}
+},
+"id": 62
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 19,
+"SB": 32,
+"BB": 35
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"6s",
+"6h"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 255,
+"villainShown": [
+"Ad",
+"Ks"
+],
+"eq": 0.5047,
+"cat": "call",
+"margChip": false,
+"margIcm": true,
+"eff": 12,
+"dead": 0.5,
+"pot": 24.5,
+"call": 11.0,
+"chipThr": 0.449,
+"icmThr": 0.4919,
+"rp": 0.0429,
+"F": 31.026,
+"W": 38.002,
+"L": 24.272,
+"scen": {
+"F": {
+"stacks": {
+"CO": 13.5,
+"BTN": 19.0,
+"SB": 31.5,
+"BB": 34.0
+},
+"ev": {
+"CO": 16.899,
+"BTN": 22.19,
+"SB": 29.885,
+"BB": 31.026
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 19.0,
+"SB": 31.5,
+"BB": 47.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 28.558,
+"SB": 33.439,
+"BB": 38.002
+}
+},
+"L": {
+"stacks": {
+"CO": 24.5,
+"BTN": 19.0,
+"SB": 31.5,
+"BB": 23
+},
+"ev": {
+"CO": 25.278,
+"BTN": 21.21,
+"SB": 29.24,
+"BB": 24.272
+}
+}
+},
+"id": 63
+},
+{
+"stacks": {
+"CO": 21,
+"BTN": 16,
+"SB": 8,
+"BB": 16
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Qd",
+"Kc"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 379,
+"villainShown": [
+"Ac",
+"5c"
+],
+"eq": 0.4886,
+"cat": "premium",
+"margChip": false,
+"margIcm": true,
+"eff": 8,
+"dead": 0.0,
+"pot": 16.0,
+"call": 7.0,
+"chipThr": 0.4375,
+"icmThr": 0.4932,
+"rp": 0.0557,
+"F": 25.461,
+"W": 35.268,
+"L": 15.918,
+"scen": {
+"F": {
+"stacks": {
+"CO": 21.0,
+"BTN": 16.0,
+"SB": 9.0,
+"BB": 15.0
+},
+"ev": {
+"CO": 30.633,
+"BTN": 26.462,
+"SB": 17.444,
+"BB": 25.461
+}
+},
+"W": {
+"stacks": {
+"CO": 21.0,
+"BTN": 16.0,
+"SB": 0,
+"BB": 24.0
+},
+"ev": {
+"CO": 33.785,
+"BTN": 30.947,
+"SB": 0.0,
+"BB": 35.268
+}
+},
+"L": {
+"stacks": {
+"CO": 21.0,
+"BTN": 16.0,
+"SB": 16.0,
+"BB": 8
+},
+"ev": {
+"CO": 30.775,
+"BTN": 26.653,
+"SB": 26.653,
+"BB": 15.918
+}
+}
+},
+"id": 64
+},
+{
+"stacks": {
+"CO": 34,
+"BTN": 11,
+"SB": 12,
+"BB": 28
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"6s",
+"6c"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 329,
+"villainShown": [
+"8s",
+"8d"
+],
+"eq": 0.5238,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 11,
+"dead": 0.5,
+"pot": 22.5,
+"call": 10.0,
+"chipThr": 0.4444,
+"icmThr": 0.4939,
+"rp": 0.0494,
+"F": 30.211,
+"W": 37.766,
+"L": 22.838,
+"scen": {
+"F": {
+"stacks": {
+"CO": 34.0,
+"BTN": 12.5,
+"SB": 11.5,
+"BB": 27.0
+},
+"ev": {
+"CO": 33.539,
+"BTN": 18.756,
+"SB": 17.494,
+"BB": 30.211
+}
+},
+"W": {
+"stacks": {
+"CO": 34.0,
+"BTN": 0,
+"SB": 11.5,
+"BB": 39.5
+},
+"ev": {
+"CO": 36.098,
+"BTN": 0.0,
+"SB": 26.135,
+"BB": 37.766
+}
+},
+"L": {
+"stacks": {
+"CO": 34.0,
+"BTN": 22.5,
+"SB": 11.5,
+"BB": 17
+},
+"ev": {
+"CO": 33.248,
+"BTN": 27.105,
+"SB": 16.81,
+"BB": 22.838
+}
+}
+},
+"id": 65
+},
+{
+"stacks": {
+"CO": 37,
+"BTN": 28,
+"SB": 31,
+"BB": 12
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"8c",
+"Ad"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 364,
+"villainShown": [
+"Ah",
+"Qd"
+],
+"eq": 0.497,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 0.0,
+"pot": 24.0,
+"call": 11.0,
+"chipThr": 0.4583,
+"icmThr": 0.5504,
+"rp": 0.0921,
+"F": 13.006,
+"W": 23.63,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 37.0,
+"BTN": 28.0,
+"SB": 32.0,
+"BB": 11.0
+},
+"ev": {
+"CO": 31.07,
+"BTN": 26.978,
+"SB": 28.946,
+"BB": 13.006
+}
+},
+"W": {
+"stacks": {
+"CO": 37.0,
+"BTN": 28.0,
+"SB": 19,
+"BB": 24.0
+},
+"ev": {
+"CO": 30.395,
+"BTN": 26.062,
+"SB": 19.914,
+"BB": 23.63
+}
+},
+"L": {
+"stacks": {
+"CO": 37.0,
+"BTN": 28.0,
+"SB": 43.0,
+"BB": 0
+},
+"ev": {
+"CO": 33.743,
+"BTN": 30.844,
+"SB": 35.413,
+"BB": 0.0
+}
+}
+},
+"id": 66
+},
+{
+"stacks": {
+"CO": 36,
+"BTN": 29,
+"SB": 23,
+"BB": 27
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Ac",
+"9d"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 129,
+"villainShown": [
+"As",
+"Ks"
+],
+"eq": 0.363,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 27,
+"dead": 0.5,
+"pot": 54.5,
+"call": 26.0,
+"chipThr": 0.4771,
+"icmThr": 0.6332,
+"rp": 0.1562,
+"F": 23.655,
+"W": 37.357,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 36.0,
+"BTN": 30.5,
+"SB": 22.5,
+"BB": 26.0
+},
+"ev": {
+"CO": 28.811,
+"BTN": 26.198,
+"SB": 21.335,
+"BB": 23.655
+}
+},
+"W": {
+"stacks": {
+"CO": 36.0,
+"BTN": 2,
+"SB": 22.5,
+"BB": 54.5
+},
+"ev": {
+"CO": 32.444,
+"BTN": 2.941,
+"SB": 27.259,
+"BB": 37.357
+}
+},
+"L": {
+"stacks": {
+"CO": 36.0,
+"BTN": 56.5,
+"SB": 22.5,
+"BB": 0
+},
+"ev": {
+"CO": 33.176,
+"BTN": 38.173,
+"SB": 28.651,
+"BB": 0.0
+}
+}
+},
+"id": 67
+},
+{
+"stacks": {
+"CO": 35,
+"BTN": 31,
+"SB": 39,
+"BB": 9
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"7c",
+"Ah"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 368,
+"villainShown": [
+"Ad",
+"4s"
+],
+"eq": 0.4741,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 0.0,
+"pot": 18.0,
+"call": 8.0,
+"chipThr": 0.4444,
+"icmThr": 0.5219,
+"rp": 0.0775,
+"F": 9.503,
+"W": 18.207,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 35.0,
+"BTN": 31.0,
+"SB": 40.0,
+"BB": 8.0
+},
+"ev": {
+"CO": 30.11,
+"BTN": 28.425,
+"SB": 31.962,
+"BB": 9.503
+}
+},
+"W": {
+"stacks": {
+"CO": 35.0,
+"BTN": 31.0,
+"SB": 30,
+"BB": 18.0
+},
+"ev": {
+"CO": 28.694,
+"BTN": 26.806,
+"SB": 26.293,
+"BB": 18.207
+}
+},
+"L": {
+"stacks": {
+"CO": 35.0,
+"BTN": 31.0,
+"SB": 48.0,
+"BB": 0
+},
+"ev": {
+"CO": 32.59,
+"BTN": 31.34,
+"SB": 36.07,
+"BB": 0.0
+}
+}
+},
+"id": 68
+},
+{
+"stacks": {
+"CO": 26,
+"BTN": 37,
+"SB": 18,
+"BB": 8
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"8s",
+"8d"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 249,
+"villainShown": [
+"As",
+"Jd"
+],
+"eq": 0.5528,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.5184,
+"rp": 0.0941,
+"F": 11.064,
+"W": 21.342,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 27.5,
+"BTN": 37.0,
+"SB": 17.5,
+"BB": 7.0
+},
+"ev": {
+"CO": 30.383,
+"BTN": 34.48,
+"SB": 24.073,
+"BB": 11.064
+}
+},
+"W": {
+"stacks": {
+"CO": 18,
+"BTN": 37.0,
+"SB": 17.5,
+"BB": 16.5
+},
+"ev": {
+"CO": 22.704,
+"BTN": 33.689,
+"SB": 22.264,
+"BB": 21.342
+}
+},
+"L": {
+"stacks": {
+"CO": 34.5,
+"BTN": 37.0,
+"SB": 17.5,
+"BB": 0
+},
+"ev": {
+"CO": 35.336,
+"BTN": 36.121,
+"SB": 28.543,
+"BB": 0.0
+}
+}
+},
+"id": 69
+},
+{
+"stacks": {
+"CO": 30,
+"BTN": 9,
+"SB": 24,
+"BB": 30
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Qc",
+"Ac"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 281,
+"villainShown": [
+"Ad",
+"7s"
+],
+"eq": 0.6134,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 0.5,
+"pot": 18.5,
+"call": 8.0,
+"chipThr": 0.4324,
+"icmThr": 0.4667,
+"rp": 0.0343,
+"F": 29.507,
+"W": 36.201,
+"L": 23.649,
+"scen": {
+"F": {
+"stacks": {
+"CO": 30.0,
+"BTN": 10.5,
+"SB": 23.5,
+"BB": 29.0
+},
+"ev": {
+"CO": 30.01,
+"BTN": 14.118,
+"SB": 26.364,
+"BB": 29.507
+}
+},
+"W": {
+"stacks": {
+"CO": 30.0,
+"BTN": 0,
+"SB": 23.5,
+"BB": 39.5
+},
+"ev": {
+"CO": 33.15,
+"BTN": 0.0,
+"SB": 30.65,
+"BB": 36.201
+}
+},
+"L": {
+"stacks": {
+"CO": 30.0,
+"BTN": 18.5,
+"SB": 23.5,
+"BB": 21
+},
+"ev": {
+"CO": 29.292,
+"BTN": 21.616,
+"SB": 25.443,
+"BB": 23.649
+}
+}
+},
+"id": 70
+},
+{
+"stacks": {
+"CO": 8,
+"BTN": 16,
+"SB": 19,
+"BB": 19
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Ah",
+"6s"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 222,
+"villainShown": [
+"As",
+"Qs"
+],
+"eq": 0.3836,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 1.0,
+"pot": 17.0,
+"call": 7.5,
+"chipThr": 0.4412,
+"icmThr": 0.4946,
+"rp": 0.0535,
+"F": 28.294,
+"W": 36.967,
+"L": 19.804,
+"scen": {
+"F": {
+"stacks": {
+"CO": 9.5,
+"BTN": 16.0,
+"SB": 18.5,
+"BB": 18.0
+},
+"ev": {
+"CO": 17.802,
+"BTN": 26.035,
+"SB": 28.294,
+"BB": 27.869
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 16.0,
+"SB": 28.0,
+"BB": 18.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 30.923,
+"SB": 36.967,
+"BB": 32.11
+}
+},
+"L": {
+"stacks": {
+"CO": 17.0,
+"BTN": 16.0,
+"SB": 11,
+"BB": 18.0
+},
+"ev": {
+"CO": 26.751,
+"BTN": 25.793,
+"SB": 19.804,
+"BB": 27.652
+}
+}
+},
+"id": 71
+},
+{
+"stacks": {
+"CO": 13,
+"BTN": 10,
+"SB": 26,
+"BB": 32
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"5c",
+"5s"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 329,
+"villainShown": [
+"Ah",
+"7s"
+],
+"eq": 0.5041,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 10,
+"dead": 0.5,
+"pot": 20.5,
+"call": 9.0,
+"chipThr": 0.439,
+"icmThr": 0.4784,
+"rp": 0.0394,
+"F": 32.702,
+"W": 39.155,
+"L": 26.784,
+"scen": {
+"F": {
+"stacks": {
+"CO": 13.0,
+"BTN": 11.5,
+"SB": 25.5,
+"BB": 31.0
+},
+"ev": {
+"CO": 19.672,
+"BTN": 17.792,
+"SB": 29.834,
+"BB": 32.702
+}
+},
+"W": {
+"stacks": {
+"CO": 13.0,
+"BTN": 0,
+"SB": 25.5,
+"BB": 42.5
+},
+"ev": {
+"CO": 27.324,
+"BTN": 0.0,
+"SB": 33.522,
+"BB": 39.155
+}
+},
+"L": {
+"stacks": {
+"CO": 13.0,
+"BTN": 20.5,
+"SB": 25.5,
+"BB": 22
+},
+"ev": {
+"CO": 18.458,
+"BTN": 25.678,
+"SB": 29.08,
+"BB": 26.784
+}
+}
+},
+"id": 72
+},
+{
+"stacks": {
+"CO": 14,
+"BTN": 8,
+"SB": 14,
+"BB": 12
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"7s",
+"7c"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 327,
+"villainShown": [
+"4s",
+"4d"
+],
+"eq": 0.5447,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.508,
+"rp": 0.0838,
+"F": 23.814,
+"W": 36.242,
+"L": 10.979,
+"scen": {
+"F": {
+"stacks": {
+"CO": 14.0,
+"BTN": 9.5,
+"SB": 13.5,
+"BB": 11.0
+},
+"ev": {
+"CO": 27.652,
+"BTN": 21.457,
+"SB": 27.077,
+"BB": 23.814
+}
+},
+"W": {
+"stacks": {
+"CO": 14.0,
+"BTN": 0,
+"SB": 13.5,
+"BB": 20.5
+},
+"ev": {
+"CO": 32.066,
+"BTN": 0.0,
+"SB": 31.692,
+"BB": 36.242
+}
+},
+"L": {
+"stacks": {
+"CO": 14.0,
+"BTN": 16.5,
+"SB": 13.5,
+"BB": 4
+},
+"ev": {
+"CO": 29.067,
+"BTN": 31.407,
+"SB": 28.547,
+"BB": 10.979
+}
+}
+},
+"id": 73
+},
+{
+"stacks": {
+"CO": 33,
+"BTN": 40,
+"SB": 15,
+"BB": 30
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ac",
+"Qd"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 268,
+"villainShown": [
+"Kc",
+"8c"
+],
+"eq": 0.5883,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 15,
+"dead": 0.0,
+"pot": 30.0,
+"call": 14.0,
+"chipThr": 0.4667,
+"icmThr": 0.5203,
+"rp": 0.0536,
+"F": 25.592,
+"W": 34.877,
+"L": 15.521,
+"scen": {
+"F": {
+"stacks": {
+"CO": 33.0,
+"BTN": 40.0,
+"SB": 16.0,
+"BB": 29.0
+},
+"ev": {
+"CO": 27.575,
+"BTN": 30.497,
+"SB": 16.336,
+"BB": 25.592
+}
+},
+"W": {
+"stacks": {
+"CO": 33.0,
+"BTN": 40.0,
+"SB": 0,
+"BB": 45.0
+},
+"ev": {
+"CO": 31.548,
+"BTN": 33.575,
+"SB": 0.0,
+"BB": 34.877
+}
+},
+"L": {
+"stacks": {
+"CO": 33.0,
+"BTN": 40.0,
+"SB": 30.0,
+"BB": 15
+},
+"ev": {
+"CO": 27.676,
+"BTN": 30.578,
+"SB": 26.225,
+"BB": 15.521
+}
+}
+},
+"id": 74
+},
+{
+"stacks": {
+"CO": 37,
+"BTN": 11,
+"SB": 26,
+"BB": 31
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"Kc",
+"Qc"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 304,
+"villainShown": [
+"Qd",
+"Jd"
+],
+"eq": 0.4926,
+"cat": "premium",
+"margChip": false,
+"margIcm": true,
+"eff": 11,
+"dead": 1.0,
+"pot": 23.0,
+"call": 10.5,
+"chipThr": 0.4565,
+"icmThr": 0.5004,
+"rp": 0.0439,
+"F": 25.721,
+"W": 34.274,
+"L": 17.153,
+"scen": {
+"F": {
+"stacks": {
+"CO": 37.0,
+"BTN": 12.5,
+"SB": 25.5,
+"BB": 30.0
+},
+"ev": {
+"CO": 31.294,
+"BTN": 14.816,
+"SB": 25.721,
+"BB": 28.169
+}
+},
+"W": {
+"stacks": {
+"CO": 37.0,
+"BTN": 0,
+"SB": 38.0,
+"BB": 30.0
+},
+"ev": {
+"CO": 33.98,
+"BTN": 0.0,
+"SB": 34.274,
+"BB": 31.747
+}
+},
+"L": {
+"stacks": {
+"CO": 37.0,
+"BTN": 23.0,
+"SB": 15,
+"BB": 30.0
+},
+"ev": {
+"CO": 31.1,
+"BTN": 23.828,
+"SB": 17.153,
+"BB": 27.92
+}
+}
+},
+"id": 75
+},
+{
+"stacks": {
+"CO": 9,
+"BTN": 24,
+"SB": 20,
+"BB": 8
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"As",
+"2s"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 369,
+"villainShown": [
+"Qs",
+"Qd"
+],
+"eq": 0.4597,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 0.0,
+"pot": 16.0,
+"call": 7.0,
+"chipThr": 0.4375,
+"icmThr": 0.5809,
+"rp": 0.1434,
+"F": 15.573,
+"W": 26.808,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 9.0,
+"BTN": 24.0,
+"SB": 21.0,
+"BB": 7.0
+},
+"ev": {
+"CO": 19.306,
+"BTN": 33.505,
+"SB": 31.616,
+"BB": 15.573
+}
+},
+"W": {
+"stacks": {
+"CO": 9.0,
+"BTN": 24.0,
+"SB": 12,
+"BB": 16.0
+},
+"ev": {
+"CO": 17.908,
+"BTN": 32.901,
+"SB": 22.383,
+"BB": 26.808
+}
+},
+"L": {
+"stacks": {
+"CO": 9.0,
+"BTN": 24.0,
+"SB": 28.0,
+"BB": 0
+},
+"ev": {
+"CO": 26.635,
+"BTN": 35.823,
+"SB": 37.542,
+"BB": 0.0
+}
+}
+},
+"id": 76
+},
+{
+"stacks": {
+"CO": 28,
+"BTN": 30,
+"SB": 33,
+"BB": 33
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"2s",
+"6h"
+],
+"villainRange": "77+,A9s+,AJo+,KQs",
+"villainCombos": 108,
+"villainShown": [
+"As",
+"Ad"
+],
+"eq": 0.2398,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 28,
+"dead": 0.5,
+"pot": 56.5,
+"call": 27.0,
+"chipThr": 0.4779,
+"icmThr": 0.6042,
+"rp": 0.1264,
+"F": 25.525,
+"W": 38.224,
+"L": 6.137,
+"scen": {
+"F": {
+"stacks": {
+"CO": 29.5,
+"BTN": 30.0,
+"SB": 32.5,
+"BB": 32.0
+},
+"ev": {
+"CO": 24.215,
+"BTN": 24.486,
+"SB": 25.774,
+"BB": 25.525
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 30.0,
+"SB": 32.5,
+"BB": 61.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 30.498,
+"SB": 31.278,
+"BB": 38.224
+}
+},
+"L": {
+"stacks": {
+"CO": 56.5,
+"BTN": 30.0,
+"SB": 32.5,
+"BB": 5
+},
+"ev": {
+"CO": 36.314,
+"BTN": 28.274,
+"SB": 29.275,
+"BB": 6.137
+}
+}
+},
+"id": 77
+},
+{
+"stacks": {
+"CO": 38,
+"BTN": 16,
+"SB": 12,
+"BB": 24
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"Td",
+"Th"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 315,
+"villainShown": [
+"Ks",
+"Qd"
+],
+"eq": 0.633,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 1.0,
+"pot": 25.0,
+"call": 11.5,
+"chipThr": 0.46,
+"icmThr": 0.5483,
+"rp": 0.0883,
+"F": 16.286,
+"W": 29.704,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 38.0,
+"BTN": 17.5,
+"SB": 11.5,
+"BB": 23.0
+},
+"ev": {
+"CO": 34.197,
+"BTN": 22.7,
+"SB": 16.286,
+"BB": 26.818
+}
+},
+"W": {
+"stacks": {
+"CO": 38.0,
+"BTN": 4,
+"SB": 25.0,
+"BB": 23.0
+},
+"ev": {
+"CO": 35.126,
+"BTN": 6.534,
+"SB": 29.704,
+"BB": 28.637
+}
+},
+"L": {
+"stacks": {
+"CO": 38.0,
+"BTN": 29.0,
+"SB": 0,
+"BB": 23.0
+},
+"ev": {
+"CO": 36.123,
+"BTN": 33.128,
+"SB": 0.0,
+"BB": 30.749
+}
+}
+},
+"id": 78
+},
+{
+"stacks": {
+"CO": 32,
+"BTN": 32,
+"SB": 18,
+"BB": 26
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Tc",
+"9d"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 152,
+"villainShown": [
+"Ac",
+"Jd"
+],
+"eq": 0.3359,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 18,
+"dead": 1.0,
+"pot": 37.0,
+"call": 17.5,
+"chipThr": 0.473,
+"icmThr": 0.6063,
+"rp": 0.1333,
+"F": 18.649,
+"W": 30.759,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 33.5,
+"BTN": 32.0,
+"SB": 17.5,
+"BB": 25.0
+},
+"ev": {
+"CO": 28.877,
+"BTN": 28.168,
+"SB": 18.649,
+"BB": 24.306
+}
+},
+"W": {
+"stacks": {
+"CO": 14,
+"BTN": 32.0,
+"SB": 37.0,
+"BB": 25.0
+},
+"ev": {
+"CO": 15.849,
+"BTN": 28.576,
+"SB": 30.759,
+"BB": 24.816
+}
+},
+"L": {
+"stacks": {
+"CO": 51.0,
+"BTN": 32.0,
+"SB": 0,
+"BB": 25.0
+},
+"ev": {
+"CO": 37.577,
+"BTN": 32.432,
+"SB": 0.0,
+"BB": 29.99
+}
+}
+},
+"id": 79
+},
+{
+"stacks": {
+"CO": 37,
+"BTN": 32,
+"SB": 28,
+"BB": 15
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Td",
+"Ac"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 271,
+"villainShown": [
+"Ah",
+"Qc"
+],
+"eq": 0.5277,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 15,
+"dead": 0.0,
+"pot": 30.0,
+"call": 14.0,
+"chipThr": 0.4667,
+"icmThr": 0.5627,
+"rp": 0.0961,
+"F": 15.285,
+"W": 27.163,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 37.0,
+"BTN": 32.0,
+"SB": 29.0,
+"BB": 14.0
+},
+"ev": {
+"CO": 30.195,
+"BTN": 28.007,
+"SB": 26.512,
+"BB": 15.285
+}
+},
+"W": {
+"stacks": {
+"CO": 37.0,
+"BTN": 32.0,
+"SB": 13,
+"BB": 30.0
+},
+"ev": {
+"CO": 30.302,
+"BTN": 28.133,
+"SB": 14.402,
+"BB": 27.163
+}
+},
+"L": {
+"stacks": {
+"CO": 37.0,
+"BTN": 32.0,
+"SB": 43.0,
+"BB": 0
+},
+"ev": {
+"CO": 33.291,
+"BTN": 31.761,
+"SB": 34.948,
+"BB": 0.0
+}
+}
+},
+"id": 80
+},
+{
+"stacks": {
+"CO": 13,
+"BTN": 35,
+"SB": 16,
+"BB": 38
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"4c",
+"4h"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 319,
+"villainShown": [
+"Ad",
+"Qs"
+],
+"eq": 0.4748,
+"cat": "premium",
+"margChip": true,
+"margIcm": false,
+"eff": 16,
+"dead": 0.0,
+"pot": 32.0,
+"call": 15.0,
+"chipThr": 0.4688,
+"icmThr": 0.5235,
+"rp": 0.0548,
+"F": 32.004,
+"W": 39.421,
+"L": 23.854,
+"scen": {
+"F": {
+"stacks": {
+"CO": 13.0,
+"BTN": 35.0,
+"SB": 17.0,
+"BB": 37.0
+},
+"ev": {
+"CO": 16.363,
+"BTN": 31.195,
+"SB": 20.439,
+"BB": 32.004
+}
+},
+"W": {
+"stacks": {
+"CO": 13.0,
+"BTN": 35.0,
+"SB": 0,
+"BB": 54.0
+},
+"ev": {
+"CO": 25.923,
+"BTN": 34.656,
+"SB": 0.0,
+"BB": 39.421
+}
+},
+"L": {
+"stacks": {
+"CO": 13.0,
+"BTN": 35.0,
+"SB": 32.0,
+"BB": 22
+},
+"ev": {
+"CO": 15.75,
+"BTN": 30.867,
+"SB": 29.529,
+"BB": 23.854
+}
+}
+},
+"id": 81
+},
+{
+"stacks": {
+"CO": 15,
+"BTN": 36,
+"SB": 15,
+"BB": 37
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"9d",
+"9c"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 157,
+"villainShown": [
+"Ac",
+"Kd"
+],
+"eq": 0.5247,
+"cat": "call",
+"margChip": false,
+"margIcm": true,
+"eff": 15,
+"dead": 0.5,
+"pot": 30.5,
+"call": 14.0,
+"chipThr": 0.459,
+"icmThr": 0.5118,
+"rp": 0.0528,
+"F": 31.359,
+"W": 38.865,
+"L": 23.49,
+"scen": {
+"F": {
+"stacks": {
+"CO": 16.5,
+"BTN": 36.0,
+"SB": 14.5,
+"BB": 36.0
+},
+"ev": {
+"CO": 19.631,
+"BTN": 31.359,
+"SB": 17.651,
+"BB": 31.359
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 36.0,
+"SB": 14.5,
+"BB": 52.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 34.692,
+"SB": 26.443,
+"BB": 38.865
+}
+},
+"L": {
+"stacks": {
+"CO": 30.5,
+"BTN": 36.0,
+"SB": 14.5,
+"BB": 22
+},
+"ev": {
+"CO": 28.506,
+"BTN": 31.011,
+"SB": 16.993,
+"BB": 23.49
+}
+}
+},
+"id": 82
+},
+{
+"stacks": {
+"CO": 28,
+"BTN": 23,
+"SB": 30,
+"BB": 33
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Qc",
+"Ad"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 122,
+"villainShown": [
+"Js",
+"Jh"
+],
+"eq": 0.5214,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 23,
+"dead": 0.5,
+"pot": 46.5,
+"call": 22.0,
+"chipThr": 0.4731,
+"icmThr": 0.573,
+"rp": 0.0999,
+"F": 26.931,
+"W": 38.212,
+"L": 11.793,
+"scen": {
+"F": {
+"stacks": {
+"CO": 28.0,
+"BTN": 24.5,
+"SB": 29.5,
+"BB": 32.0
+},
+"ev": {
+"CO": 24.795,
+"BTN": 22.642,
+"SB": 25.632,
+"BB": 26.931
+}
+},
+"W": {
+"stacks": {
+"CO": 28.0,
+"BTN": 0,
+"SB": 29.5,
+"BB": 56.5
+},
+"ev": {
+"CO": 30.639,
+"BTN": 0.0,
+"SB": 31.148,
+"BB": 38.212
+}
+},
+"L": {
+"stacks": {
+"CO": 28.0,
+"BTN": 46.5,
+"SB": 29.5,
+"BB": 10
+},
+"ev": {
+"CO": 26.751,
+"BTN": 33.957,
+"SB": 27.499,
+"BB": 11.793
+}
+}
+},
+"id": 83
+},
+{
+"stacks": {
+"CO": 22,
+"BTN": 19,
+"SB": 35,
+"BB": 27
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"5s",
+"9d"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 202,
+"villainShown": [
+"7s",
+"7h"
+],
+"eq": 0.2922,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 27,
+"dead": 0.0,
+"pot": 54.0,
+"call": 26.0,
+"chipThr": 0.4815,
+"icmThr": 0.6724,
+"rp": 0.1909,
+"F": 25.639,
+"W": 38.13,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 22.0,
+"BTN": 19.0,
+"SB": 36.0,
+"BB": 26.0
+},
+"ev": {
+"CO": 22.997,
+"BTN": 20.662,
+"SB": 30.702,
+"BB": 25.639
+}
+},
+"W": {
+"stacks": {
+"CO": 22.0,
+"BTN": 19.0,
+"SB": 8,
+"BB": 54.0
+},
+"ev": {
+"CO": 26.035,
+"BTN": 24.014,
+"SB": 11.821,
+"BB": 38.13
+}
+},
+"L": {
+"stacks": {
+"CO": 22.0,
+"BTN": 19.0,
+"SB": 62.0,
+"BB": 0
+},
+"ev": {
+"CO": 30.121,
+"BTN": 28.824,
+"SB": 41.055,
+"BB": 0.0
+}
+}
+},
+"id": 84
+},
+{
+"stacks": {
+"CO": 20,
+"BTN": 9,
+"SB": 23,
+"BB": 21
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"7c",
+"Ad"
+],
+"villainRange": "22+,A2s+,A4o+,K7s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 290,
+"villainShown": [
+"Ac",
+"Qs"
+],
+"eq": 0.444,
+"cat": "premium",
+"margChip": true,
+"margIcm": false,
+"eff": 9,
+"dead": 0.5,
+"pot": 18.5,
+"call": 8.0,
+"chipThr": 0.4324,
+"icmThr": 0.4826,
+"rp": 0.0501,
+"F": 27.072,
+"W": 35.972,
+"L": 18.771,
+"scen": {
+"F": {
+"stacks": {
+"CO": 20.0,
+"BTN": 10.5,
+"SB": 22.5,
+"BB": 20.0
+},
+"ev": {
+"CO": 27.072,
+"BTN": 16.969,
+"SB": 28.887,
+"BB": 27.072
+}
+},
+"W": {
+"stacks": {
+"CO": 20.0,
+"BTN": 0,
+"SB": 22.5,
+"BB": 30.5
+},
+"ev": {
+"CO": 31.406,
+"BTN": 0.0,
+"SB": 32.622,
+"BB": 35.972
+}
+},
+"L": {
+"stacks": {
+"CO": 20.0,
+"BTN": 18.5,
+"SB": 22.5,
+"BB": 12
+},
+"ev": {
+"CO": 26.872,
+"BTN": 25.648,
+"SB": 28.709,
+"BB": 18.771
+}
+}
+},
+"id": 85
+},
+{
+"stacks": {
+"CO": 29,
+"BTN": 16,
+"SB": 12,
+"BB": 31
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"4d",
+"Kd"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 223,
+"villainShown": [
+"Ks",
+"Qs"
+],
+"eq": 0.3567,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 16,
+"dead": 0.5,
+"pot": 32.5,
+"call": 15.0,
+"chipThr": 0.4615,
+"icmThr": 0.5346,
+"rp": 0.0731,
+"F": 30.815,
+"W": 39.658,
+"L": 20.658,
+"scen": {
+"F": {
+"stacks": {
+"CO": 29.0,
+"BTN": 17.5,
+"SB": 11.5,
+"BB": 30.0
+},
+"ev": {
+"CO": 30.311,
+"BTN": 22.671,
+"SB": 16.203,
+"BB": 30.815
+}
+},
+"W": {
+"stacks": {
+"CO": 29.0,
+"BTN": 0,
+"SB": 11.5,
+"BB": 47.5
+},
+"ev": {
+"CO": 34.247,
+"BTN": 0.0,
+"SB": 26.095,
+"BB": 39.658
+}
+},
+"L": {
+"stacks": {
+"CO": 29.0,
+"BTN": 32.5,
+"SB": 11.5,
+"BB": 15
+},
+"ev": {
+"CO": 30.536,
+"BTN": 32.204,
+"SB": 16.603,
+"BB": 20.658
+}
+}
+},
+"id": 86
+},
+{
+"stacks": {
+"CO": 11,
+"BTN": 18,
+"SB": 11,
+"BB": 8
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Kc",
+"Jd"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 233,
+"villainShown": [
+"Ac",
+"7s"
+],
+"eq": 0.4022,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.5473,
+"rp": 0.1231,
+"F": 17.524,
+"W": 32.019,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 12.5,
+"BTN": 18.0,
+"SB": 10.5,
+"BB": 7.0
+},
+"ev": {
+"CO": 26.546,
+"BTN": 32.074,
+"SB": 23.855,
+"BB": 17.524
+}
+},
+"W": {
+"stacks": {
+"CO": 3,
+"BTN": 18.0,
+"SB": 10.5,
+"BB": 16.5
+},
+"ev": {
+"CO": 8.876,
+"BTN": 33.195,
+"SB": 25.91,
+"BB": 32.019
+}
+},
+"L": {
+"stacks": {
+"CO": 19.5,
+"BTN": 18.0,
+"SB": 10.5,
+"BB": 0
+},
+"ev": {
+"CO": 35.763,
+"BTN": 34.866,
+"SB": 29.372,
+"BB": 0.0
+}
+}
+},
+"id": 87
+},
+{
+"stacks": {
+"CO": 16,
+"BTN": 40,
+"SB": 40,
+"BB": 37
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Td",
+"Tc"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 149,
+"villainShown": [
+"Ad",
+"Qc"
+],
+"eq": 0.5664,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 16,
+"dead": 1.0,
+"pot": 33.0,
+"call": 15.5,
+"chipThr": 0.4697,
+"icmThr": 0.5171,
+"rp": 0.0474,
+"F": 28.461,
+"W": 36.291,
+"L": 20.075,
+"scen": {
+"F": {
+"stacks": {
+"CO": 17.5,
+"BTN": 40.0,
+"SB": 39.5,
+"BB": 36.0
+},
+"ev": {
+"CO": 15.843,
+"BTN": 28.652,
+"SB": 28.461,
+"BB": 27.043
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 40.0,
+"SB": 57.0,
+"BB": 36.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 32.394,
+"SB": 36.291,
+"BB": 31.315
+}
+},
+"L": {
+"stacks": {
+"CO": 33.0,
+"BTN": 40.0,
+"SB": 24,
+"BB": 36.0
+},
+"ev": {
+"CO": 25.17,
+"BTN": 28.207,
+"SB": 20.075,
+"BB": 26.548
+}
+}
+},
+"id": 88
+},
+{
+"stacks": {
+"CO": 26,
+"BTN": 16,
+"SB": 15,
+"BB": 8
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Jd",
+"Kd"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 233,
+"villainShown": [
+"7h",
+"7d"
+],
+"eq": 0.4326,
+"cat": "premium",
+"margChip": true,
+"margIcm": false,
+"eff": 8,
+"dead": 0.5,
+"pot": 16.5,
+"call": 7.0,
+"chipThr": 0.4242,
+"icmThr": 0.5586,
+"rp": 0.1343,
+"F": 14.129,
+"W": 25.296,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 27.5,
+"BTN": 16.0,
+"SB": 14.5,
+"BB": 7.0
+},
+"ev": {
+"CO": 34.343,
+"BTN": 26.491,
+"SB": 25.037,
+"BB": 14.129
+}
+},
+"W": {
+"stacks": {
+"CO": 18,
+"BTN": 16.0,
+"SB": 14.5,
+"BB": 16.5
+},
+"ev": {
+"CO": 26.689,
+"BTN": 24.801,
+"SB": 23.214,
+"BB": 25.296
+}
+},
+"L": {
+"stacks": {
+"CO": 34.5,
+"BTN": 16.0,
+"SB": 14.5,
+"BB": 0
+},
+"ev": {
+"CO": 39.18,
+"BTN": 30.876,
+"SB": 29.944,
+"BB": 0.0
+}
+}
+},
+"id": 89
+},
+{
+"stacks": {
+"CO": 9,
+"BTN": 40,
+"SB": 27,
+"BB": 33
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Qs",
+"Ks"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 233,
+"villainShown": [
+"Ac",
+"Qh"
+],
+"eq": 0.4614,
+"cat": "premium",
+"margChip": true,
+"margIcm": false,
+"eff": 9,
+"dead": 1.0,
+"pot": 19.0,
+"call": 8.5,
+"chipThr": 0.4474,
+"icmThr": 0.4798,
+"rp": 0.0325,
+"F": 26.244,
+"W": 33.562,
+"L": 19.493,
+"scen": {
+"F": {
+"stacks": {
+"CO": 10.5,
+"BTN": 40.0,
+"SB": 26.5,
+"BB": 32.0
+},
+"ev": {
+"CO": 12.544,
+"BTN": 32.218,
+"SB": 26.244,
+"BB": 28.994
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 40.0,
+"SB": 37.0,
+"BB": 32.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 34.42,
+"SB": 33.562,
+"BB": 32.018
+}
+},
+"L": {
+"stacks": {
+"CO": 19.0,
+"BTN": 40.0,
+"SB": 18,
+"BB": 32.0
+},
+"ev": {
+"CO": 20.339,
+"BTN": 31.768,
+"SB": 19.493,
+"BB": 28.4
+}
+}
+},
+"id": 90
+},
+{
+"stacks": {
+"CO": 40,
+"BTN": 29,
+"SB": 17,
+"BB": 23
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"8h",
+"Kc"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 147,
+"villainShown": [
+"5s",
+"5h"
+],
+"eq": 0.3122,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 17,
+"dead": 1.0,
+"pot": 35.0,
+"call": 16.5,
+"chipThr": 0.4714,
+"icmThr": 0.6203,
+"rp": 0.1489,
+"F": 18.138,
+"W": 29.241,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 41.5,
+"BTN": 29.0,
+"SB": 16.5,
+"BB": 22.0
+},
+"ev": {
+"CO": 32.325,
+"BTN": 26.903,
+"SB": 18.138,
+"BB": 22.634
+}
+},
+"W": {
+"stacks": {
+"CO": 23,
+"BTN": 29.0,
+"SB": 35.0,
+"BB": 22.0
+},
+"ev": {
+"CO": 22.593,
+"BTN": 26.286,
+"SB": 29.241,
+"BB": 21.88
+}
+},
+"L": {
+"stacks": {
+"CO": 58.0,
+"BTN": 29.0,
+"SB": 0,
+"BB": 22.0
+},
+"ev": {
+"CO": 39.238,
+"BTN": 31.68,
+"SB": 0.0,
+"BB": 29.082
+}
+}
+},
+"id": 91
+},
+{
+"stacks": {
+"CO": 37,
+"BTN": 14,
+"SB": 31,
+"BB": 40
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"9c",
+"8c"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 229,
+"villainShown": [
+"8h",
+"8d"
+],
+"eq": 0.377,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 14,
+"dead": 0.5,
+"pot": 28.5,
+"call": 13.0,
+"chipThr": 0.4561,
+"icmThr": 0.498,
+"rp": 0.0419,
+"F": 29.679,
+"W": 36.835,
+"L": 22.58,
+"scen": {
+"F": {
+"stacks": {
+"CO": 37.0,
+"BTN": 15.5,
+"SB": 30.5,
+"BB": 39.0
+},
+"ev": {
+"CO": 28.885,
+"BTN": 15.488,
+"SB": 25.948,
+"BB": 29.679
+}
+},
+"W": {
+"stacks": {
+"CO": 37.0,
+"BTN": 0,
+"SB": 30.5,
+"BB": 54.5
+},
+"ev": {
+"CO": 32.558,
+"BTN": 0.0,
+"SB": 30.607,
+"BB": 36.835
+}
+},
+"L": {
+"stacks": {
+"CO": 37.0,
+"BTN": 28.5,
+"SB": 30.5,
+"BB": 26
+},
+"ev": {
+"CO": 28.217,
+"BTN": 24.058,
+"SB": 25.145,
+"BB": 22.58
+}
+}
+},
+"id": 92
+},
+{
+"stacks": {
+"CO": 18,
+"BTN": 13,
+"SB": 28,
+"BB": 16
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Kc",
+"Ah"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 130,
+"villainShown": [
+"Js",
+"Jd"
+],
+"eq": 0.5761,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 16,
+"dead": 0.5,
+"pot": 32.5,
+"call": 15.0,
+"chipThr": 0.4615,
+"icmThr": 0.6148,
+"rp": 0.1533,
+"F": 22.189,
+"W": 36.09,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 19.5,
+"BTN": 13.0,
+"SB": 27.5,
+"BB": 15.0
+},
+"ev": {
+"CO": 26.302,
+"BTN": 19.926,
+"SB": 31.583,
+"BB": 22.189
+}
+},
+"W": {
+"stacks": {
+"CO": 2,
+"BTN": 13.0,
+"SB": 27.5,
+"BB": 32.5
+},
+"ev": {
+"CO": 4.501,
+"BTN": 25.358,
+"SB": 34.051,
+"BB": 36.09
+}
+},
+"L": {
+"stacks": {
+"CO": 34.5,
+"BTN": 13.0,
+"SB": 27.5,
+"BB": 0
+},
+"ev": {
+"CO": 37.428,
+"BTN": 27.68,
+"SB": 34.892,
+"BB": 0.0
+}
+}
+},
+"id": 93
+},
+{
+"stacks": {
+"CO": 9,
+"BTN": 26,
+"SB": 36,
+"BB": 18
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Ac",
+"Kh"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 195,
+"villainShown": [
+"Ah",
+"Qd"
+],
+"eq": 0.6058,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 18,
+"dead": 0.5,
+"pot": 36.5,
+"call": 17.0,
+"chipThr": 0.4658,
+"icmThr": 0.6575,
+"rp": 0.1918,
+"F": 22.947,
+"W": 34.898,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 9.0,
+"BTN": 27.5,
+"SB": 35.5,
+"BB": 17.0
+},
+"ev": {
+"CO": 13.526,
+"BTN": 29.941,
+"SB": 33.586,
+"BB": 22.947
+}
+},
+"W": {
+"stacks": {
+"CO": 9.0,
+"BTN": 8,
+"SB": 35.5,
+"BB": 36.5
+},
+"ev": {
+"CO": 16.104,
+"BTN": 14.464,
+"SB": 34.533,
+"BB": 34.898
+}
+},
+"L": {
+"stacks": {
+"CO": 9.0,
+"BTN": 44.5,
+"SB": 35.5,
+"BB": 0
+},
+"ev": {
+"CO": 24.716,
+"BTN": 38.88,
+"SB": 36.404,
+"BB": 0.0
+}
+}
+},
+"id": 94
+},
+{
+"stacks": {
+"CO": 20,
+"BTN": 38,
+"SB": 14,
+"BB": 11
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Td",
+"Ah"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 217,
+"villainShown": [
+"Qd",
+"Qc"
+],
+"eq": 0.4949,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 11,
+"dead": 0.5,
+"pot": 22.5,
+"call": 10.0,
+"chipThr": 0.4444,
+"icmThr": 0.5693,
+"rp": 0.1248,
+"F": 16.149,
+"W": 28.367,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 21.5,
+"BTN": 38.0,
+"SB": 13.5,
+"BB": 10.0
+},
+"ev": {
+"CO": 27.528,
+"BTN": 35.668,
+"SB": 20.655,
+"BB": 16.149
+}
+},
+"W": {
+"stacks": {
+"CO": 9,
+"BTN": 38.0,
+"SB": 13.5,
+"BB": 22.5
+},
+"ev": {
+"CO": 14.93,
+"BTN": 35.762,
+"SB": 20.94,
+"BB": 28.367
+}
+},
+"L": {
+"stacks": {
+"CO": 31.5,
+"BTN": 38.0,
+"SB": 13.5,
+"BB": 0
+},
+"ev": {
+"CO": 35.328,
+"BTN": 37.425,
+"SB": 27.248,
+"BB": 0.0
+}
+}
+},
+"id": 95
+},
+{
+"stacks": {
+"CO": 34,
+"BTN": 11,
+"SB": 21,
+"BB": 23
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Jh",
+"2d"
+],
+"villainRange": "77+,A9s+,AJo+,KQs",
+"villainCombos": 101,
+"villainShown": [
+"Ah",
+"Qc"
+],
+"eq": 0.2522,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 21,
+"dead": 1.0,
+"pot": 43.0,
+"call": 20.5,
+"chipThr": 0.4767,
+"icmThr": 0.6852,
+"rp": 0.2085,
+"F": 25.071,
+"W": 36.588,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 35.5,
+"BTN": 11.0,
+"SB": 20.5,
+"BB": 22.0
+},
+"ev": {
+"CO": 33.24,
+"BTN": 15.55,
+"SB": 25.071,
+"BB": 26.138
+}
+},
+"W": {
+"stacks": {
+"CO": 13,
+"BTN": 11.0,
+"SB": 43.0,
+"BB": 22.0
+},
+"ev": {
+"CO": 19.393,
+"BTN": 16.899,
+"SB": 36.588,
+"BB": 27.12
+}
+},
+"L": {
+"stacks": {
+"CO": 56.0,
+"BTN": 11.0,
+"SB": 0,
+"BB": 22.0
+},
+"ev": {
+"CO": 41.83,
+"BTN": 26.211,
+"SB": 0.0,
+"BB": 31.959
+}
+}
+},
+"id": 96
+},
+{
+"stacks": {
+"CO": 10,
+"BTN": 11,
+"SB": 28,
+"BB": 13
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"5d",
+"5c"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 255,
+"villainShown": [
+"Ad",
+"7h"
+],
+"eq": 0.4869,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 10,
+"dead": 0.5,
+"pot": 20.5,
+"call": 9.0,
+"chipThr": 0.439,
+"icmThr": 0.5357,
+"rp": 0.0967,
+"F": 22.387,
+"W": 35.21,
+"L": 7.593,
+"scen": {
+"F": {
+"stacks": {
+"CO": 11.5,
+"BTN": 11.0,
+"SB": 27.5,
+"BB": 12.0
+},
+"ev": {
+"CO": 21.728,
+"BTN": 21.039,
+"SB": 34.846,
+"BB": 22.387
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 11.0,
+"SB": 27.5,
+"BB": 23.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 27.82,
+"SB": 36.97,
+"BB": 35.21
+}
+},
+"L": {
+"stacks": {
+"CO": 20.5,
+"BTN": 11.0,
+"SB": 27.5,
+"BB": 3
+},
+"ev": {
+"CO": 32.181,
+"BTN": 24.258,
+"SB": 35.968,
+"BB": 7.593
+}
+}
+},
+"id": 97
+},
+{
+"stacks": {
+"CO": 11,
+"BTN": 11,
+"SB": 18,
+"BB": 25
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Qh",
+"Ad"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 214,
+"villainShown": [
+"Ah",
+"Th"
+],
+"eq": 0.5664,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 11,
+"dead": 0.5,
+"pot": 22.5,
+"call": 10.0,
+"chipThr": 0.4444,
+"icmThr": 0.506,
+"rp": 0.0616,
+"F": 31.747,
+"W": 40.059,
+"L": 23.234,
+"scen": {
+"F": {
+"stacks": {
+"CO": 12.5,
+"BTN": 11.0,
+"SB": 17.5,
+"BB": 24.0
+},
+"ev": {
+"CO": 21.672,
+"BTN": 19.657,
+"SB": 26.923,
+"BB": 31.747
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 11.0,
+"SB": 17.5,
+"BB": 36.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 27.868,
+"SB": 32.073,
+"BB": 40.059
+}
+},
+"L": {
+"stacks": {
+"CO": 22.5,
+"BTN": 11.0,
+"SB": 17.5,
+"BB": 14
+},
+"ev": {
+"CO": 30.619,
+"BTN": 19.41,
+"SB": 26.737,
+"BB": 23.234
+}
+}
+},
+"id": 98
+},
+{
+"stacks": {
+"CO": 20,
+"BTN": 18,
+"SB": 33,
+"BB": 19
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Tc",
+"Ad"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 271,
+"villainShown": [
+"9d",
+"9c"
+],
+"eq": 0.53,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 19,
+"dead": 0.0,
+"pot": 38.0,
+"call": 18.0,
+"chipThr": 0.4737,
+"icmThr": 0.6498,
+"rp": 0.1761,
+"F": 22.111,
+"W": 34.028,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 20.0,
+"BTN": 18.0,
+"SB": 34.0,
+"BB": 18.0
+},
+"ev": {
+"CO": 23.777,
+"BTN": 22.111,
+"SB": 32.0,
+"BB": 22.111
+}
+},
+"W": {
+"stacks": {
+"CO": 20.0,
+"BTN": 18.0,
+"SB": 14,
+"BB": 38.0
+},
+"ev": {
+"CO": 24.377,
+"BTN": 22.751,
+"SB": 18.844,
+"BB": 34.028
+}
+},
+"L": {
+"stacks": {
+"CO": 20.0,
+"BTN": 18.0,
+"SB": 52.0,
+"BB": 0
+},
+"ev": {
+"CO": 30.263,
+"BTN": 29.308,
+"SB": 40.429,
+"BB": 0.0
+}
+}
+},
+"id": 99
+},
+{
+"stacks": {
+"CO": 15,
+"BTN": 37,
+"SB": 16,
+"BB": 10
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Ah",
+"Qd"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 131,
+"villainShown": [
+"Ac",
+"Tc"
+],
+"eq": 0.5215,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 15,
+"dead": 1.0,
+"pot": 31.0,
+"call": 14.5,
+"chipThr": 0.4677,
+"icmThr": 0.6185,
+"rp": 0.1507,
+"F": 23.672,
+"W": 36.545,
+"L": 2.806,
+"scen": {
+"F": {
+"stacks": {
+"CO": 16.5,
+"BTN": 37.0,
+"SB": 15.5,
+"BB": 9.0
+},
+"ev": {
+"CO": 24.597,
+"BTN": 36.203,
+"SB": 23.672,
+"BB": 15.528
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 37.0,
+"SB": 32.0,
+"BB": 9.0
+},
+"ev": {
+"CO": 0.0,
+"BTN": 38.149,
+"SB": 36.545,
+"BB": 25.305
+}
+},
+"L": {
+"stacks": {
+"CO": 31.0,
+"BTN": 37.0,
+"SB": 1,
+"BB": 9.0
+},
+"ev": {
+"CO": 35.862,
+"BTN": 37.89,
+"SB": 2.806,
+"BB": 23.442
+}
+}
+},
+"id": 100
+},
+{
+"stacks": {
+"CO": 8,
+"BTN": 21,
+"SB": 32,
+"BB": 37
+},
+"villainPos": "BTN",
+"heroPos": "SB",
+"hero": [
+"Jc",
+"Jd"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 137,
+"villainShown": [
+"Kd",
+"Kc"
+],
+"eq": 0.6016,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 21,
+"dead": 1.0,
+"pot": 43.0,
+"call": 20.5,
+"chipThr": 0.4767,
+"icmThr": 0.5762,
+"rp": 0.0994,
+"F": 30.625,
+"W": 40.22,
+"L": 17.582,
+"scen": {
+"F": {
+"stacks": {
+"CO": 8.0,
+"BTN": 22.5,
+"SB": 31.5,
+"BB": 36.0
+},
+"ev": {
+"CO": 11.013,
+"BTN": 25.859,
+"SB": 30.625,
+"BB": 32.503
+}
+},
+"W": {
+"stacks": {
+"CO": 8.0,
+"BTN": 0,
+"SB": 54.0,
+"BB": 36.0
+},
+"ev": {
+"CO": 23.925,
+"BTN": 0.0,
+"SB": 40.22,
+"BB": 35.855
+}
+},
+"L": {
+"stacks": {
+"CO": 8.0,
+"BTN": 43.0,
+"SB": 11,
+"BB": 36.0
+},
+"ev": {
+"CO": 13.163,
+"BTN": 35.794,
+"SB": 17.582,
+"BB": 33.46
+}
+}
+},
+"id": 101
+},
+{
+"stacks": {
+"CO": 15,
+"BTN": 9,
+"SB": 24,
+"BB": 14
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Kh",
+"Ks"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 285,
+"villainShown": [
+"Qd",
+"Jh"
+],
+"eq": 0.7495,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 14,
+"dead": 0.0,
+"pot": 28.0,
+"call": 13.0,
+"chipThr": 0.4643,
+"icmThr": 0.663,
+"rp": 0.1988,
+"F": 23.407,
+"W": 35.302,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 15.0,
+"BTN": 9.0,
+"SB": 25.0,
+"BB": 13.0
+},
+"ev": {
+"CO": 25.608,
+"BTN": 17.695,
+"SB": 33.29,
+"BB": 23.407
+}
+},
+"W": {
+"stacks": {
+"CO": 15.0,
+"BTN": 9.0,
+"SB": 10,
+"BB": 28.0
+},
+"ev": {
+"CO": 26.189,
+"BTN": 18.449,
+"SB": 20.06,
+"BB": 35.302
+}
+},
+"L": {
+"stacks": {
+"CO": 15.0,
+"BTN": 9.0,
+"SB": 38.0,
+"BB": 0
+},
+"ev": {
+"CO": 31.5,
+"BTN": 27.117,
+"SB": 41.384,
+"BB": 0.0
+}
+}
+},
+"id": 102
+},
+{
+"stacks": {
+"CO": 25,
+"BTN": 34,
+"SB": 9,
+"BB": 12
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"Ah",
+"8h"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 220,
+"villainShown": [
+"3s",
+"3d"
+],
+"eq": 0.4517,
+"cat": "premium",
+"margChip": true,
+"margIcm": false,
+"eff": 12,
+"dead": 0.5,
+"pot": 24.5,
+"call": 11.0,
+"chipThr": 0.449,
+"icmThr": 0.6266,
+"rp": 0.1776,
+"F": 18.802,
+"W": 30.007,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 26.5,
+"BTN": 34.0,
+"SB": 8.5,
+"BB": 11.0
+},
+"ev": {
+"CO": 31.354,
+"BTN": 34.813,
+"SB": 15.032,
+"BB": 18.802
+}
+},
+"W": {
+"stacks": {
+"CO": 13,
+"BTN": 34.0,
+"SB": 8.5,
+"BB": 24.5
+},
+"ev": {
+"CO": 20.822,
+"BTN": 34.636,
+"SB": 14.535,
+"BB": 30.007
+}
+},
+"L": {
+"stacks": {
+"CO": 37.5,
+"BTN": 34.0,
+"SB": 8.5,
+"BB": 0
+},
+"ev": {
+"CO": 38.084,
+"BTN": 37.005,
+"SB": 24.91,
+"BB": 0.0
+}
+}
+},
+"id": 103
+},
+{
+"stacks": {
+"CO": 9,
+"BTN": 18,
+"SB": 40,
+"BB": 14
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"6d",
+"6s"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 237,
+"villainShown": [
+"Jh",
+"Jc"
+],
+"eq": 0.4941,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 14,
+"dead": 0.5,
+"pot": 28.5,
+"call": 13.0,
+"chipThr": 0.4561,
+"icmThr": 0.6223,
+"rp": 0.1662,
+"F": 20.929,
+"W": 33.631,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 9.0,
+"BTN": 19.5,
+"SB": 39.5,
+"BB": 13.0
+},
+"ev": {
+"CO": 15.476,
+"BTN": 26.834,
+"SB": 36.761,
+"BB": 20.929
+}
+},
+"W": {
+"stacks": {
+"CO": 9.0,
+"BTN": 4,
+"SB": 39.5,
+"BB": 28.5
+},
+"ev": {
+"CO": 19.528,
+"BTN": 9.161,
+"SB": 37.681,
+"BB": 33.631
+}
+},
+"L": {
+"stacks": {
+"CO": 9.0,
+"BTN": 32.5,
+"SB": 39.5,
+"BB": 0
+},
+"ev": {
+"CO": 25.135,
+"BTN": 36.358,
+"SB": 38.507,
+"BB": 0.0
+}
+}
+},
+"id": 104
+},
+{
+"stacks": {
+"CO": 32,
+"BTN": 11,
+"SB": 17,
+"BB": 13
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Jc",
+"Ac"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 268,
+"villainShown": [
+"Kh",
+"Qc"
+],
+"eq": 0.5827,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 13,
+"dead": 0.0,
+"pot": 26.0,
+"call": 12.0,
+"chipThr": 0.4615,
+"icmThr": 0.6069,
+"rp": 0.1454,
+"F": 20.133,
+"W": 33.173,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 32.0,
+"BTN": 11.0,
+"SB": 18.0,
+"BB": 12.0
+},
+"ev": {
+"CO": 34.771,
+"BTN": 18.795,
+"SB": 26.301,
+"BB": 20.133
+}
+},
+"W": {
+"stacks": {
+"CO": 32.0,
+"BTN": 11.0,
+"SB": 4,
+"BB": 26.0
+},
+"ev": {
+"CO": 35.856,
+"BTN": 22.125,
+"SB": 8.846,
+"BB": 33.173
+}
+},
+"L": {
+"stacks": {
+"CO": 32.0,
+"BTN": 11.0,
+"SB": 30.0,
+"BB": 0
+},
+"ev": {
+"CO": 36.987,
+"BTN": 26.748,
+"SB": 36.265,
+"BB": 0.0
+}
+}
+},
+"id": 105
+},
+{
+"stacks": {
+"CO": 30,
+"BTN": 32,
+"SB": 17,
+"BB": 39
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Kd",
+"Kc"
+],
+"villainRange": "55+,A7s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 139,
+"villainShown": [
+"Ah",
+"Ks"
+],
+"eq": 0.7327,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 17,
+"dead": 1.0,
+"pot": 35.0,
+"call": 16.5,
+"chipThr": 0.4714,
+"icmThr": 0.5784,
+"rp": 0.1069,
+"F": 16.642,
+"W": 28.774,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 31.5,
+"BTN": 32.0,
+"SB": 16.5,
+"BB": 38.0
+},
+"ev": {
+"CO": 26.746,
+"BTN": 26.989,
+"SB": 16.642,
+"BB": 29.623
+}
+},
+"W": {
+"stacks": {
+"CO": 13,
+"BTN": 32.0,
+"SB": 35.0,
+"BB": 38.0
+},
+"ev": {
+"CO": 13.793,
+"BTN": 27.438,
+"SB": 28.774,
+"BB": 29.995
+}
+},
+"L": {
+"stacks": {
+"CO": 48.0,
+"BTN": 32.0,
+"SB": 0,
+"BB": 38.0
+},
+"ev": {
+"CO": 35.649,
+"BTN": 31.283,
+"SB": 0.0,
+"BB": 33.068
+}
+}
+},
+"id": 106
+},
+{
+"stacks": {
+"CO": 40,
+"BTN": 39,
+"SB": 14,
+"BB": 30
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Ac",
+"Kc"
+],
+"villainRange": "66+,A8s+,ATo+,KTs+,KQo,QJs",
+"villainCombos": 121,
+"villainShown": [
+"Kh",
+"Qs"
+],
+"eq": 0.5989,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 30,
+"dead": 0.5,
+"pot": 60.5,
+"call": 29.0,
+"chipThr": 0.4793,
+"icmThr": 0.6785,
+"rp": 0.1992,
+"F": 25.456,
+"W": 37.517,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 40.0,
+"BTN": 40.5,
+"SB": 13.5,
+"BB": 29.0
+},
+"ev": {
+"CO": 30.233,
+"BTN": 30.415,
+"SB": 13.896,
+"BB": 25.456
+}
+},
+"W": {
+"stacks": {
+"CO": 40.0,
+"BTN": 9,
+"SB": 13.5,
+"BB": 60.5
+},
+"ev": {
+"CO": 32.182,
+"BTN": 12.381,
+"SB": 17.92,
+"BB": 37.517
+}
+},
+"L": {
+"stacks": {
+"CO": 40.0,
+"BTN": 69.5,
+"SB": 13.5,
+"BB": 0
+},
+"ev": {
+"CO": 34.382,
+"BTN": 40.371,
+"SB": 25.247,
+"BB": 0.0
+}
+}
+},
+"id": 107
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 11,
+"SB": 29,
+"BB": 18
+},
+"villainPos": "CO",
+"heroPos": "BB",
+"hero": [
+"4c",
+"4h"
+],
+"villainRange": "22+,A2s+,A7o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 255,
+"villainShown": [
+"Ah",
+"Qh"
+],
+"eq": 0.464,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 12,
+"dead": 0.5,
+"pot": 24.5,
+"call": 11.0,
+"chipThr": 0.449,
+"icmThr": 0.5406,
+"rp": 0.0916,
+"F": 25.633,
+"W": 36.876,
+"L": 12.404,
+"scen": {
+"F": {
+"stacks": {
+"CO": 13.5,
+"BTN": 11.0,
+"SB": 28.5,
+"BB": 17.0
+},
+"ev": {
+"CO": 22.07,
+"BTN": 18.876,
+"SB": 33.42,
+"BB": 25.633
+}
+},
+"W": {
+"stacks": {
+"CO": 0,
+"BTN": 11.0,
+"SB": 28.5,
+"BB": 30.5
+},
+"ev": {
+"CO": 0.0,
+"BTN": 27.007,
+"SB": 36.117,
+"BB": 36.876
+}
+},
+"L": {
+"stacks": {
+"CO": 24.5,
+"BTN": 11.0,
+"SB": 28.5,
+"BB": 6
+},
+"ev": {
+"CO": 32.229,
+"BTN": 21.064,
+"SB": 34.302,
+"BB": 12.404
+}
+}
+},
+"id": 108
+},
+{
+"stacks": {
+"CO": 36,
+"BTN": 12,
+"SB": 9,
+"BB": 16
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Kc",
+"7h"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 391,
+"villainShown": [
+"Js",
+"9s"
+],
+"eq": 0.384,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 0.0,
+"pot": 18.0,
+"call": 8.0,
+"chipThr": 0.4444,
+"icmThr": 0.5075,
+"rp": 0.0631,
+"F": 24.209,
+"W": 34.28,
+"L": 13.83,
+"scen": {
+"F": {
+"stacks": {
+"CO": 36.0,
+"BTN": 12.0,
+"SB": 10.0,
+"BB": 15.0
+},
+"ev": {
+"CO": 36.81,
+"BTN": 20.869,
+"SB": 18.112,
+"BB": 24.209
+}
+},
+"W": {
+"stacks": {
+"CO": 36.0,
+"BTN": 12.0,
+"SB": 0,
+"BB": 25.0
+},
+"ev": {
+"CO": 38.333,
+"BTN": 27.387,
+"SB": 0.0,
+"BB": 34.28
+}
+},
+"L": {
+"stacks": {
+"CO": 36.0,
+"BTN": 12.0,
+"SB": 18.0,
+"BB": 7
+},
+"ev": {
+"CO": 37.039,
+"BTN": 21.676,
+"SB": 27.455,
+"BB": 13.83
+}
+}
+},
+"id": 109
+},
+{
+"stacks": {
+"CO": 18,
+"BTN": 20,
+"SB": 35,
+"BB": 29
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ad",
+"Ah"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 161,
+"villainShown": [
+"Td",
+"Tc"
+],
+"eq": 0.8478,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 29,
+"dead": 0.0,
+"pot": 58.0,
+"call": 28.0,
+"chipThr": 0.4828,
+"icmThr": 0.6839,
+"rp": 0.2011,
+"F": 27.09,
+"W": 39.613,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 18.0,
+"BTN": 20.0,
+"SB": 36.0,
+"BB": 28.0
+},
+"ev": {
+"CO": 20.141,
+"BTN": 21.81,
+"SB": 30.958,
+"BB": 27.09
+}
+},
+"W": {
+"stacks": {
+"CO": 18.0,
+"BTN": 20.0,
+"SB": 6,
+"BB": 58.0
+},
+"ev": {
+"CO": 24.579,
+"BTN": 25.951,
+"SB": 9.857,
+"BB": 39.613
+}
+},
+"L": {
+"stacks": {
+"CO": 18.0,
+"BTN": 20.0,
+"SB": 64.0,
+"BB": 0
+},
+"ev": {
+"CO": 28.697,
+"BTN": 29.605,
+"SB": 41.698,
+"BB": 0.0
+}
+}
+},
+"id": 110
+},
+{
+"stacks": {
+"CO": 10,
+"BTN": 27,
+"SB": 34,
+"BB": 13
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"9d",
+"Kc"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 219,
+"villainShown": [
+"Ah",
+"Jh"
+],
+"eq": 0.3495,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 13,
+"dead": 0.5,
+"pot": 26.5,
+"call": 12.0,
+"chipThr": 0.4528,
+"icmThr": 0.6241,
+"rp": 0.1712,
+"F": 18.807,
+"W": 30.136,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 10.0,
+"BTN": 28.5,
+"SB": 33.5,
+"BB": 12.0
+},
+"ev": {
+"CO": 16.093,
+"BTN": 31.405,
+"SB": 33.694,
+"BB": 18.807
+}
+},
+"W": {
+"stacks": {
+"CO": 10.0,
+"BTN": 14,
+"SB": 33.5,
+"BB": 26.5
+},
+"ev": {
+"CO": 15.644,
+"BTN": 20.709,
+"SB": 33.512,
+"BB": 30.136
+}
+},
+"L": {
+"stacks": {
+"CO": 10.0,
+"BTN": 40.5,
+"SB": 33.5,
+"BB": 0
+},
+"ev": {
+"CO": 25.47,
+"BTN": 38.314,
+"SB": 36.216,
+"BB": 0.0
+}
+}
+},
+"id": 111
+},
+{
+"stacks": {
+"CO": 36,
+"BTN": 22,
+"SB": 29,
+"BB": 34
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Td",
+"Tc"
+],
+"villainRange": "44+,A5s+,A9o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 195,
+"villainShown": [
+"Ah",
+"Ts"
+],
+"eq": 0.5901,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 29,
+"dead": 0.0,
+"pot": 58.0,
+"call": 28.0,
+"chipThr": 0.4828,
+"icmThr": 0.6185,
+"rp": 0.1357,
+"F": 26.654,
+"W": 38.982,
+"L": 6.67,
+"scen": {
+"F": {
+"stacks": {
+"CO": 36.0,
+"BTN": 22.0,
+"SB": 30.0,
+"BB": 33.0
+},
+"ev": {
+"CO": 28.025,
+"BTN": 20.178,
+"SB": 25.143,
+"BB": 26.654
+}
+},
+"W": {
+"stacks": {
+"CO": 36.0,
+"BTN": 22.0,
+"SB": 0,
+"BB": 63.0
+},
+"ev": {
+"CO": 32.818,
+"BTN": 28.2,
+"SB": 0.0,
+"BB": 38.982
+}
+},
+"L": {
+"stacks": {
+"CO": 36.0,
+"BTN": 22.0,
+"SB": 58.0,
+"BB": 5
+},
+"ev": {
+"CO": 31.131,
+"BTN": 25.042,
+"SB": 37.158,
+"BB": 6.67
+}
+}
+},
+"id": 112
+},
+{
+"stacks": {
+"CO": 27,
+"BTN": 25,
+"SB": 22,
+"BB": 24
+},
+"villainPos": "CO",
+"heroPos": "SB",
+"hero": [
+"Js",
+"Jh"
+],
+"villainRange": "77+,A9s+,AJo+,KQs",
+"villainCombos": 95,
+"villainShown": [
+"Qs",
+"Qd"
+],
+"eq": 0.5749,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 22,
+"dead": 1.0,
+"pot": 45.0,
+"call": 21.5,
+"chipThr": 0.4778,
+"icmThr": 0.6339,
+"rp": 0.1561,
+"F": 22.993,
+"W": 36.273,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 28.5,
+"BTN": 25.0,
+"SB": 21.5,
+"BB": 23.0
+},
+"ev": {
+"CO": 27.509,
+"BTN": 25.419,
+"SB": 22.993,
+"BB": 24.08
+}
+},
+"W": {
+"stacks": {
+"CO": 5,
+"BTN": 25.0,
+"SB": 45.0,
+"BB": 23.0
+},
+"ev": {
+"CO": 7.63,
+"BTN": 28.59,
+"SB": 36.273,
+"BB": 27.507
+}
+},
+"L": {
+"stacks": {
+"CO": 50.0,
+"BTN": 25.0,
+"SB": 0,
+"BB": 23.0
+},
+"ev": {
+"CO": 38.618,
+"BTN": 31.093,
+"SB": 0.0,
+"BB": 30.289
+}
+}
+},
+"id": 113
+},
+{
+"stacks": {
+"CO": 12,
+"BTN": 26,
+"SB": 16,
+"BB": 15
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"4d",
+"As"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 207,
+"villainShown": [
+"Ad",
+"6d"
+],
+"eq": 0.3758,
+"cat": "short",
+"margChip": false,
+"margIcm": false,
+"eff": 15,
+"dead": 0.5,
+"pot": 30.5,
+"call": 14.0,
+"chipThr": 0.459,
+"icmThr": 0.6492,
+"rp": 0.1902,
+"F": 22.619,
+"W": 34.843,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 12.0,
+"BTN": 27.5,
+"SB": 15.5,
+"BB": 14.0
+},
+"ev": {
+"CO": 20.196,
+"BTN": 32.974,
+"SB": 24.211,
+"BB": 22.619
+}
+},
+"W": {
+"stacks": {
+"CO": 12.0,
+"BTN": 11,
+"SB": 15.5,
+"BB": 30.5
+},
+"ev": {
+"CO": 20.859,
+"BTN": 19.514,
+"SB": 24.785,
+"BB": 34.843
+}
+},
+"L": {
+"stacks": {
+"CO": 12.0,
+"BTN": 41.5,
+"SB": 15.5,
+"BB": 0
+},
+"ev": {
+"CO": 28.346,
+"BTN": 41.052,
+"SB": 30.602,
+"BB": 0.0
+}
+}
+},
+"id": 114
+},
+{
+"stacks": {
+"CO": 31,
+"BTN": 16,
+"SB": 29,
+"BB": 13
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Kh",
+"Ks"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 285,
+"villainShown": [
+"Ac",
+"Tc"
+],
+"eq": 0.7484,
+"cat": "call",
+"margChip": false,
+"margIcm": false,
+"eff": 13,
+"dead": 0.0,
+"pot": 26.0,
+"call": 12.0,
+"chipThr": 0.4615,
+"icmThr": 0.598,
+"rp": 0.1365,
+"F": 16.817,
+"W": 28.121,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 31.0,
+"BTN": 16.0,
+"SB": 30.0,
+"BB": 12.0
+},
+"ev": {
+"CO": 31.214,
+"BTN": 21.241,
+"SB": 30.729,
+"BB": 16.817
+}
+},
+"W": {
+"stacks": {
+"CO": 31.0,
+"BTN": 16.0,
+"SB": 16,
+"BB": 26.0
+},
+"ev": {
+"CO": 30.813,
+"BTN": 20.533,
+"SB": 20.533,
+"BB": 28.121
+}
+},
+"L": {
+"stacks": {
+"CO": 31.0,
+"BTN": 16.0,
+"SB": 42.0,
+"BB": 0
+},
+"ev": {
+"CO": 34.325,
+"BTN": 27.961,
+"SB": 37.714,
+"BB": 0.0
+}
+}
+},
+"id": 115
+},
+{
+"stacks": {
+"CO": 9,
+"BTN": 28,
+"SB": 17,
+"BB": 30
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Th",
+"Ac"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 271,
+"villainShown": [
+"Kc",
+"Jd"
+],
+"eq": 0.529,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 17,
+"dead": 0.0,
+"pot": 34.0,
+"call": 16.0,
+"chipThr": 0.4706,
+"icmThr": 0.5522,
+"rp": 0.0817,
+"F": 31.245,
+"W": 40.255,
+"L": 20.132,
+"scen": {
+"F": {
+"stacks": {
+"CO": 9.0,
+"BTN": 28.0,
+"SB": 18.0,
+"BB": 29.0
+},
+"ev": {
+"CO": 13.804,
+"BTN": 30.734,
+"SB": 24.218,
+"BB": 31.245
+}
+},
+"W": {
+"stacks": {
+"CO": 9.0,
+"BTN": 28.0,
+"SB": 0,
+"BB": 47.0
+},
+"ev": {
+"CO": 25.111,
+"BTN": 34.634,
+"SB": 0.0,
+"BB": 40.255
+}
+},
+"L": {
+"stacks": {
+"CO": 9.0,
+"BTN": 28.0,
+"SB": 34.0,
+"BB": 13
+},
+"ev": {
+"CO": 14.701,
+"BTN": 31.216,
+"SB": 33.952,
+"BB": 20.132
+}
+}
+},
+"id": 116
+},
+{
+"stacks": {
+"CO": 20,
+"BTN": 10,
+"SB": 34,
+"BB": 16
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"5h",
+"5s"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 313,
+"villainShown": [
+"Ks",
+"Jd"
+],
+"eq": 0.4961,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 16,
+"dead": 0.0,
+"pot": 32.0,
+"call": 15.0,
+"chipThr": 0.4688,
+"icmThr": 0.6714,
+"rp": 0.2027,
+"F": 22.345,
+"W": 33.28,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 20.0,
+"BTN": 10.0,
+"SB": 35.0,
+"BB": 15.0
+},
+"ev": {
+"CO": 26.656,
+"BTN": 16.184,
+"SB": 34.815,
+"BB": 22.345
+}
+},
+"W": {
+"stacks": {
+"CO": 20.0,
+"BTN": 10.0,
+"SB": 18,
+"BB": 32.0
+},
+"ev": {
+"CO": 26.302,
+"BTN": 15.709,
+"SB": 24.709,
+"BB": 33.28
+}
+},
+"L": {
+"stacks": {
+"CO": 20.0,
+"BTN": 10.0,
+"SB": 50.0,
+"BB": 0
+},
+"ev": {
+"CO": 32.024,
+"BTN": 26.25,
+"SB": 41.726,
+"BB": 0.0
+}
+}
+},
+"id": 117
+},
+{
+"stacks": {
+"CO": 18,
+"BTN": 8,
+"SB": 39,
+"BB": 9
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"Ad",
+"8c"
+],
+"villainRange": "22+,A2s+,A2o+,K5s+,K9o+,Q8s+,QTo+,J8s+,JTo,T8s+,98s",
+"villainCombos": 364,
+"villainShown": [
+"Kd",
+"Qh"
+],
+"eq": 0.496,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 9,
+"dead": 0.0,
+"pot": 18.0,
+"call": 8.0,
+"chipThr": 0.4444,
+"icmThr": 0.6362,
+"rp": 0.1918,
+"F": 16.656,
+"W": 26.179,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 18.0,
+"BTN": 8.0,
+"SB": 40.0,
+"BB": 8.0
+},
+"ev": {
+"CO": 28.015,
+"BTN": 16.656,
+"SB": 38.673,
+"BB": 16.656
+}
+},
+"W": {
+"stacks": {
+"CO": 18.0,
+"BTN": 8.0,
+"SB": 30,
+"BB": 18.0
+},
+"ev": {
+"CO": 26.179,
+"BTN": 14.005,
+"SB": 33.638,
+"BB": 26.179
+}
+},
+"L": {
+"stacks": {
+"CO": 18.0,
+"BTN": 8.0,
+"SB": 48.0,
+"BB": 0
+},
+"ev": {
+"CO": 32.083,
+"BTN": 25.587,
+"SB": 42.331,
+"BB": 0.0
+}
+}
+},
+"id": 118
+},
+{
+"stacks": {
+"CO": 9,
+"BTN": 16,
+"SB": 13,
+"BB": 32
+},
+"villainPos": "SB",
+"heroPos": "BB",
+"hero": [
+"5s",
+"5c"
+],
+"villainRange": "22+,A2s+,A5o+,K8s+,KTo+,Q9s+,QJo,J9s+,T9s",
+"villainCombos": 313,
+"villainShown": [
+"As",
+"Js"
+],
+"eq": 0.4976,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 13,
+"dead": 0.0,
+"pot": 26.0,
+"call": 12.0,
+"chipThr": 0.4615,
+"icmThr": 0.5151,
+"rp": 0.0536,
+"F": 34.968,
+"W": 42.139,
+"L": 27.35,
+"scen": {
+"F": {
+"stacks": {
+"CO": 9.0,
+"BTN": 16.0,
+"SB": 14.0,
+"BB": 31.0
+},
+"ev": {
+"CO": 16.516,
+"BTN": 25.264,
+"SB": 23.252,
+"BB": 34.968
+}
+},
+"W": {
+"stacks": {
+"CO": 9.0,
+"BTN": 16.0,
+"SB": 0,
+"BB": 45.0
+},
+"ev": {
+"CO": 26.552,
+"BTN": 31.309,
+"SB": 0.0,
+"BB": 42.139
+}
+},
+"L": {
+"stacks": {
+"CO": 9.0,
+"BTN": 16.0,
+"SB": 26.0,
+"BB": 19
+},
+"ev": {
+"CO": 15.866,
+"BTN": 24.737,
+"SB": 32.047,
+"BB": 27.35
+}
+}
+},
+"id": 119
+},
+{
+"stacks": {
+"CO": 13,
+"BTN": 33,
+"SB": 9,
+"BB": 20
+},
+"villainPos": "BTN",
+"heroPos": "BB",
+"hero": [
+"Ah",
+"Kh"
+],
+"villainRange": "33+,A2s+,A8o+,K9s+,KJo+,QTs+,JTs",
+"villainCombos": 195,
+"villainShown": [
+"Ac",
+"Jh"
+],
+"eq": 0.6226,
+"cat": "premium",
+"margChip": false,
+"margIcm": false,
+"eff": 20,
+"dead": 0.5,
+"pot": 40.5,
+"call": 19.0,
+"chipThr": 0.4691,
+"icmThr": 0.7086,
+"rp": 0.2395,
+"F": 27.25,
+"W": 38.456,
+"L": 0.0,
+"scen": {
+"F": {
+"stacks": {
+"CO": 13.0,
+"BTN": 34.5,
+"SB": 8.5,
+"BB": 19.0
+},
+"ev": {
+"CO": 21.672,
+"BTN": 35.757,
+"SB": 15.321,
+"BB": 27.25
+}
+},
+"W": {
+"stacks": {
+"CO": 13.0,
+"BTN": 13,
+"SB": 8.5,
+"BB": 40.5
+},
+"ev": {
+"CO": 22.6,
+"BTN": 22.6,
+"SB": 16.344,
+"BB": 38.456
+}
+},
+"L": {
+"stacks": {
+"CO": 13.0,
+"BTN": 53.5,
+"SB": 8.5,
+"BB": 0
+},
+"ev": {
+"CO": 29.735,
+"BTN": 43.807,
+"SB": 26.458,
+"BB": 0.0
+}
+}
+},
+"id": 120
+}
+]
+}

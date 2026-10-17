@@ -266,6 +266,17 @@
       return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2;
     },
   };
+  // ---------- spaced repetition (pure; app.js wires it to localStorage) ----------
+  PT.SR_OFFSETS = [1, 3, 7];
+  PT.srIsDue = (x, session) => x.due <= session && x.lastSeen !== session;
+  /** update queue entry after a review; returns false if the entry graduated (remove it) */
+  PT.srApply = (e, ok, session) => {
+    const O = PT.SR_OFFSETS;
+    if (!ok) { e.stage = 0; e.miss = session; e.due = session + O[0]; }
+    else { e.stage++; if (e.stage >= O.length) return false; e.due = session + O[e.stage]; }
+    e.lastSeen = session;
+    return true;
+  };
   PT.fmtPct = (x, d = 1) => (x * 100).toFixed(d) + '%';
   PT.round = (x, d = 2) => Math.round(x * 10 ** d) / 10 ** d;
 
